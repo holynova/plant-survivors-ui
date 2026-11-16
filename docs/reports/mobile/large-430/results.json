@@ -1,0 +1,1049 @@
+[
+  {
+    "name": "large-430",
+    "w": 430,
+    "h": 932,
+    "safe": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "dpr": 2,
+    "scenes": [
+      {
+        "scene": "lobby",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "开始远征 ▷",
+            "height": 60.59375
+          },
+          {
+            "label": "花园图鉴",
+            "height": 54.796875
+          },
+          {
+            "label": "♫ 原版音乐",
+            "height": 44
+          },
+          {
+            "label": "营地",
+            "height": 54
+          },
+          {
+            "label": "图鉴",
+            "height": 54
+          },
+          {
+            "label": "成长",
+            "height": 54
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".lobby-actions",
+            "rect": {
+              "x": 0,
+              "y": 640.609375,
+              "width": 430,
+              "height": 203.390625,
+              "top": 640.609375,
+              "right": 430,
+              "bottom": 844,
+              "left": 0
+            }
+          },
+          {
+            "q": ".bottom-nav",
+            "rect": {
+              "x": 12,
+              "y": 844,
+              "width": 406,
+              "height": 60,
+              "top": 844,
+              "right": 418,
+              "bottom": 904,
+              "left": 12
+            }
+          },
+          {
+            "q": ".game-meta",
+            "rect": {
+              "x": 0,
+              "y": 904,
+              "width": 430,
+              "height": 28,
+              "top": 904,
+              "right": 430,
+              "bottom": 932,
+              "left": 0
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "map",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "‹",
+            "height": 44
+          },
+          {
+            "label": "阳光后院3 分钟 · 击败首领",
+            "height": 204.96875
+          },
+          {
+            "label": "月光泳池通关前一关解锁",
+            "height": 204.984375
+          },
+          {
+            "label": "屋顶花园通关前一关解锁",
+            "height": 204.96875
+          },
+          {
+            "label": "前往花园 ▷",
+            "height": 54.796875
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "prepare",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "‹",
+            "height": 44
+          },
+          {
+            "label": "戴夫后院守护者",
+            "height": 136.6875
+          },
+          {
+            "label": "小葵阳光园丁",
+            "height": 136.6875
+          },
+          {
+            "label": "阿栓花园机械师",
+            "height": 136.6875
+          },
+          {
+            "label": "豌豆射手",
+            "height": 92
+          },
+          {
+            "label": "寒冰射手",
+            "height": 92
+          },
+          {
+            "label": "回旋镖",
+            "height": 92
+          },
+          {
+            "label": "大喷菇",
+            "height": 92
+          },
+          {
+            "label": "卷心菜投手",
+            "height": 92
+          },
+          {
+            "label": "戴夫 · 出发 ▷",
+            "height": 54.796875
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".prepare-footer",
+            "rect": {
+              "x": 12,
+              "y": 865.203125,
+              "width": 406,
+              "height": 66.796875,
+              "top": 865.203125,
+              "right": 418,
+              "bottom": 932,
+              "left": 12
+            }
+          },
+          {
+            "q": ".hero-grid",
+            "rect": {
+              "x": 28,
+              "y": 129.09375,
+              "width": 374,
+              "height": 136.6875,
+              "top": 129.09375,
+              "right": 402,
+              "bottom": 265.78125,
+              "left": 28
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "evolution",
+        "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+        "touchTargets": [
+          {
+            "label": "Ⅱ",
+            "height": 44
+          },
+          {
+            "label": "Lv.30.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.5s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.8s",
+            "height": 64
+          },
+          {
+            "label": "Lv.20.7s",
+            "height": 64
+          },
+          {
+            "label": "Lv.20.9s",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "继续战斗",
+            "height": 54.796875
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".game-modal",
+            "rect": {
+              "x": 12,
+              "y": 294.296875,
+              "width": 406,
+              "height": 343.390625,
+              "top": 294.296875,
+              "right": 418,
+              "bottom": 637.6875,
+              "left": 12
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "upgrade",
+        "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+        "touchTargets": [
+          {
+            "label": "Ⅱ",
+            "height": 44
+          },
+          {
+            "label": "Lv.30.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.5s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.8s",
+            "height": 64
+          },
+          {
+            "label": "Lv.20.7s",
+            "height": 64
+          },
+          {
+            "label": "Lv.20.9s",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透",
+            "height": 95
+          },
+          {
+            "label": "寒冰射手 Lv.4冰晶减速；Lv.3 穿透",
+            "height": 95
+          },
+          {
+            "label": "坚果 Lv.2生命上限 +25，并回复 40",
+            "height": 95
+          },
+          {
+            "label": "重掷 · 2",
+            "height": 54.796875
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".upgrade-content",
+            "rect": {
+              "x": 12,
+              "y": 244.59375,
+              "width": 406,
+              "height": 442.796875,
+              "top": 244.59375,
+              "right": 418,
+              "bottom": 687.390625,
+              "left": 12
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "pause",
+        "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+        "touchTargets": [
+          {
+            "label": "Ⅱ",
+            "height": 44
+          },
+          {
+            "label": "Lv.40.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.5s",
+            "height": 64
+          },
+          {
+            "label": "Lv.30.8s",
+            "height": 64
+          },
+          {
+            "label": "Lv.20.7s",
+            "height": 64
+          },
+          {
+            "label": "Lv.20.9s",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
+            "height": 64
+          },
+          {
+            "label": "继续战斗 ▷",
+            "height": 54.796875
+          },
+          {
+            "label": "查看本局花园",
+            "height": 46.09375
+          },
+          {
+            "label": "战斗音效：开",
+            "height": 46.09375
+          },
+          {
+            "label": "♫ 背景音乐",
+            "height": 46.09375
+          },
+          {
+            "label": "减少动态：关",
+            "height": 44
+          },
+          {
+            "label": "结束本局",
+            "height": 44
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "build",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回战斗",
+            "height": 66.390625
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".view-build>.page>.gold",
+            "rect": {
+              "x": 16,
+              "y": 841.609375,
+              "width": 398,
+              "height": 66.390625,
+              "top": 841.609375,
+              "right": 414,
+              "bottom": 908,
+              "left": 16
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "result",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "再来一局",
+            "height": 46.09375
+          },
+          {
+            "label": "返回营地",
+            "height": 46.09375
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "guide",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "‹",
+            "height": 44
+          },
+          {
+            "label": "植物 / 装备 · 27",
+            "height": 44
+          },
+          {
+            "label": "主角 · 3",
+            "height": 44
+          },
+          {
+            "label": "僵尸 · 15",
+            "height": 44
+          },
+          {
+            "label": "普通僵尸围堵",
+            "height": 126.78125
+          },
+          {
+            "label": "路障僵尸快步",
+            "height": 126.78125
+          },
+          {
+            "label": "铁桶僵尸重甲",
+            "height": 126.78125
+          },
+          {
+            "label": "读报僵尸狂怒",
+            "height": 126.78125
+          },
+          {
+            "label": "橄榄球僵尸突进",
+            "height": 126.78125
+          },
+          {
+            "label": "矿工僵尸潜地",
+            "height": 126.78125
+          },
+          {
+            "label": "舞王僵尸召唤",
+            "height": 126.78125
+          },
+          {
+            "label": "巫师僵尸远程",
+            "height": 126.78125
+          },
+          {
+            "label": "小鬼僵尸敏捷",
+            "height": 126.78125
+          },
+          {
+            "label": "气球僵尸飞行",
+            "height": 178.125
+          },
+          {
+            "label": "喷气僵尸飞行",
+            "height": 178.125
+          },
+          {
+            "label": "▥纱门僵尸护盾",
+            "height": 178.125
+          },
+          {
+            "label": "疾走队长精英",
+            "height": 126.78125
+          },
+          {
+            "label": "铁桶统领精英",
+            "height": 126.78125
+          },
+          {
+            "label": "巨人领主首领",
+            "height": 126.78125
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".guide-tabs",
+            "rect": {
+              "x": 8,
+              "y": 79,
+              "width": 414,
+              "height": 44,
+              "top": 79,
+              "right": 422,
+              "bottom": 123,
+              "left": 8
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "shop",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "‹",
+            "height": 44
+          },
+          {
+            "label": "植物种子",
+            "height": 44
+          },
+          {
+            "label": "永久成长",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "已拥有",
+            "height": 44
+          },
+          {
+            "label": "35 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "65 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "70 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "65 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "30 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "65 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "45 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "45 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "45 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "55 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "60 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "40 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "65 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "75 金币 + 2 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "80 金币 + 2 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "70 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "100 金币 + 3 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "55 金币 + 1 钻石 · 不足",
+            "height": 44
+          },
+          {
+            "label": "110 金币 + 3 钻石 · 不足",
+            "height": 44
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".wallet",
+            "rect": {
+              "x": 8,
+              "y": 75,
+              "width": 414,
+              "height": 39.1875,
+              "top": 75,
+              "right": 422,
+              "bottom": 114.1875,
+              "left": 8
+            }
+          },
+          {
+            "q": ".shop-tabs",
+            "rect": {
+              "x": 8,
+              "y": 160.5625,
+              "width": 414,
+              "height": 44,
+              "top": 160.5625,
+              "right": 422,
+              "bottom": 204.5625,
+              "left": 8
+            }
+          },
+          {
+            "q": ".shop-notice",
+            "rect": {
+              "x": 8,
+              "y": 892,
+              "width": 414,
+              "height": 36,
+              "top": 892,
+              "right": 422,
+              "bottom": 928,
+              "left": 8
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "permanent",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "‹",
+            "height": 44
+          },
+          {
+            "label": "植物种子",
+            "height": 44
+          },
+          {
+            "label": "永久成长",
+            "height": 44
+          },
+          {
+            "label": "55 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "45 金币 · 解锁",
+            "height": 44
+          },
+          {
+            "label": "80 金币 + 1 钻石 · 不足",
+            "height": 44
+          }
+        ],
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".shop-notice",
+            "rect": {
+              "x": 8,
+              "y": 892,
+              "width": 414,
+              "height": 36,
+              "top": 892,
+              "right": 422,
+              "bottom": 928,
+              "left": 8
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "music",
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "controls": [
+          {
+            "q": ".original-music>.paper",
+            "rect": {
+              "x": 20,
+              "y": 277.375,
+              "width": 390,
+              "height": 377.234375,
+              "top": 277.375,
+              "right": 410,
+              "bottom": 654.609375,
+              "left": 20
+            }
+          }
+        ],
+        "images": true,
+        "pass": true,
+        "errors": []
+      },
+      {
+        "scene": "battle",
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "controls": [
+          {
+            "q": ".hud",
+            "rect": {
+              "x": 8,
+              "y": 8,
+              "width": 414,
+              "height": 100.296875,
+              "top": 8,
+              "right": 422,
+              "bottom": 108.296875,
+              "left": 8
+            }
+          },
+          {
+            "q": ".weapon-dock",
+            "rect": {
+              "x": 8,
+              "y": 780,
+              "width": 414,
+              "height": 144,
+              "top": 780,
+              "right": 422,
+              "bottom": 924,
+              "left": 8
+            }
+          }
+        ],
+        "images": true,
+        "pass": true,
+        "errors": []
+      },
+      {
+        "scene": "boss",
+        "w": 430,
+        "h": 932,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 430,
+          "height": 932,
+          "top": 0,
+          "right": 430,
+          "bottom": 932,
+          "left": 0
+        },
+        "controls": [
+          {
+            "q": ".boss-health",
+            "rect": {
+              "x": 17,
+              "y": 128,
+              "width": 396,
+              "height": 37.390625,
+              "top": 128,
+              "right": 413,
+              "bottom": 165.390625,
+              "left": 17
+            }
+          }
+        ],
+        "images": true,
+        "pass": true,
+        "errors": []
+      }
+    ]
+  }
+]
