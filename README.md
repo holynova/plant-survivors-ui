@@ -1,6 +1,6 @@
 # 植物幸存者 · Plant Survivors
 
-[Demo](https://plant-survivors-ui.xiaosang.cc/) · [Repo](https://github.com/holynova/plant-survivors-ui)
+[Demo（待上线 / Pending deployment）](https://plant-survivors-ui.xiaosang.cc/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
 经典后院风格的移动端可点击 UI 原型，包含营地、关卡、出战准备、战斗、升级、进化、构筑、首领战与结算九个场景。战斗和数值为演示，尚不是完整游戏。
 
@@ -24,7 +24,7 @@ npm run deploy:check
 npm run deploy
 ```
 
-Cloudflare Workers serves the production build on the custom domain above. Deploy manually from the committed main branch with an authenticated Wrangler account.
+Cloudflare deployment is pending: the account has reached its 100-Worker free-plan limit. The link and QR target above are reserved and not yet verified online. Deploy manually from the committed main branch with an authenticated Wrangler account.
 
 ## 手机访问 / Open on mobile
 
