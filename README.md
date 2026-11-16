@@ -2,7 +2,7 @@
 
 [Demo](https://xiaosang.cc/plant-survivors-ui/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
-发布状态：v0.5.0 已构建并通过验收，线上仍为 v0.4.0。共享 Worker 发布缺少图库完整构建，恢复该依赖后再更新线上。 / v0.5.0 verified locally; live deployment is pending the shared gallery build.
+发布状态：v0.5.0 已上线，正式网址已验证。 / v0.5.0 is live and verified.
 
 经典后院风格的手机端单机幸存者游戏，直接铺满浏览器，不使用模拟手机外壳。适配横竖屏、动态可视高度与安全区。三位主角、三张地图、升级进化与图鉴；移动躲避、植物自动攻击。v0.5.0 放大精英，加入冲锋与重甲弱点，放慢成长节奏并提高后期压力。支持摇杆、键盘、音效、暂停和本地存档。种子用于记录奖励，暂无商店。
 
