@@ -35,5 +35,5 @@ export const starterPlants=activePlants;
 export const basePlants=plantIds.filter(id=>plants[id].coins===0&&plants[id].gems===0);
 export const names=Object.fromEntries(plantIds.map(id=>[id,plants[id].name]));
 export const descriptions=Object.fromEntries(plantIds.map(id=>[id,plants[id].description]));
-export const plantLore=Object.fromEntries(plantIds.map(id=>[id,{role:plants[id].role,mechanic:plants[id].mechanic,evolution:plants[id].interval?'主植物 Lv.5 + 弹药袋：伤害 +25%，攻击大幅加速':'持续生效，无主动攻击冷却'}]));
+export const plantLore=Object.fromEntries(plantIds.map(id=>[id,{role:plants[id].role,mechanic:plants[id].mechanic,evolution:plants[id].interval?'主植物 Lv.5 + 弹药袋：强化主植物攻击，缩短冷却':'持续生效，无主动攻击冷却'}]));
 export const MAX_ACTIVE=6,MAX_PASSIVE=3;
