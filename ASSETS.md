@@ -1,0 +1,28 @@
+# 视觉资产与提示词记录
+
+所有图片位于 `public/assets/game/`。用户选定的原图另保存为 `public/reference.png`。
+
+## 素材来源
+
+- 原图提取：三个关卡缩略图、出战准备人物插图、进化标题和展示、结算庆祝插图。`scripts/extract-reference.mjs` 记录初始裁切区域；后续缩短进化/结算裁切，以排除下方界面文本。
+- ImageGen生成：lobby-bg、battle-bg、sprites、ui-skin、boss、logo、items、effects。均实际附带第一套参考图，使用内置工具，无CLI/API回退。
+- sprites拆分：pea、sunflower、walnut、ice、boomerang、mushroom、gatling、sun、zombie、cone、bucket、dave。
+- ui-skin拆分：button、sign、parchment、slot；paper-v2和wood-v2是纹理内部的无文字区域。
+- items拆分：bag-v2、crystal-v2、chest-v2、seed-v2。
+- effects拆分：projectile、warning。boss-trim、logo-trim仅移除生成图透明外边距。
+- 通用操作图标使用已有Radix图标包；人物、植物、场景、装饰、攻击预警均使用栅格资产，没有用emoji或手绘SVG替代。
+
+## 最终生成提示规格
+
+每项均要求严格匹配参考中的绿草、棕木、奶油纸、金黄色按钮与厚描边卡通风格。
+
+1. lobby-bg：390×844逻辑比例，蓝天、左侧郊区房屋、栅栏和草坪，戴夫推着豌豆/向日葵/坚果推车；顶部留标题空间，底部留按钮空间；无文字、UI和边框。
+2. battle-bg：同画风的俯视开阔草坪，边缘花朵，左下栅栏、右下屋顶；无角色、敌人、拾取物或UI。
+3. sprites：透明背景4列3行，逐格放置豌豆、向日葵、坚果、寒冰；回旋镖、大喷菇、机枪豌豆、阳光；普通/路障/铁桶僵尸和戴夫推车；完整身体，无文字。
+4. ui-skin：透明2×2，黄色空白主按钮、空白木牌、带角叶的羊皮纸、绿色槽位边框；全部无文字。
+5. boss：透明伽刚特尔，完整身体、木棒、灰绿皮肤、棕色外衣，面向左下，匹配参考首领。
+6. logo：透明“植物／幸存者”两行，绿色上行、金黄色下行、深棕描边、右上小僵尸头。
+7. items：透明2×2，弹药皮包、蓝晶体、紫金宝箱、绿种子金边代币，无文字。
+8. effects：透明横向双格，一枚带短尾迹的绿色豌豆弹，一片红色透明扇形地面攻击预警，橙色发光边缘，无地面或UI。
+
+实际输出分辨率由工具决定。完整原始调用提示保存在本会话资产子任务工具记录中。此处资产为题材原型生成图，未声称是原作官方提取素材。
