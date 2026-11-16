@@ -2,7 +2,7 @@
 
 [Demo](https://xiaosang.cc/plant-survivors-ui/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
-发布状态：v0.6.0 待发布验证。 / v0.6.0 prepared for release verification.
+发布状态：v0.6.0 已上线，正式网址已验证。 / v0.6.0 is live and verified.
 
 手机优先的单机幸存者游戏：任意位置触摸拖动，左右手皆可；三位主角在三张大地图自由行走，镜头持续跟随。26 种植物、15 类敌人、升级进化与图鉴；精英和首领掉落金币、钻石，用于局外解锁与永久成长。首次进入显示资源加载进度，支持键盘、战斗音效、暂停和本地存档。
 

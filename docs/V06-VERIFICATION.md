@@ -27,4 +27,14 @@
 
 ## 发布
 
-待记录正式源码提交、Worker 版本与线上回读结果。
+2026-11-17（用户时区 Asia/Shanghai）已完成上线验证。
+
+- 应用版本：v0.6.0；实际部署源码：`21baebcf7671dd4c7a7df88332cda96cee246def`，项目 main。
+- 作品集发布提交：`776bce0f9d79ac0155452a60ae60e31804668f97`，master。
+- Worker：`xiaosang-portfolio`；版本 ID：`d698020a-d365-49aa-9d02-d4781cd23648`。
+- 正式地址：[xiaosang.cc/plant-survivors-ui/](https://xiaosang.cc/plant-survivors-ui/)。生产代码不暴露开发 QA 接口；线上实际触控移动、松手停止均通过。
+- 46 个 HTTPS 文件返回 200，逐字节/哈希匹配：release.json、页面、JS/CSS、作品集 JSON 与截图、全部新增植物和僵尸资源、草地、代表性旧动画与音效。HTML 比较仅忽略 Cloudflare 自动注入的统计脚本。
+- 作品集卡片已显示新版介绍、截图和正确的 Demo 地址。原有仓库链接、二维码、Umami 配置复用；GitHub Profile 不在本次范围。
+- 共享画廊版本 v1.0.2、源码 `ee4df09520706aac342e9324356858ab15d9a825` 保持一致。
+- [正式站实际运行截图](screenshots/v06-live.png)。
+
