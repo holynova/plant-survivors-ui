@@ -72,3 +72,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 
 ## Selected design direction
 User chose option 1, 经典后院, and explicitly requires strict fidelity to `/Users/sym/code/plant-survivors-design/concepts/01-classic-garden.png`. Preserve its nine scenes, warm wood/parchment/yellow controls, large illustrated hero regions and mobile gameplay HUD. Do not blend the other concepts. Scope currently is an interactive UI prototype; battle and data are demonstrative.
+
+User authorized a complete playable game, staged testing, and deployment under https://xiaosang.cc/plant-survivors-ui/ on the portfolio Worker. Preserve the selected classic garden art and protected mobile runtime.

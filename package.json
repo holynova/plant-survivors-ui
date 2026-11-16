@@ -1,7 +1,7 @@
 {
   "name": "plant-survivors-ui",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "check:runtime": "node scripts/check-mobile-runtime.mjs",
@@ -13,8 +13,8 @@
     "prebuild": "npm run check:runtime",
     "build": "tsc && vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
-    "deploy:check": "wrangler deploy --dry-run",
-    "deploy": "npm run build && wrangler deploy"
+    "test:game": "node --test tests/game.test.mjs && node tests/campaign.mjs",
+    "build:release": "node scripts/build-release.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
