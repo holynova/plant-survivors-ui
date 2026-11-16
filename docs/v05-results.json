@@ -1,0 +1,378 @@
+{
+  "version": "0.5.0",
+  "engine": "Chromium via Ego browser",
+  "physicalDevices": false,
+  "safeAreaMethod": "Synthetic CSS insets",
+  "cases": [
+    {
+      "name": "small-320",
+      "width": 320,
+      "height": 568,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "android-360",
+      "width": 360,
+      "height": 640,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "compact-375",
+      "width": 375,
+      "height": 667,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "standard-390",
+      "width": 390,
+      "height": 844,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "standard-393",
+      "width": 393,
+      "height": 852,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "large-412",
+      "width": 412,
+      "height": 915,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "large-430",
+      "width": 430,
+      "height": 932,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "landscape-667",
+      "width": 667,
+      "height": 375,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "browser-short",
+      "width": 360,
+      "height": 560,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "landscape-844",
+      "width": 844,
+      "height": 390,
+      "safeInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "safe-portrait",
+      "width": 390,
+      "height": 844,
+      "safeInsets": [
+        47,
+        0,
+        34,
+        0
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    },
+    {
+      "name": "safe-landscape",
+      "width": 844,
+      "height": 390,
+      "safeInsets": [
+        0,
+        47,
+        21,
+        47
+      ],
+      "scenes": [
+        "lobby",
+        "map",
+        "prepare",
+        "battle",
+        "upgrade",
+        "pause",
+        "build",
+        "result",
+        "guide"
+      ],
+      "allImagesLoaded": true,
+      "noHorizontalOverflow": true,
+      "noPhoneSimulator": true
+    }
+  ],
+  "interactions": {
+    "touchMoved": 53.975999999999885,
+    "touchReleased": true,
+    "rotationPaused": "paused",
+    "statePreserved": true,
+    "toolbarResizePlaying": "playing",
+    "world": {
+      "width": 390,
+      "height": 596
+    },
+    "dpr": 2
+  },
+  "balanceBefore": {
+    "runs": 81,
+    "wins": 81,
+    "losses": 0,
+    "unfinished": 0,
+    "firstUpgradeMedian": 10.5,
+    "level60Median": 6,
+    "level120Median": 9,
+    "finalLevelMedian": 13,
+    "evolutionMedian": 74.3,
+    "eliteCombatMedian": 2.8,
+    "byStage": [
+      {
+        "stage": 0,
+        "wins": 27,
+        "total": 27
+      },
+      {
+        "stage": 1,
+        "wins": 27,
+        "total": 27
+      },
+      {
+        "stage": 2,
+        "wins": 27,
+        "total": 27
+      }
+    ]
+  },
+  "balanceAfter": {
+    "runs": 81,
+    "wins": 59,
+    "losses": 22,
+    "unfinished": 0,
+    "firstUpgradeMedian": 17.2,
+    "level60Median": 4,
+    "level120Median": 7,
+    "finalLevelMedian": 9,
+    "evolutionMedian": 114.1,
+    "eliteCombatMedian": 16.7,
+    "byStage": [
+      {
+        "stage": 0,
+        "wins": 24,
+        "total": 27
+      },
+      {
+        "stage": 1,
+        "wins": 21,
+        "total": 27
+      },
+      {
+        "stage": 2,
+        "wins": 14,
+        "total": 27
+      }
+    ]
+  }
+}

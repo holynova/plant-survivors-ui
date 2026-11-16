@@ -57,3 +57,5 @@ DPR 2 的 390×844 视口下，浏览器触摸事件拖动实际摇杆，主角�
 32 项游戏单元测试、81 局完整远征回归、4 项 Worker 测试通过。TypeScript、生产构建、28 文件运行时完整性、git diff --check 通过。
 
 本轮是 Chromium 浏览器尺寸与触摸仿真，尚未验证实体 iPhone Safari、Android Chrome 或低端手机性能；不宣称真机全覆盖或恒定 60 FPS。历史测试与限制见 TEST-REPORT.md。
+
+结构化结果见 [v05-results.json](v05-results.json)。源码和生产预览已完成；线上 v0.5.0 发布暂受共享图库完整构建缺失阻塞，未覆盖现有站点。
