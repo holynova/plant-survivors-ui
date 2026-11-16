@@ -22,3 +22,13 @@
 旧版同夹具原速上限 p95 5.4 ms、超量 9.1 ms；降速上限 14.3 ms。测试环境存在调度波动，因此报告展示原始数值而不作精确加速比例承诺。
 
 报告：`docs/reports/mobile/index.html`。固定复测：`npm run test:mobile` / `npm run test:performance`；极限或采样失败使性能命令非零退出。报告由本次数据动态生成。
+
+## 发布与线上回读
+
+- 游戏源码：`8740df1d9b7e2c8c3ef11b5ca6307b8f1113b5cc`（main），v0.7.0。
+- 作品集发布提交：`659ae79a6898a835c959ca3eb5a87d2afca100c7`（master）。
+- Worker：`xiaosang-portfolio`；版本 `90fabaef-4f4f-4854-bd1a-942e742e4a64`。
+- 正式游戏：https://xiaosang.cc/plant-survivors-ui/
+- 正式报告：https://xiaosang.cc/plant-survivors-ui/qa/
+- 228 个线上文件通过 HTTPS 状态与内容一致性校验，包括全部报告页面、截图、游戏 JS/CSS/关键素材、作品集数据和截图；原画廊 v1.0.2 保持可用。详细记录见 `v07-live-verification.json`。
+- 线上浏览器验证：v0.7.0、经验条金色渐变、390×844 无横向溢出、实际战斗事件产生、生产版不存在 `__gardenQA`；报告筛选与截图解码成功。生产预览另验证触摸移动、松手停止。
