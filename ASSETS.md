@@ -34,3 +34,11 @@
 夜晚泳池、屋顶花园使用独立生成背景。弹道拖尾、伤害数字、拾取漂浮、地面阴影、震屏与首领预警由 Canvas 渲染；角色肢体动作使用实际连续帧。
 
 `public/assets/game/audio/` 含 17 个事件音效与 1 个 38.4 秒循环配乐，均由 `scripts/generate-audio.py` 原创合成，无第三方音频。用户点击出发后解锁音频；音效、音乐可分别关闭，暂停和切后台停止配乐。音效限制并发与同类重复频率。
+
+## v0.4.0 主角与稳定步态
+
+新增小葵（flora）与阿栓（rusty），每人一张 16 帧图集；内置 imagegen 生成，未使用 CLI/API。选定原始图在 `assets/animation-source/flora.png` 与 `rusty.png`，完整提示词保存在 `docs/hero-animation-sources.json`。最终资源位于 `public/assets/game/animations/`，现在总计 9 个图集、144 个动作／特效帧。
+
+运行 `npm run assets:normalize` 可重建全部图集，先统一缩放与脚底锚点，再通过 `scripts/stabilize-walk.mjs` 按推车轮轴或帽子／头部稳定区域做平移配准（不逐帧缩放）。实际偏移记录在 manifest 的 walkRegistration 中。植物发射不再切换主角步态；受击与死亡仍优先。
+
+豌豆为绿色圆弹，寒冰为蓝色晶体，回旋镖为金色 V 形旋转物及往返轨迹，孢子为短程紫色粒子团，均为游戏 Canvas 原生特效。精英保留对应僵尸动作，配金色脚环、独立大小与精英标记；最终首领有狂暴光晕。

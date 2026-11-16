@@ -1,6 +1,6 @@
 import sharp from 'sharp';
 import fs from 'node:fs/promises';
-const sources=JSON.parse(await fs.readFile('docs/animation-sources.json','utf8'));
+const sources={...JSON.parse(await fs.readFile('docs/animation-sources.json','utf8')),...JSON.parse(await fs.readFile('docs/hero-animation-sources.json','utf8'))};
 const out='public/assets/game/animations';await fs.mkdir(out,{recursive:true});
 const report={};
 for(const [id,source] of Object.entries(sources)){

@@ -1,0 +1,12 @@
+{
+  "flora": {
+    "prompt": "Use case: stylized-concept. Production game character sprite atlas matching supplied classic garden cartoony thick dark-brown outlines, painted warm colors. Reference image is STYLE reference only. True transparent background. EXACT 4 columns x 4 rows square sheet, 16 whole poses, no text, labels, scenery, shadows. Every character faces RIGHT with same proportions, outfit and scale, feet at identical baseline. Same head and torso horizontal anchor in each cell. Row 1: four-frame subtle grounded walking cycle, legs alternating, torso stays stable (no exaggerated bob), upper body never rotates. Row 2: four gentle plant-command/attack gestures. Row 3: four readable hurt/recover poses. Row 4: four falling and collapsed death poses (non-graphic). Generous transparent margins; all poses contained in cells. Young adult female garden keeper, auburn braid, straw sunhat with sunflower pin, green overalls over cream shirt, brown boots, small watering can at waist. Friendly determined face. No cart. Full body, cheerful classic garden art.",
+    "source": "assets/animation-source/flora.png",
+    "generator": "built-in imagegen"
+  },
+  "rusty": {
+    "prompt": "Use case: stylized-concept. Production game character sprite atlas matching supplied classic garden cartoony thick dark-brown outlines, painted warm colors. Reference image is STYLE reference only. True transparent background. EXACT 4 columns x 4 rows square sheet, 16 whole poses, no text, labels, scenery, shadows. Every character faces RIGHT with same proportions, outfit and scale, feet at identical baseline. Same head and torso horizontal anchor in each cell. Row 1: four-frame subtle grounded walking cycle, legs alternating, torso stays stable (no exaggerated bob), upper body never rotates. Row 2: four gentle plant-command/attack gestures. Row 3: four readable hurt/recover poses. Row 4: four falling and collapsed death poses (non-graphic). Generous transparent margins; all poses contained in cells. Adult male mechanic, orange work overalls, blue short sleeve shirt, round goggles on forehead, short dark hair and moustache, brown gloves and boots, small wrench on belt, brass backpack with blue coils. Stocky friendly garden defender, no cart. Full body.",
+    "source": "assets/animation-source/rusty.png",
+    "generator": "built-in imagegen"
+  }
+}

@@ -76,3 +76,5 @@ User chose option 1, 经典后院, and explicitly requires strict fidelity to `/
 User authorized a complete playable game, staged testing, and deployment under https://xiaosang.cc/plant-survivors-ui/ on the portfolio Worker. Preserve the selected classic garden art and protected mobile runtime.
 
 2026-11-16: User requires full in-game character animation, hit reactions, death, attack FX and audio. Do not deliver static sprites sliding across the ground or describe still reference art as runtime evidence. Validate animation transitions and audio in the running game.
+
+2026-11-16: Maintain three playable heroes with functional traits, mid-wave elites and final boss, weapon cooldown HUD and plant/hero/enemy field guide. Walking must remain grounded and independent of plant attacks. Projectiles must be visually and mechanically distinct; boomerangs return to the moving player and hit on both legs.
