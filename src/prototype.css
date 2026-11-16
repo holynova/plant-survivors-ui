@@ -85,3 +85,5 @@ html,body,#root{width:100%;height:100%;height:100dvh;min-width:280px;overflow:hi
 .live-arena .boss-alert{top:max(180px,32%);font-size:var(--type-body);padding:var(--space-2);background:color-mix(in srgb,var(--color-danger-dark) 94%,transparent);border-color:var(--color-danger-light)}
 @media(orientation:landscape) and (max-height:600px){.live-arena .boss-alert{top:180px;left:var(--space-4);right:220px;font-size:var(--type-small)}}
 .original-music select{width:100%;min-height:var(--size-touch);padding:var(--space-2);border:2px solid var(--color-wood-edge);border-radius:var(--radius-control);background:var(--color-paper);color:var(--color-ink);font:inherit;font-size:var(--type-small)}
+/* Music is app chrome too: keep its scrollable panel clear of real notches. */
+.original-music{inset:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left)}
