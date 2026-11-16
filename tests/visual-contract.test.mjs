@@ -1,0 +1,8 @@
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';
+import{attackGeometry,impactRadius}from'../src/game/attack-geometry.ts';
+import{enemyTelegraph}from'../src/game/telegraphs.ts';
+const tokens=JSON.parse(readFileSync(new URL('../src/design/tokens.json',import.meta.url)));
+const luminance=hex=>hex.slice(1).match(/../g).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
+test('paper, HUD and action text pairs retain AA contrast',()=>{for(const [a,b]of[['ink','paper'],['ink-muted','paper'],['paper','leaf-dark'],['ink','sun'],['paper','danger-dark']]){const l=[luminance(tokens.colors[a]),luminance(tokens.colors[b])].sort((a,b)=>a-b);assert.ok((l[1]+.05)/(l[0]+.05)>=4.5,`${a}/${b}`)}});
+test('boss and elite ground boundaries match their real impact radius',()=>{for(const e of[{boss:true},{boss:false,elite:'guard'}]){const arcs=[];const noop=()=>{};const c=new Proxy({arc:(x,y,r)=>arcs.push(r)},{get:(t,k)=>k in t?t[k]:noop,set:(t,k,v)=>(t[k]=v,true)});enemyTelegraph(c,{...e,x:0,y:0,aimX:40,aimY:50,attack:.8,attackDuration:1.2},5);assert.equal(arcs[0],impactRadius(e));assert.equal(Math.max(...arcs),impactRadius(e));}});
+test('charge ground path encloses body radius at the final movement position',()=>{const arcs=[];const noop=()=>{};const c=new Proxy({arc:(x,y,r)=>arcs.push({x,y,r})},{get:(t,k)=>k in t?t[k]:noop,set:(t,k,v)=>(t[k]=v,true)});enemyTelegraph(c,{boss:false,x:0,y:0,chargeX:100,chargeY:0,chargeWindup:.7},5);assert.ok(arcs.some(a=>a.x===attackGeometry.chargeSpeed*attackGeometry.chargeDuration&&a.r===attackGeometry.chargeRadius));});

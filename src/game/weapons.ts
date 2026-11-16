@@ -1,3 +1,4 @@
+import {attackGeometry as geometry} from './attack-geometry.ts';
 import type {Run,Enemy,Shot} from './simulation.ts';
 import {heroes} from './catalog.ts';
 import {enemyDefinitions} from './enemies.ts';
@@ -34,5 +35,5 @@ export function specialAttack(s:Run,kind:string,level:number,target:Enemy,api:Co
 export function stepZones(s:Run,dt:number,api:CombatApi){for(const z of s.zones){z.life-=dt;z.arm=Math.max(0,z.arm-dt);z.tick-=dt;
  if(z.kind==='potato'&&z.arm<=0&&s.enemies.some(e=>e.hp>0&&!enemyDefinitions[e.kind]?.air&&!(e.burrow!>0)&&Math.hypot(e.x-z.x,e.y-z.y)<35)){blast(s,z.x,z.y,z.radius,z.damage,z.kind,api,true);z.life=0;}
  if((z.kind==='cherry'||z.kind==='squash')&&z.life<=0)blast(s,z.x,z.y,z.radius,z.damage,z.kind,api);
- if(z.kind==='jalapeno'&&z.tick<=0){z.tick=.3;const dx=Math.cos(z.angle),dy=Math.sin(z.angle);for(const e of s.enemies){const ex=e.x-z.x,ey=e.y-z.y,along=ex*dx+ey*dy;if(!enemyDefinitions[e.kind]?.air&&along>=0&&along<330&&Math.abs(ex*dy-ey*dx)<32)api.hit(s,e,z.damage,z.kind);}}
+ if(z.kind==='jalapeno'&&z.tick<=0){z.tick=.3;const dx=Math.cos(z.angle),dy=Math.sin(z.angle);for(const e of s.enemies){const ex=e.x-z.x,ey=e.y-z.y,along=ex*dx+ey*dy;if(!enemyDefinitions[e.kind]?.air&&along>=0&&along<geometry.fireLength&&Math.abs(ex*dy-ey*dx)<geometry.fireHalfWidth)api.hit(s,e,z.damage,z.kind);}}
  }s.zones=s.zones.filter(z=>z.life>0);for(const beam of s.beams)beam.life-=dt;s.beams=s.beams.filter(b=>b.life>0);}

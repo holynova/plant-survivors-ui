@@ -6,3 +6,5 @@ playwright-report/
 .wrangler/
 .env*
 .DS_Store
+# Full-resolution PNG captures stay local; portable WebP evidence is committed.
+docs/reports/mobile/**/*.png
