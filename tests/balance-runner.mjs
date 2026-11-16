@@ -2,18 +2,19 @@
 export function direction(s,stationary=false){
  if(stationary)return {x:0,y:0};
  let drop,nearest=Infinity;for(const p of s.drops){const d=Math.hypot(p.x-s.x,p.y-s.y);if(d<nearest){nearest=d;drop=p;}}
- const target=drop||{x:195+Math.sin(s.time*.12)*110,y:340+Math.cos(s.time*.12)*160};const l=Math.hypot(target.x-s.x,target.y-s.y)||1;let x=(target.x-s.x)/l,y=(target.y-s.y)/l;
+ const boss=s.time>s.duration-10?s.enemies.find(e=>e.boss):null;const target=boss||drop||{x:s.worldWidth/2+Math.sin(s.time*.07)*500,y:s.worldHeight/2+Math.cos(s.time*.07)*500};const l=Math.hypot(target.x-s.x,target.y-s.y)||1;let x=(target.x-s.x)/l,y=(target.y-s.y)/l;
  for(const e of s.enemies){const d=Math.hypot(e.x-s.x,e.y-s.y)||1;
   if((e.boss||e.elite)&&(e.attack||0)>(e.boss?.28:.12)){const ax=s.x-e.aimX,ay=s.y-e.aimY,ad=Math.hypot(ax,ay)||1;if(ad<(e.boss?100:70)){x+=(ax||1)/ad*12;y+=ay/ad*12;}}
-  if(e.elite==='runner'&&((e.chargeWindup||0)>0||(e.charge||0)>0)){const cx=e.chargeX??s.x,cy=e.chargeY??s.y,ax=cx-e.x,ay=cy-e.y,al=Math.hypot(ax,ay)||1;const cross=((s.x-e.x)*-ay+(s.y-e.y)*ax)/al;if(d<180&&Math.abs(cross)<55){const side=cross>=0?1:-1;x+=-ay/al*side*9;y+=ax/al*side*9;}}
-  const safe=e.elite?100:85;if(d<safe){x+=(s.x-e.x)/d*(safe-d)/16;y+=(s.y-e.y)/d*(safe-d)/16;}
+  if((e.elite==='runner'||e.kind==='football')&&((e.chargeWindup||0)>0||(e.charge||0)>0)){const cx=e.chargeX??s.x,cy=e.chargeY??s.y,ax=cx-e.x,ay=cy-e.y,al=Math.hypot(ax,ay)||1;const cross=((s.x-e.x)*-ay+(s.y-e.y)*ax)/al;if(d<180&&Math.abs(cross)<55){const side=cross>=0?1:-1;x+=-ay/al*side*9;y+=ax/al*side*9;}}
+  const safe=e.boss?125:e.elite?100:e.kind==='imp'?65:80;if(d<safe){x+=(s.x-e.x)/d*(safe-d)/16;y+=(s.y-e.y)/d*(safe-d)/16;}
  }
- if(s.x<55)x+=2;if(s.x>335)x-=2;if(s.y<110)y+=2;if(s.y>575)y-=2;return {x,y};
+ for(const p of s.hostileShots||[]){const dx=s.x-p.x,dy=s.y-p.y,d=Math.hypot(dx,dy)||1;if(d<90){x+=dx/d*(90-d)/10;y+=dy/d*(90-d)/10;}}
+ if(s.x<55)x+=2;if(s.x>s.worldWidth-55)x-=2;if(s.y<55)y+=2;if(s.y>s.worldHeight-55)y-=2;return {x,y};
 }
-export function play(api,{hero='dave',stage=0,starter='pea',seed=431,stationary=false}={}){
- const {createRun,step,select}=api,s=createRun(starter,stage,seed,hero);let frames=0,firstUpgrade=null,evolution=null;const levels={},elites=new Map();
+export function play(api,{hero='dave',stage=0,starter='pea',seed=431,stationary=false,upgrades={}}={}){
+ const {createRun,step,select}=api,s=createRun(starter,stage,seed,hero,{upgrades});let frames=0,firstUpgrade=null,evolution=null;const levels={},elites=new Map();
  while(!['won','lost'].includes(s.status)&&frames++<(s.duration+120)*30){
-  if(s.status==='upgrade'){firstUpgrade??=s.time;const rank=[...(s.hp<s.maxHp*.6?['walnut']:[]),starter,'bag','mushroom','ice','walnut','boomerang','sunflower','pea'];select(s,[...s.choices].sort((a,b)=>rank.indexOf(a)-rank.indexOf(b))[0]);}
+  if(s.status==='upgrade'){firstUpgrade??=s.time;const count=Object.keys(s.plants).filter(k=>!['bag','walnut','sunflower','torchwood'].includes(k)).length;const rank=[...(s.hp<s.maxHp*.6?['walnut']:[]),...(count<2?['cabbage','mushroom','ice','pea','boomerang'].filter(k=>!s.plants[k]):[]),starter,...(s.plants[starter]>=4?['bag']:[]),'cabbage','mushroom','ice','walnut','boomerang','bag','sunflower','pea'];select(s,[...s.choices].sort((a,b)=>rank.indexOf(a)-rank.indexOf(b))[0]);}
   if(s.evolved)evolution??=s.time;s.evolutionNotice=false;
   step(s,1/30,direction(s,stationary));
   for(const t of [30,60,120])if(s.time>=t&&levels[t]===undefined)levels[t]=s.level;

@@ -2,13 +2,15 @@
 
 [Demo](https://xiaosang.cc/plant-survivors-ui/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
-发布状态：v0.5.0 已上线，正式网址已验证。 / v0.5.0 is live and verified.
+发布状态：v0.6.0 待发布验证。 / v0.6.0 prepared for release verification.
 
-经典后院风格的手机端单机幸存者游戏，直接铺满浏览器，不使用模拟手机外壳。适配横竖屏、动态可视高度与安全区。三位主角、三张地图、升级进化与图鉴；移动躲避、植物自动攻击。v0.5.0 放大精英，加入冲锋与重甲弱点，放慢成长节奏并提高后期压力。支持摇杆、键盘、音效、暂停和本地存档。种子用于记录奖励，暂无商店。
+手机优先的单机幸存者游戏：任意位置触摸拖动，左右手皆可；三位主角在三张大地图自由行走，镜头持续跟随。26 种植物、15 类敌人、升级进化与图鉴；精英和首领掉落金币、钻石，用于局外解锁与永久成长。首次进入显示资源加载进度，支持键盘、战斗音效、暂停和本地存档。
 
-A full-viewport mobile survival game with native touch scrolling, safe-area support and portrait/landscape layouts. Three heroes, three maps, plant evolution and a field guide. Larger elites use telegraphed charges and armor windows; progression is slower with stronger late-game pressure. Joystick and keyboard controls, audio, pause and local saves are included. No simulated phone frame, accounts or cloud sync.
+原版音乐通过作者官方播放器播放，需联网并点击播放；可选 Grasswalk、Moongrains、Graze the Roof 与 Brainiac Maniac。另保留离线合成音乐。没有模拟手机外壳、账号或云同步。
 
-![手机网页实际截图 / Full-viewport browser capture](assets/mobile-v05.png)
+A mobile-first survival game with free-position touch movement, three heroes and three large scrolling worlds. It features 26 plants, 15 enemy types, distinct attacks, evolution, a field guide, and persistent coin/diamond unlocks. A progress bar preloads game assets. Native safe areas, landscape layouts, keyboard controls, sound effects and local saves are supported. Original PvZ music uses the composer's official online player and requires a playback click; the synthesized offline loop is labeled separately.
+
+![手机实际运行截图 / Runtime browser capture](assets/mobile-v06.png)
 
 ## 运行 / Run
 
@@ -27,6 +29,6 @@ npm run build:release
 
 Production assets in `dist/client` target `/plant-survivors-ui/`. Copy this build into the portfolio repository's matching folder, commit to its master branch, then stage that committed tree and manually deploy the existing `xiaosang-portfolio` Worker. Do not create another Worker.
 
-[v0.5 难度与手机尺寸验收 / Balance and viewport checks](docs/V05-VERIFICATION.md) · [分阶段测试报告 / Test report](docs/TEST-REPORT.md) · [素材说明 / Assets](ASSETS.md)
+[v0.6 机制与手机验收 / Verification](docs/V06-VERIFICATION.md) · [设计依据 / Design and research](docs/V06-DESIGN.md) · [分阶段测试报告 / Test report](docs/TEST-REPORT.md) · [素材说明 / Assets](ASSETS.md)
 
 ![手机访问 / QR](assets/qr.png)

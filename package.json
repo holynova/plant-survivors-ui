@@ -1,7 +1,7 @@
 {
   "name": "plant-survivors-ui",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "scripts": {
     "check:runtime": "node scripts/check-mobile-runtime.mjs",
@@ -10,10 +10,10 @@
     "test:sites": "node --test tests/sites-worker.test.mjs",
     "predev": "npm run check:runtime",
     "dev": "vite",
-    "prebuild": "npm run check:runtime",
+    "prebuild": "npm run check:runtime && node scripts/prepare-asset-manifest.mjs",
     "build": "tsc && vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
-    "test:game": "node --test tests/game.test.mjs tests/expedition.test.mjs tests/difficulty.test.mjs && node tests/campaign.mjs",
+    "test:game": "node --test tests/game.test.mjs tests/expedition.test.mjs tests/difficulty.test.mjs tests/expansion.test.mjs && node tests/campaign.mjs",
     "assets:normalize": "node scripts/normalize-atlases.mjs && node scripts/stabilize-walk.mjs",
     "build:release": "node scripts/build-release.mjs"
   },

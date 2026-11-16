@@ -42,3 +42,9 @@
 运行 `npm run assets:normalize` 可重建全部图集，先统一缩放与脚底锚点，再通过 `scripts/stabilize-walk.mjs` 按推车轮轴或帽子／头部稳定区域做平移配准（不逐帧缩放）。实际偏移记录在 manifest 的 walkRegistration 中。植物发射不再切换主角步态；受击与死亡仍优先。
 
 豌豆为绿色圆弹，寒冰为蓝色晶体，回旋镖为金色 V 形旋转物及往返轨迹，孢子为短程紫色粒子团，均为游戏 Canvas 原生特效。精英保留对应僵尸动作，配金色脚环、独立大小与精英标记；最终首领有狂暴光晕。
+
+## v0.6 expansion
+
+Twenty plant icons, eight four-frame zombie walk strips and grass terrain were generated with the built-in image_gen tool. Sources, exact prompts, foot anchors and normalization are recorded in [V06-ART-PROMPTS.md](docs/V06-ART-PROMPTS.md) and [v06-art-sources.json](docs/v06-art-sources.json). Contact shadows, telegraphs, currency facets and projectile trails are native Canvas graphics. New impact/loot timbres use Web Audio synthesis.
+
+Original PvZ music is available through Laura Shigihara's official Bandcamp embed, not a bundled or rehosted recording. Attribution and the official source link are visible in the music box. The existing `garden-loop.wav` remains clearly labeled as the offline garden music.

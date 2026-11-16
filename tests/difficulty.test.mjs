@@ -1,5 +1,5 @@
 import {test}from 'node:test';import assert from 'node:assert/strict';
-import {createRun,step,resizeArena}from '../src/game/simulation.ts';
+import {createRun as createWorldRun,step,resizeArena}from '../src/game/simulation.ts';
 import {enemySize,eliteStats}from '../src/game/balance.ts';
 const advance=(s,t,input={x:0,y:0})=>{for(let i=0;i<t*100;i++)step(s,.01,input)};
 const enemy=(extra={})=>({id:99,x:195,y:260,hp:2000,max:2000,speed:0,kind:'bucket',slow:0,boss:false,elite:'guard',...extra});
@@ -10,5 +10,7 @@ test('one spore volley cannot shotgun the same large enemy eight times',()=>{con
 test('elite can move under fire instead of getting permanently staggered',()=>{const s=createRun();s.spawn=999;s.plants={};s.enemies=[enemy({x:80,y:200,speed:36,hurt:.18})];step(s,.05);assert.ok(s.enemies[0].x>80);});
 test('runner telegraphs locked direction and a sideways dodge avoids charge',()=>{const s=createRun();s.spawn=999;s.plants={};s.enemies=[enemy({kind:'cone',elite:'runner',x:195,y:220,speed:57,chargeCooldown:0})];step(s,.01);assert.equal(s.enemies[0].chargeWindup,.85);assert.equal(s.enemies[0].chargeX,195);advance(s,1.5,{x:1,y:0});assert.equal(s.hp,125);assert.equal(s.enemies[0].chargeX,195);});
 test('charge can hit only once while overlapping the player',()=>{const s=createRun();s.spawn=999;s.plants={};s.enemies=[enemy({elite:'runner',x:s.x,y:s.y,charge:.65,chargeVx:0,chargeVy:0,chargeCooldown:5})];advance(s,.5);assert.equal(s.hp,107);assert.equal(s.events.filter(e=>e.type==='hurt').length,1);});
-test('responsive world resize preserves progress and reachable positions',()=>{const s=createRun();s.time=83;s.xp=9;s.enemies=[enemy({aimX:195,aimY:350})];s.drops=[{x:100,y:300,value:1}];resizeArena(s,780,390);assert.equal(s.width,780);assert.equal(s.height,390);assert.equal(s.time,83);assert.equal(s.xp,9);assert.equal(s.enemies[0].aimX,390);for(let i=0;i<100;i++)step(s,.05,{x:1,y:1});assert.ok(s.x<=735&&s.y<=320);});
+test('responsive world resize preserves progress and reachable positions',()=>{const s=createRun();s.time=83;s.xp=9;s.enemies=[enemy({aimX:195,aimY:350})];s.drops=[{x:100,y:300,value:1}];resizeArena(s,780,390);assert.equal(s.width,780);assert.equal(s.height,390);assert.equal(s.time,83);assert.equal(s.xp,9);assert.equal(s.enemies[0].aimX,195);for(let i=0;i<100;i++)step(s,.05,{x:1,y:1});assert.ok(s.x>390&&s.y>390);});
 test('a mid-run build cannot erase a fresh guard elite in three seconds',()=>{const s=createRun();s.spawn=999;s.hp=999;s.nextXp=99999;s.plants={pea:3,ice:3,boomerang:3,mushroom:3,bag:1};s.enemies=[enemy({hp:1200,max:1200,y:s.y-80})];advance(s,3);assert.ok(s.enemies.some(e=>e.id===99&&e.hp>0));});
+
+function createRun(...args){const s=createWorldRun(...args);s.x=195;s.y=350;s.cameraX=0;s.cameraY=0;return s;}
