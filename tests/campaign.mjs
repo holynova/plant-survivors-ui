@@ -1,4 +1,10 @@
-import {createRun,step,select} from '../src/game/simulation.ts';
-const results=[];
-for(const hero of ['dave','flora','rusty'])for(let stage=0;stage<3;stage++)for(const starter of ['pea','ice','boomerang']){const s=createRun(starter,stage,431,hero);let frames=0;while(!['won','lost'].includes(s.status)&&frames++<18000){if(s.status==='upgrade'){const rank=[...(s.hp<s.maxHp*.6?['walnut']:[]),starter,'bag','mushroom','ice','walnut','boomerang','sunflower','pea'];select(s,[...s.choices].sort((a,b)=>rank.indexOf(a)-rank.indexOf(b))[0]);}s.evolutionNotice=false;let dx=0,dy=0;const drop=[...s.drops].sort((a,b)=>Math.hypot(a.x-s.x,a.y-s.y)-Math.hypot(b.x-s.x,b.y-s.y))[0];const target=drop||{x:195+Math.sin(s.time*.12)*110,y:340+Math.cos(s.time*.12)*160};const l=Math.hypot(target.x-s.x,target.y-s.y)||1;dx=(target.x-s.x)/l;dy=(target.y-s.y)/l;for(const e of s.enemies){const d=Math.hypot(e.x-s.x,e.y-s.y)||1;if(e.boss&&(e.attack||0)>.28){const ax=s.x-e.aimX,ay=s.y-e.aimY,ad=Math.hypot(ax,ay)||1;if(ad<100){dx+=(ax||1)/ad*12;dy+=ay/ad*12;}}if(d<85){dx+=(s.x-e.x)/d*(85-d)/16;dy+=(s.y-e.y)/d*(85-d)/16;}}if(s.x<40)dx+=2;if(s.x>350)dx-=2;if(s.y<110)dy+=2;if(s.y>580)dy-=2;step(s,1/30,{x:dx,y:dy});}results.push({hero,stage,starter,status:s.status,time:Math.round(s.time),hp:s.hp,kills:s.kills,level:s.level,evolved:s.evolved,plants:s.plants});}
-console.log(JSON.stringify(results,null,2));if(results.some(r=>r.status!=='won'))process.exitCode=1;
+import * as api from '../src/game/simulation.ts';
+import {play,summarize} from './balance-runner.mjs';
+import assert from 'node:assert/strict';
+const runs=[];
+for(const seed of [431,2026,73])for(const hero of ['dave','flora','rusty'])for(let stage=0;stage<3;stage++)for(const starter of ['pea','ice','boomerang'])runs.push(play(api,{seed,hero,stage,starter}));
+assert.ok(runs.every(r=>['won','lost'].includes(r.status)),'Every run must reach a terminal state');
+for(const hero of ['dave','flora','rusty'])for(const starter of ['pea','ice','boomerang'])assert.ok(runs.some(r=>r.hero===hero&&r.starter===starter&&r.status==='won'),`${hero}/${starter} must have a viable tested route`);
+for(let stage=0;stage<3;stage++)assert.ok(runs.some(r=>r.stage===stage&&r.status==='won'),`stage ${stage} must be winnable`);
+for(let stage=0;stage<3;stage++)assert.equal(play(api,{stage,stationary:true}).status,'lost','Standing still must not clear a stage');
+console.log(JSON.stringify(summarize(runs),null,2));
