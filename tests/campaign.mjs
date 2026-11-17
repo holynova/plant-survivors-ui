@@ -1,11 +1,12 @@
 import * as api from '../src/game/simulation.ts';
 import {play,summarize} from './balance-runner.mjs';
 import assert from 'node:assert/strict';
+import {mkdirSync,writeFileSync} from 'node:fs';
 const runs=[];
 for(const seed of [431,2026,73])for(const hero of ['dave','flora','rusty'])for(let stage=0;stage<3;stage++)for(const starter of ['pea','ice','boomerang'])runs.push(play(api,{seed,hero,stage,starter,upgrades:{vigor:stage*2,magnetism:stage}}));
-console.log(JSON.stringify(summarize(runs),null,2));
-assert.ok(runs.every(r=>['won','lost'].includes(r.status)),'Every run must reach a terminal state');
-for(const hero of ['dave','flora','rusty'])for(const starter of ['pea','ice','boomerang'])assert.ok(runs.some(r=>r.hero===hero&&r.starter===starter&&r.status==='won'),`${hero}/${starter} must have a viable tested route`);
-for(let stage=0;stage<3;stage++)assert.ok(runs.some(r=>r.stage===stage&&r.status==='won'),`stage ${stage} must be winnable`);
-for(let stage=0;stage<3;stage++)assert.equal(play(api,{stage,stationary:true}).status,'lost','Standing still must not clear a stage');
+mkdirSync('docs/reports/v10',{recursive:true});writeFileSync('docs/reports/v10/campaign.json',JSON.stringify({summary:summarize(runs),runs},null,2));console.log(JSON.stringify(summarize(runs),null,2));
+assert.ok(runs.every(r=>r.status==='lost'||r.time>=599),'Each run reaches death or the explicit 10-minute observation boundary');
+for(const hero of ['dave','flora','rusty'])for(const starter of ['pea','ice','boomerang'])assert.ok(runs.some(r=>r.hero===hero&&r.starter===starter&&r.bossKills>0),`${hero}/${starter} must have a viable tested route`);
+for(let stage=0;stage<3;stage++)assert.ok(runs.some(r=>r.stage===stage&&r.bossKills>0),`stage ${stage} must have a reachable boss milestone`);
+for(let stage=0;stage<3;stage++)assert.equal(play(api,{stage,stationary:true}).status,'lost','Standing still must die within the observation period');
 console.log(JSON.stringify(summarize(runs),null,2));

@@ -1,0 +1,2 @@
+export const awakenings:Record<string,string>={pea:'三线穿透射击',ice:'三路冰晶并短暂冻结',boomerang:'三枚回旋镖，双程穿透',mushroom:'十二向孢子环',cabbage:'双发卷心菜',kernel:'双发玉米，黄油定身',melon:'双发西瓜轰炸',coconut:'双发椰子重炮',cabbagevolt:'双发电能卷心菜',starfruit:'十向星弹',cactus:'三路穿刺',bamboo:'六叶齐射',lightning:'连锁九个目标',laser:'双倍光束宽度',potato:'爆破范围扩大 40%',cherry:'爆破范围扩大 40%',squash:'重压范围扩大 40%',jalapeno:'火路持续时间翻倍',snapdragon:'灼烧持续时间翻倍',bonk:'拳击范围扩大 50%',chomper:'噬咬回复翻倍',magnet:'拆盾削甲持续时间翻倍',iceberg:'冻结持续时间翻倍'};
+export const awakeningText=(id:string)=>awakenings[id]||'植物能力强化';

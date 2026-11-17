@@ -1,3 +1,4 @@
+import {bossIds} from '../src/game/bosses.ts';
 import {readFile,writeFile,stat, mkdir,readdir} from 'node:fs/promises';
 import sharp from 'sharp';
 import {fileURLToPath} from 'node:url';
@@ -6,8 +7,8 @@ import {newEnemyIds} from '../src/game/enemies.ts';
 const root=new URL('../public/assets/game/',import.meta.url);
 async function writeGenerated(path,text){try{if(await readFile(path,'utf8')===text)return}catch{}await writeFile(path,text);}
 // Explicit runtime dependency graph. Source artwork remains available to artists, not preloaded.
-const animations=['dave','flora','rusty','zombie','cone','bucket','boss-trim','plants','fx',...newEnemyIds];
-const characters=['dave','flora','rusty','zombie','cone','bucket','boss-trim',...newEnemyIds];
+const animations=['dave','flora','rusty','zombie','cone','bucket',...bossIds,...newEnemyIds];
+const characters=['dave','flora','rusty','zombie','cone','bucket',...bossIds,...newEnemyIds];
 const css=await readFile(new URL('../src/prototype.css',import.meta.url),'utf8');
 const cssIds=[...css.matchAll(/assets\/game\/(?:release\/)?([\w-]+)\.(?:png|webp)/g)].map(m=>m[1]);
 const ids=[...new Set([...plantIds.filter(id=>id!=='bag'),'bag-v2','gatling','grass-tile','sun','logo-trim','map-day','map-night','map-roof','result-hero-v2','seed-v2','crystal-v2','chest-v2',...cssIds])];
@@ -16,6 +17,7 @@ const manifest=[];
 for(const id of ids){const source=new URL(id+(id==='grass-tile'?'.webp':'.png'),root),path=`release/${id}.webp`,target=new URL(path,root);let current=false;try{current=(await stat(target)).mtimeMs>=(await stat(source)).mtimeMs}catch{}if(!current)await sharp(fileURLToPath(source)).resize({width:['lobby-bg','battle-bg','result-hero-v2'].includes(id)?900: id==='grass-tile'?512:512,withoutEnlargement:true}).webp({quality:85,alphaQuality:95}).toFile(fileURLToPath(target));manifest.push({path,bytes:(await stat(target)).size});}
 for(const id of animations){const path=`animations/${id}.webp`;manifest.push({path,bytes:(await stat(new URL(path,root))).size});}
 for(const id of characters){const path=`animations/${id}-idle.webp`;manifest.push({path,bytes:(await stat(new URL(path,root))).size});}
+for(const id of ['v10-effects','v10-munitions','v10-props','coin-v10','heal-v10','gem-v10','apple-v10','pond-tile','roof-tile']){const path=`release/${id}.webp`;manifest.push({path,bytes:(await stat(new URL(path,root))).size});}
 // Keep loading costs reviewable when future content is added.
 let decodedBytes=0;for(const item of manifest){const meta=await sharp(fileURLToPath(new URL(item.path,root))).metadata();decodedBytes+=meta.width*meta.height*4;if(item.bytes>512*1024)throw Error(`Runtime image exceeds 512 KiB budget: ${item.path}`);}
 const compressedBytes=manifest.reduce((n,item)=>n+item.bytes,0);

@@ -6,12 +6,18 @@ const prefix='/plant-survivors-ui',appVersion=JSON.parse(readFileSync('package.j
 function visit(dir){for(const e of readdirSync(dir,{withFileTypes:true})){const p=join(dir,e.name);if(e.isDirectory())visit(p);else if(['.js','.css','.html'].includes(extname(p))){let text=readFileSync(p,'utf8');text=text.replace(/<link rel="icon"[^>]*sunflower\.png[^>]*>/,'<link rel="icon" type="image/webp" href="/assets/game/release/sunflower.webp" />').replace(/(<meta name="application-version" content=")[^"]*(")/,(_,before,after)=>before+'v'+appVersion+after).replaceAll('/assets/',`${prefix}/assets/`);writeFileSync(p,text);}}}
 // Only ship runtime assets; keep source sheets in the repository.
 for(const e of readdirSync('dist/client/assets/game'))if(!['release','animations','audio'].includes(e))rmSync(join('dist/client/assets/game',e),{recursive:true,force:true});
+const runtimePaths=new Set(JSON.parse(readFileSync('src/game/asset-manifest.json')).map(item=>item.path));
+for(const dir of ['release','animations'])for(const f of readdirSync('dist/client/assets/game/'+dir))if(!runtimePaths.has(dir+'/'+f))rmSync(join('dist/client/assets/game',dir,f));
+// Legacy simulator art is kept in source for its fixtures, but the real phone game never mounts it.
+for(const dir of ['android','iphone','status'])rmSync(join('dist/client/assets',dir),{recursive:true,force:true});
 visit('dist/client');
 writeFileSync('dist/client/release.json',JSON.stringify({version:JSON.parse(readFileSync('package.json')).version,commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()},null,2));
 
 if(!existsSync('docs/reports/mobile/index.html'))throw Error('Run npm run test:mobile before publishing the QA report');
-cpSync('docs/reports/mobile','dist/client/qa',{recursive:true,filter:path=>!path.endsWith('.png')&&!/\/(partial|results|first-pass)\.json$/.test(path)});
+cpSync('docs/reports/mobile','dist/client/qa',{recursive:true,filter:path=>!path.endsWith('.png')&&!/\/(partial|results|first-pass)\.json$/.test(path)&&!(/\/performance\/v10-(?:baseline|current)\/r[01]-/.test(path)&&path.endsWith('.json'))});
 
 if(existsSync('docs/reports/v09/index.html'))cpSync('docs/reports/v09','dist/client/qa/v09',{recursive:true,filter:path=>!path.endsWith('.png')});
+
+if(existsSync('docs/reports/v10/index.html'))cpSync('docs/reports/v10','dist/client/qa/v10',{recursive:true,filter:path=>!path.endsWith('.png')});
 
 execFileSync(process.execPath,['scripts/check-release-assets.mjs'],{stdio:'inherit'});

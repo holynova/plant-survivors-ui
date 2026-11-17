@@ -107,3 +107,35 @@ html,body,#root{width:100%;height:100%;height:100dvh;min-width:280px;overflow:hi
 .live-arena .game-modal{max-height:100%;display:flex;flex-direction:column;min-height:0}.live-arena .game-modal>.paper{min-height:0;overflow-y:auto;touch-action:pan-y}.pool-picker{text-align:left;margin-top:var(--space-3);grid-column:1/-1}.pool-picker summary,.replacement summary{min-height:var(--size-touch);padding:var(--space-2);cursor:pointer;font-size:var(--type-small)}.pool-picker p{font-size:var(--type-caption)}.pool-picker>div{display:flex;flex-wrap:wrap;gap:var(--space-1)}.pool-picker button,.replacement button{min-height:var(--size-touch);border:1px solid var(--color-wood-edge);border-radius:var(--radius-control);padding:var(--space-2);background:var(--color-paper);color:var(--color-ink);font-size:var(--type-small)}.pool-picker button[aria-pressed=true]{background:var(--color-leaf-pale);border-color:var(--color-leaf)}
 .recipe-caption,.result-story{font-size:var(--type-small);line-height:1.6;color:var(--color-ink);background:var(--color-paper);padding:var(--space-2);border-radius:var(--radius-control)}.upgrade-benefit{color:var(--color-leaf)!important;font-weight:700}.upgrade-content{overflow:auto;touch-action:pan-y}.replacement{background:var(--color-paper);color:var(--color-ink);border-radius:var(--radius-control)}.replacement button{margin:var(--space-1)}.reduced-motion *{animation:none!important;transition:none!important}
 @media(orientation:portrait){.live-arena.compact-dock canvas{height:calc(100% - 85px)}.compact-dock .touch-hint{bottom:98px}}
+/* v0.10: one compact encounter rail, painted currency and explicit unlock states. */
+.currency-balance span,.wallet span,.run-wallet,.unlock-cost{display:inline-flex;align-items:center;gap:var(--space-1)}
+.run-wallet .art,.wallet .art,.unlock-cost .art{width:22px;height:22px;display:inline-block;vertical-align:middle}
+.currency-balance .art{width:26px;height:26px}
+.hud-meta{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);font-size:var(--type-caption);padding:var(--space-1);background:color-mix(in srgb,var(--color-leaf-dark) 82%,transparent);border-radius:var(--radius-small)}
+.live-arena .encounter-bar{margin-top:var(--space-1);padding:var(--space-1) var(--space-2);background:color-mix(in srgb,var(--color-leaf-dark) 86%,transparent);border-radius:var(--radius-control)}
+.live-arena .encounter-bar .boss-health{position:static;inset:auto;margin:0;width:auto;text-align:left}
+.encounter-bar b{display:flex;justify-content:space-between;gap:var(--space-2);font-size:var(--type-caption);line-height:1.4;font-weight:650}
+.encounter-bar b span{color:var(--color-paper-shade);font-weight:500}
+.encounter-bar meter{display:block;width:100%;height:7px;margin-top:var(--space-1);border:0}
+.encounter-timeline [role=progressbar]{height:5px;background:var(--color-wood-dark);border-radius:var(--radius-pill);overflow:hidden;margin-top:var(--space-1)}
+.encounter-timeline i{display:block;height:100%;background:var(--color-sun)}
+.elite-track{display:flex;gap:var(--space-2);margin-top:var(--space-1)}
+.elite-track>div{flex:1;min-width:0;display:flex;align-items:center;gap:var(--space-1)}
+.elite-track span{font-size:var(--type-caption);white-space:nowrap;color:var(--color-sun-light)}
+.elite-track meter{margin:0;min-width:15px;flex:1;appearance:none;background:var(--color-wood-dark)}
+.elite-track meter::-webkit-meter-bar{background:var(--color-wood-dark);border:0}
+.elite-track meter::-webkit-meter-optimum-value{background:var(--color-sun)}
+.plant-locked .art{filter:grayscale(1);opacity:.45}
+.plant-card.plant-locked{background:var(--color-paper-shade);border-color:var(--color-paper-deep);color:var(--color-ink-muted)}
+.lock-caption{font-size:var(--type-caption);line-height:1.2}
+.awakening-tip{padding:var(--space-2);font-size:var(--type-small);line-height:1.6;background:var(--color-leaf-pale);border-radius:var(--radius-control);color:var(--color-leaf-dark)}
+.unlock-shade{position:absolute;inset:0;z-index:var(--layer-modal);display:flex;align-items:safe center;justify-content:center;background:color-mix(in srgb,var(--color-black) 70%,transparent);padding:var(--space-3);overflow:auto}
+.unlock-shade .paper{display:flex;flex-direction:column;gap:var(--space-3);text-align:center;align-items:center}
+.unlock-shade .modal-plant{height:95px;width:95px}.unlock-shade small{line-height:1.6}
+.live-build small{display:block;font-size:var(--type-caption);color:var(--color-leaf);line-height:1.6}
+@media(max-width:359px){.elite-track{flex-wrap:wrap}.elite-track>div{flex-basis:42%}}
+.hero-prepare .starter-grid .plant-card{height:114px;min-height:114px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-1);padding:var(--space-1)}
+.hero-prepare .starter-grid .plant-card .art{height:58px;width:64px;flex:none}.starter-grid .plant-card small{line-height:1.3}.starter-grid .lock-caption{line-height:1}
+.hero-prepare .prepare-paper{padding-top:var(--space-8)}
+.live-arena .upgrade-content,.unlock-shade .game-modal{max-height:calc(100dvh - var(--safe-top,0px) - var(--safe-bottom,0px) - var(--space-6));overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
+@media(orientation:landscape) and (max-height:600px){.unlock-shade .paper{gap:var(--space-1);padding-block:var(--space-3)}.unlock-shade .modal-plant{height:48px;width:48px}.unlock-shade .gold{min-height:48px;font-size:var(--type-body)!important}.unlock-shade .sign{min-height:44px}}
