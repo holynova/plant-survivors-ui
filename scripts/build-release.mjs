@@ -20,4 +20,7 @@ if(existsSync('docs/reports/v09/index.html'))cpSync('docs/reports/v09','dist/cli
 
 if(existsSync('docs/reports/v10/index.html'))cpSync('docs/reports/v10','dist/client/qa/v10',{recursive:true,filter:path=>!path.endsWith('.png')});
 
+// Historical intermediate profiler traces remain in Git; final reports do not reference them.
+for(const trace of ['performance/index-only','performance/render-cache','performance/baseline/v07-1x.json','performance/baseline/v07-4x.json','fixes.json','v09/battle-recording.json','v09/paused-render.json','v09/resources.json'])rmSync(join('dist/client/qa',trace),{recursive:true,force:true});
+
 execFileSync(process.execPath,['scripts/check-release-assets.mjs'],{stdio:'inherit'});
