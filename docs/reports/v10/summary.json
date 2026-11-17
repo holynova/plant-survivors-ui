@@ -1,7 +1,7 @@
 {
   "version": "0.10.0",
   "sourceFingerprint": "645e40ca9186d5f9fc448af50fab1ea2b2af8f71a1ba0de157f7f99636c2e933",
-  "created": "2026-11-17T14:22:57.758Z",
+  "created": "2026-11-17T14:25:27.726Z",
   "unitTests": 80,
   "sitesTests": 4,
   "mobile": {
@@ -169,7 +169,7 @@
         "beams": 24
       },
       "before": 4.349999666213989,
-      "after": 3.9000003337860107,
+      "after": 3.8999998569488525,
       "valid": true
     },
     {
@@ -217,7 +217,7 @@
         "beams": 24
       },
       "before": 16.850000143051147,
-      "after": 16.450000047683716,
+      "after": 15.25,
       "valid": true
     }
   ]
