@@ -87,3 +87,17 @@ html,body,#root{width:100%;height:100%;height:100dvh;min-width:280px;overflow:hi
 .original-music select{width:100%;min-height:var(--size-touch);padding:var(--space-2);border:2px solid var(--color-wood-edge);border-radius:var(--radius-control);background:var(--color-paper);color:var(--color-ink);font:inherit;font-size:var(--type-small)}
 /* Music is app chrome too: keep its scrollable panel clear of real notches. */
 .original-music{inset:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left)}
+/* Graphic health: immediate loss, a delayed damage trail, and a brief hit pulse. */
+.health-meter{position:relative;flex:1;min-width:0;max-width:220px;height:28px;overflow:hidden;border:2px solid var(--color-wood-edge);border-radius:var(--radius-control);background:var(--color-danger-dark);box-shadow:inset 0 2px 3px var(--color-wood-dark)}
+.health-meter>i{position:absolute;inset:0;display:block;transform-origin:left center;pointer-events:none}
+.health-loss{background:var(--color-sun-light);transition:transform 600ms ease-out 160ms}
+.health-fill{background:linear-gradient(var(--color-danger-light),var(--color-danger));box-shadow:inset 0 2px color-mix(in srgb,var(--color-white) 35%,transparent);transition:transform var(--motion-fast) ease-out}
+.health-value{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:var(--space-1);font-size:var(--type-caption);color:var(--color-paper);font-variant-numeric:tabular-nums;text-shadow:0 1px 2px var(--color-danger-dark),0 -1px 2px var(--color-danger-dark);background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--color-danger-dark) 58%,transparent),transparent)}
+.health-value b,.health-value small{font-size:inherit;line-height:1}
+.health-meter.is-hit{animation:health-impact 280ms ease-out}.health-meter.is-hit .health-fill{filter:brightness(1.45)}
+.health-meter.is-low{border-color:var(--color-danger-light)}
+@keyframes health-impact{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}60%{transform:translateX(2px)}}
+.reduced-health,.reduced-health .health-fill,.reduced-health .health-loss{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.health-meter,.health-fill,.health-loss{animation:none!important;transition:none!important}}
+
+.hud .health-value small{padding:0;background:none;margin:0;font-size:inherit;color:inherit}

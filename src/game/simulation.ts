@@ -1,3 +1,4 @@
+import {EnemyIndex} from './enemy-index.ts';
 import {attackGeometry as geometry,impactRadius} from './attack-geometry.ts';
 import {progression,eliteStats} from './balance.ts';
 import {heroes,type HeroId} from './catalog.ts';
@@ -37,6 +38,7 @@ export function hitEnemy(s:Run,e:Enemy,damage:number,kind:string,damageOverTime=
 }
 export function spawnEnemy(s:Run,kind:string,x:number,y:number,hp:number,speed:number,extra:Partial<Enemy>={}){const e:Enemy={id:++s.id,x,y,hp,max:hp,speed,kind,slow:0,boss:false,shield:kind==='door'?70:0,skill:kind==='dancer'?5:kind==='digger'?3:2,stride:0,spawnGrace:.5,...extra};s.enemies.push(e);return e;}
 const api={hit:hitEnemy,emit};
+const indexes=new WeakMap<Run,EnemyIndex>();
 function hurtPlayer(s:Run,raw:number){if(s.invulnerable>0)return;const damage=Math.round(raw*heroes[s.hero].armor);s.hp=Math.max(0,s.hp-damage);s.invulnerable=.8;s.hitAt=s.time;emit(s,'hurt',s.x,s.y,s.hero,damage);}
 function collect(s:Run,d:Drop){emit(s,'pickup',d.x,d.y,d.kind||'sun',d.value);if(d.kind==='coin')s.coins+=d.value;else if(d.kind==='gem')s.gems+=d.value;else s.xp+=d.value*(1+(s.plants.sunflower||0)*progression.sunflowerBonus)*heroes[s.hero].xp;}
 export function step(s:Run,dt:number,input={x:0,y:0}){
@@ -55,11 +57,13 @@ export function step(s:Run,dt:number,input={x:0,y:0}){
   for(let i=0;i<count;i++){const angle=kind==='mushroom'?i*Math.PI*2/count:a+(i-(count-1)/2)*.2,speed=kind==='mushroom'?125+level*8:kind==='ice'?230:kind==='boomerang'?250:280;s.shots.push({x:s.x,y:s.y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,angle,volley,age:0,returning:false,trail:[],life:kind==='mushroom'?.8:kind==='boomerang'?3:2,damage:(kind==='mushroom'?15+level*7:16+level*8)*character.damage,kind,pierce:kind==='ice'&&level>=3||kind==='pea'&&level>=4?2:1,hits:[]});}
  }
  stepZones(s,dt,api);
+ let index:EnemyIndex|undefined;if(s.shots.length*s.enemies.length>2048){index=indexes.get(s);if(!index){index=new EnemyIndex();indexes.set(s,index);}index.rebuild(s.enemies);}
  for(const p of s.shots){p.life-=dt;p.age=(p.age||0)+dt;
-  if(p.lob){const progress=clamp(p.age/(p.totalLife||.7),0,1);p.x=p.startX!+(p.targetX!-p.startX!)*progress;p.y=p.startY!+(p.targetY!-p.startY!)*progress;if(p.life<=0){blast(s,p.targetX!,p.targetY!,p.blast||40,p.damage,p.kind,api);if(p.butter)for(const e of s.enemies)if(Math.hypot(e.x-p.x,e.y-p.y)<45)e.stun=e.boss||e.elite?.2:1;if(p.kind==='cabbagevolt'){const first=s.enemies.find(e=>e.hp>0&&Math.hypot(e.x-p.x,e.y-p.y)<160);if(first)chain(s,first,3,p.damage*.55,p.kind,api);}}continue;}
+  if(p.lob){const progress=clamp(p.age/(p.totalLife||.7),0,1);p.x=p.startX!+(p.targetX!-p.startX!)*progress;p.y=p.startY!+(p.targetY!-p.startY!)*progress;if(p.life<=0){blast(s,p.targetX!,p.targetY!,p.blast||40,p.damage,p.kind,api);if(p.butter)for(const e of s.enemies)if(Math.hypot(e.x-p.x,e.y-p.y)<45)e.stun=e.boss||e.elite?.2:1;if(p.kind==='cabbagevolt'){const first=s.enemies.find(e=>e.hp>0&&Math.hypot(e.x-p.x,e.y-p.y)<160);if(first)chain(s,first,3,p.damage*.55,p.kind,api);}index?.rebuild(s.enemies);}continue;}
   if(p.kind==='boomerang'){p.trail??=[];p.trail.push({x:p.x,y:p.y});if(p.trail.length>8)p.trail.shift();if(p.age>=.48&&!p.returning){p.returning=true;p.hits=[];emit(s,'return',p.x,p.y,p.kind);}if(p.returning){const dx=s.x-p.x,dy=s.y-p.y,d=Math.hypot(dx,dy);if(d<18){p.life=0;continue;}const blend=Math.min(1,dt*12);p.vx+=(dx/d*360-p.vx)*blend;p.vy+=(dy/d*360-p.vy)*blend;}else{const a=p.angle??Math.atan2(p.vy,p.vx),curve=Math.sin(p.age/.48*Math.PI)*100;p.vx=Math.cos(a)*250-Math.sin(a)*curve;p.vy=Math.sin(a)*250+Math.cos(a)*curve;}}
   p.x+=p.vx*dt;p.y+=p.vy*dt;
-  for(const e of s.enemies)if(e.hp>0&&!(e.burrow!>0)&&!(p.kind==='boomerang'&&p.hits.length>=4)&&!p.hits.includes(e.id)&&(e.x-p.x)**2+(e.y-p.y)**2<((e.boss?36:e.elite?30:e.kind==='imp'?13:18)+(p.kind==='mushroom'?10:0))**2){hitEnemy(s,e,p.damage*(p.kind==='cactus'&&enemyDefinitions[e.kind]?.air?1.6:1),p.kind);p.hits.push(e.id);if(p.kind==='mushroom'&&p.volley!==undefined)for(const sibling of s.shots)if(sibling!==p&&sibling.volley===p.volley)sibling.hits.push(e.id);if(p.kind==='ice')e.slow=2;if(p.kind!=='boomerang'&&p.kind!=='mushroom'&&p.hits.length>=(p.pierce||1)){p.life=0;break;}}
+  const candidates=index?.query(p.x,p.y,p.kind==='mushroom'?46:36);
+  for(let cursor=0,count=candidates?candidates.length:s.enemies.length;cursor<count;cursor++){const enemyIndex=candidates?candidates[cursor]:cursor,e=s.enemies[enemyIndex];if(e.hp>0&&!(e.burrow!>0)&&!(p.kind==='boomerang'&&p.hits.length>=4)&&!p.hits.includes(e.id)&&(e.x-p.x)**2+(e.y-p.y)**2<((e.boss?36:e.elite?30:e.kind==='imp'?13:18)+(p.kind==='mushroom'?10:0))**2){hitEnemy(s,e,p.damage*(p.kind==='cactus'&&enemyDefinitions[e.kind]?.air?1.6:1),p.kind);index?.move(enemyIndex,e.x,e.y);p.hits.push(e.id);if(p.kind==='mushroom'&&p.volley!==undefined)for(const sibling of s.shots)if(sibling!==p&&sibling.volley===p.volley)sibling.hits.push(e.id);if(p.kind==='ice')e.slow=2;if(p.kind!=='boomerang'&&p.kind!=='mushroom'&&p.hits.length>=(p.pierce||1)){p.life=0;break;}}}
  }
  s.shots=s.shots.filter(p=>p.life>0&&Math.hypot(p.x-s.x,p.y-s.y)<900).slice(-240);s.enemies=s.enemies.filter(e=>e.hp>0);
  for(const e of [...s.enemies]){

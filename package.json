@@ -1,7 +1,7 @@
 {
   "name": "plant-survivors-ui",
   "private": true,
-  "version": "0.7.1",
+  "version": "0.8.0",
   "type": "module",
   "scripts": {
     "check:runtime": "node scripts/check-mobile-runtime.mjs",
@@ -13,14 +13,15 @@
     "prebuild": "npm run check:runtime && node scripts/prepare-asset-manifest.mjs",
     "build": "tsc && vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
-    "test:game": "node --test tests/game.test.mjs tests/expedition.test.mjs tests/difficulty.test.mjs tests/expansion.test.mjs tests/visual-contract.test.mjs && node tests/campaign.mjs",
+    "test:game": "node --test tests/game.test.mjs tests/expedition.test.mjs tests/difficulty.test.mjs tests/expansion.test.mjs tests/visual-contract.test.mjs tests/enemy-index.test.mjs tests/performance-equivalence.test.mjs tests/audio-priority.test.mjs && node tests/campaign.mjs",
     "assets:normalize": "node scripts/normalize-atlases.mjs && node scripts/stabilize-walk.mjs",
     "build:release": "node scripts/build-release.mjs",
     "design:tokens": "node scripts/design-system.mjs",
     "check:design": "node scripts/design-system.mjs --check",
     "test:mobile": "node scripts/test-mobile.mjs",
     "report:mobile": "node scripts/mobile-report.mjs",
-    "test:performance": "node scripts/test-performance.mjs"
+    "test:performance": "node scripts/test-performance.mjs",
+    "test:performance:compare": "node scripts/compare-performance.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
