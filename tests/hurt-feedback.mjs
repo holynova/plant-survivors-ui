@@ -1,0 +1,16 @@
+import {spawnSync} from 'node:child_process';
+import {writeFile} from 'node:fs/promises';
+export async function checkHurt(p,root){
+ await p.cdp('Emulation.setCPUThrottlingRate',{rate:1});await p.cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});await p.goto('http://127.0.0.1:5204/');await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:25000});await p.click('text="开始远征 ▷"');await p.click('text="前往花园 ▷"');await p.click('.prepare-footer button');await p.waitForFunction(()=>window.__gardenQA.audio().state==='running');
+ await p.evaluate(()=>{
+ const q=window.__gardenQA,s=q.snapshot(),stream=q.captureAudio();if(!stream)throw Error('No audio stream');
+ const chunks=[],recorder=new MediaRecorder(stream,{mimeType:'audio/webm'});window.__hurtDone=null;
+ recorder.ondataavailable=e=>chunks.push(e.data);recorder.onstop=async()=>{const blob=new Blob(chunks,{type:'audio/webm'}),bytes=new Uint8Array(await blob.arrayBuffer());let raw='';for(const b of bytes)raw+=String.fromCharCode(b);window.__hurtDone={before:125,after:q.snapshot().hp,audio:q.audio(),audioBase64:btoa(raw),canvas:window.__hurtCanvas,bar:document.querySelector('.health-meter').outerHTML};};recorder.start();
+ q.fixture({time:10,hp:125,maxHp:125,hitAt:-10,invulnerable:0,spawn:999,plants:{},shots:[],drops:[],events:[],hostileShots:[],zones:[],beams:[],enemies:[{id:999,x:s.x+20,y:s.y,hp:200,max:200,kind:'zombie',boss:false,slow:0,speed:0,attackCooldown:0,spawnGrace:0}]});
+ function watch(){const state=q.snapshot();if(state.hp<125&&state.time-state.hitAt>=.07){window.__hurtCanvas=document.querySelector('canvas').toDataURL('image/png');q.fixture({enemies:[]});setTimeout(()=>recorder.state==='recording'&&recorder.stop(),250);}else requestAnimationFrame(watch);}requestAnimationFrame(watch);setTimeout(()=>recorder.state==='recording'&&recorder.stop(),8000);
+ });
+ await p.waitForFunction(()=>window.__hurtDone,undefined,{timeout:12000});const r=await p.evaluate(()=>window.__hurtDone);
+ if(!(r.after<r.before&&r.audio.hurtPlayed>0&&r.canvas))throw Error(JSON.stringify({...r,audioBase64:undefined,canvas:undefined}));
+ await writeFile(`${root}/hurt-feedback.webm`,Buffer.from(r.audioBase64,'base64'));await writeFile(`${root}/hurt-contact.png`,Buffer.from(r.canvas.split(',')[1],'base64'));delete r.audioBase64;delete r.canvas;
+ const bounds=await p.evaluate(()=>{const e=document.querySelector('.health-meter');return {value:e.getAttribute('aria-valuenow'),max:e.getAttribute('aria-valuemax'),fill:getComputedStyle(e.querySelector('.health-fill')).transform,box:e.getBoundingClientRect().toJSON()};});const decoded=spawnSync('ffmpeg',['-hide_banner','-i',`${root}/hurt-feedback.webm`,'-af','volumedetect','-f','null','-'],{encoding:'utf8'});if(decoded.status!==0)throw Error(decoded.stderr);r.audioMeanDb=Number(decoded.stderr.match(/mean_volume: ([-.0-9]+)/)?.[1]);r.audioPeakDb=Number(decoded.stderr.match(/max_volume: ([-.0-9]+)/)?.[1]);if(!Number.isFinite(r.audioPeakDb)||r.audioPeakDb < -60)throw Error('Captured audio was silent');r.bounds=bounds;r.pass=Number(bounds.value)===r.after;await writeFile(`${root}/hurt-feedback.json`,JSON.stringify(r,null,2));if(!r.pass)throw Error('Health bar does not match actual damage');await p.screenshot({path:`${root}/hurt-hud.png`});console.log(r);
+}

@@ -99,6 +99,88 @@
       "pass": true
     },
     {
+      "scene": "music",
+      "experienceColor": null,
+      "touchTargets": [
+        {
+          "label": "开始远征 ▷",
+          "height": 60.59375
+        },
+        {
+          "label": "花园图鉴",
+          "height": 54.796875
+        },
+        {
+          "label": "♫ 原版音乐",
+          "height": 44
+        },
+        {
+          "label": "营地",
+          "height": 54
+        },
+        {
+          "label": "图鉴",
+          "height": 54
+        },
+        {
+          "label": "成长",
+          "height": 54
+        },
+        {
+          "label": "原版游戏音乐",
+          "height": 44
+        },
+        {
+          "label": "离线花园音乐",
+          "height": 44
+        },
+        {
+          "label": "关闭音乐",
+          "height": 44
+        },
+        {
+          "label": "载入官方原声播放器",
+          "height": 46.09375
+        },
+        {
+          "label": "返回游戏",
+          "height": 46.09375
+        }
+      ],
+      "w": 390,
+      "h": 844,
+      "frame": {
+        "x": 0,
+        "y": 47,
+        "width": 390,
+        "height": 763,
+        "top": 47,
+        "right": 390,
+        "bottom": 810,
+        "left": 0
+      },
+      "simulator": false,
+      "overflow": false,
+      "controls": [
+        {
+          "q": ".original-music>.paper",
+          "rect": {
+            "x": 20,
+            "y": 239.875,
+            "width": 350,
+            "height": 377.234375,
+            "top": 239.875,
+            "right": 370,
+            "bottom": 617.109375,
+            "left": 20
+          }
+        }
+      ],
+      "images": true,
+      "errors": [],
+      "pass": true
+    },
+    {
       "scene": "map",
       "experienceColor": null,
       "touchTargets": [
@@ -111,7 +193,7 @@
           "height": 148.640625
         },
         {
-          "label": "月光泳池通关前一关解锁",
+          "label": "月光泳池3.5 分钟 · 击败首领",
           "height": 148.640625
         },
         {
@@ -250,7 +332,7 @@
           "height": 64
         },
         {
-          "label": "Lv.30.8s",
+          "label": "Lv.30.9s",
           "height": 64
         },
         {
@@ -317,6 +399,32 @@
             "right": 382,
             "bottom": 802,
             "left": 8
+          }
+        },
+        {
+          "q": ".health-meter",
+          "rect": {
+            "x": 8,
+            "y": 103.140625,
+            "width": 220,
+            "height": 28,
+            "top": 103.140625,
+            "right": 228,
+            "bottom": 131.140625,
+            "left": 8
+          }
+        },
+        {
+          "q": ".health-value",
+          "rect": {
+            "x": 10,
+            "y": 105.140625,
+            "width": 216,
+            "height": 24,
+            "top": 105.140625,
+            "right": 226,
+            "bottom": 129.140625,
+            "left": 10
           }
         }
       ],
@@ -907,15 +1015,15 @@
           "height": 44
         },
         {
-          "label": "65 金币 + 1 钻石 · 不足",
+          "label": "65 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "70 金币 + 1 钻石 · 不足",
+          "label": "70 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "65 金币 + 1 钻石 · 不足",
+          "label": "65 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
@@ -923,7 +1031,7 @@
           "height": 44
         },
         {
-          "label": "65 金币 + 1 钻石 · 不足",
+          "label": "65 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
@@ -939,11 +1047,11 @@
           "height": 44
         },
         {
-          "label": "55 金币 + 1 钻石 · 不足",
+          "label": "55 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "60 金币 + 1 钻石 · 不足",
+          "label": "60 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
@@ -951,31 +1059,31 @@
           "height": 44
         },
         {
-          "label": "65 金币 + 1 钻石 · 不足",
+          "label": "65 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "75 金币 + 2 钻石 · 不足",
+          "label": "75 金币 + 2 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "80 金币 + 2 钻石 · 不足",
+          "label": "80 金币 + 2 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "70 金币 + 1 钻石 · 不足",
+          "label": "70 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "100 金币 + 3 钻石 · 不足",
+          "label": "100 金币 + 3 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "55 金币 + 1 钻石 · 不足",
+          "label": "55 金币 + 1 钻石 · 解锁",
           "height": 44
         },
         {
-          "label": "110 金币 + 3 钻石 · 不足",
+          "label": "110 金币 + 3 钻石 · 解锁",
           "height": 44
         }
       ],
@@ -1063,7 +1171,7 @@
           "height": 44
         },
         {
-          "label": "80 金币 + 1 钻石 · 不足",
+          "label": "80 金币 + 1 钻石 · 解锁",
           "height": 44
         }
       ],
