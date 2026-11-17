@@ -33,8 +33,8 @@
 2. 预览新版本 5204、基线 5206；`GARDEN_QA_URL` 指向相应服务器，`GARDEN_QA_SOURCE` 指定夹具文件所在目录；`GARDEN_QA_PHASE=v08-fresh|v09 GARDEN_QA_SPACE=<id> npm run test:performance:compare` 保存两轮原始数据。脚本强制两版相同 780×1382 Canvas，避免紧凑 HUD 扩大战场造成不公平对比。
 3. 每轮目标 180 帧。少于 60 帧不能分析；60–179 帧仍必须标为未完成目标，不能按“有效”称作流畅通过。报告分别显示采样数、工作耗时和帧间隔。负载为 50/80/20、160/240/80、320/800/160，不得减量。
 4. `node tests/all-plants-campaign.mjs` 遍历 23 种主动植物，要求本植物真实伤害大于零，且完整到达胜利或失败结算。它补充 81 局三角色/三关卡/三核心初始植物测试，并不等于所有组合都已穷举。
-5. 浏览器持续运行：在同一 Ego 页面导入 `tests/full-app-soak.mjs`，调用 `startSoak(page, 1200000)`，即 20 分钟。实际 RAF、React HUD、Web Audio、存档与结算全部开启，自动控制只发送输入并点击升级/结算按钮。开始后禁止操作同页、改动热更新源码或启动另一测试。
-6. 用 `page.evaluate(()=>window.__soakProgress())` 有界检查状态；不能用一次超过 60 秒的阻塞等待。结束调用 `saveSoak(page, 绝对路径 + '/docs/reports/v09/soak.json')`。至少 3 局已结算、游戏时间超过 60 秒、超过 1000 帧、无页面异常、采样未隐藏才通过。音频、内存、长帧单列检查；不依据无错误就声称全程 60 FPS。
+5. 浏览器持续运行：在同一 Ego 页面导入 `tests/full-app-soak.mjs`，调用 `runSoak(page, 绝对输出文件路径, 1200000)`，即 20 分钟。整个调用必须保持在同一个 Ego Node 进程内；脚本退出会释放尺寸模拟，不能先调用 startSoak 后退出再跨脚本轮询。实际 RAF、React HUD、Web Audio、存档与结算全部开启，自动控制只发送输入并点击升级/结算按钮。开始后禁止操作同页、改动热更新源码或启动另一测试。
+6. `runSoak` 每 30 秒报告状态并自动保存；通过后台 exec 会话运行，在主对话每次只做不超过 60 秒的有界检查。不要另起脚本操作同一浏览器页。至少 3 局已结算、游戏时间超过 60 秒、超过 1000 帧、无页面异常、采样未隐藏且每个样本的视口均为 390×844 才通过。音频、内存、长帧单列检查；不依据无错误就声称全程 60 FPS。
 7. `node scripts/v09-report.mjs && npm run report:mobile` 生成 HTML、WebP 和结构化结果。`npm run build:release` 将它们复制到 `/plant-survivors-ui/qa/`，必须验证生产路径而非只看 DEV 页面。
 8. 发布后验证 release.json、关键资源类型、加载完成、实际开局/移动/暂停/恢复；关闭任务创建的页面、空间与服务器。保留源图、报告和原始失败数据。
 
@@ -44,3 +44,7 @@
 
 
 冷加载与录像：`tests/cold-loading.mjs` 的 `coldLoad(page,url)` 使用禁用缓存、12 Mbps 下行、60 ms 延迟；每次在 finally 中恢复网络和缓存，页面就绪上限 50 秒，超时保留失败而不算通过。`tests/battle-recording.mjs` 捕获实际 Canvas+Web Audio，录制完成后停止视频轨道并保存 WebM；不能将 Canvas 录像称作包含整个 DOM HUD 的屏幕录制。
+
+生产资源完整性：`build:release` 自动执行 `scripts/check-release-assets.mjs`，检查应用入口、主报告、v0.9 报告与 CSS 的本地链接，核验 78 张运行图片大小，并要求 HTML application-version 与 package.json 一致。发行时网站图标使用 release/sunflower.webp，不能指向被剔除的原始 PNG。
+
+生产触控回归：在同一 Ego 脚本中调用 `productionFlow(page,生产URL,截图绝对路径)`（`tests/production-flow.mjs`）。用 CDP 真实触摸事件分别从左、右半区拖动，验证移动/停止、暂停恢复、刷新后安全恢复存档，以及无 DEV 钩子、无破图。执行结束前读取返回结果，不跨脚本保留尺寸仿真假设。
