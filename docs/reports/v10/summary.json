@@ -1,8 +1,8 @@
 {
   "version": "0.10.0",
-  "sourceFingerprint": "d30e2c0fc7c17e2c3bbadc20a3f8abd521d22c6c8097f002a081ddbb491d6b82",
-  "created": "2026-11-17T14:17:51.666Z",
-  "unitTests": 79,
+  "sourceFingerprint": "645e40ca9186d5f9fc448af50fab1ea2b2af8f71a1ba0de157f7f99636c2e933",
+  "created": "2026-11-17T14:22:57.758Z",
+  "unitTests": 80,
   "sitesTests": 4,
   "mobile": {
     "profiles": 12,

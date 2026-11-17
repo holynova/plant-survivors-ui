@@ -101,7 +101,9 @@ export function step(s:Run,dt:number,input={x:0,y:0}){
  for(const p of s.hostileShots){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(Math.hypot(p.x-s.x,p.y-s.y)<19){hurtPlayer(s,p.damage,'远程魔法弹');p.life=0;}}s.hostileShots=s.hostileShots.filter(p=>p.life>0).slice(-80);
  s.enemies=s.enemies.filter(e=>e.hp>0);
  s.drops=s.drops.filter(d=>{const age=s.time-(d.born??-10);if(age<.4){d.x=clamp(d.x+(d.vx||0)*dt*(1-age/.4),20,s.worldWidth-20);d.y=clamp(d.y+(d.vy||0)*dt*(1-age/.4),20,s.worldHeight-20);}if(d.kind==='heal'&&s.hp>=s.maxHp)return age<120;const dist=Math.hypot(d.x-s.x,d.y-s.y),reach=70+character.pickup+s.pickupBonus+(s.plants.sunflower||0)*15;if(dist<reach&&age>.25){if(dist<20){collect(s,d);return false;}d.x+=(s.x-d.x)/dist*Math.min(dist,dt*360);d.y+=(s.y-d.y)/dist*Math.min(dist,dt*360);}return d.kind!=='heal'||age<120;});
- if(s.drops.length>450){const suns=s.drops.filter(d=>!d.kind||d.kind==='sun');if(suns.length>200){const group=suns.slice(0,100),first=group[0];first.value=group.reduce((v,d)=>v+d.value,0);const removed=new Set(group.slice(1));s.drops=s.drops.filter(d=>!removed.has(d));}}
+ // Endless runs compact old uncollected stacks without losing XP or currency value.
+ if(s.drops.length>600){const removed=new Set<Drop>();for(const [kind,limit]of [['sun',200],['coin',150],['gem',50]] as const){const group=s.drops.filter(d=>(d.kind||'sun')===kind);if(group.length>limit){const merged=group.slice(0,group.length-limit+1);merged[0].value=merged.reduce((n,d)=>n+d.value,0);for(let i=1;i<merged.length;i++)removed.add(merged[i]);}}s.drops=s.drops.filter(d=>!removed.has(d));}
+
  if(s.hp<=0){s.hp=0;s.status='lost';emit(s,'defeat',s.x,s.y,s.hero);return;}
  if(s.xp>=s.nextXp){s.xp-=s.nextXp;s.level++;s.nextXp=Math.ceil(s.nextXp*progression.growth+progression.increment);s.choices=choices(s);if(s.choices.length){s.status='upgrade';emit(s,'level',s.x,s.y,'sun');}else s.hp=Math.min(s.maxHp,s.hp+30);}
 
