@@ -139,12 +139,8 @@
           "height": 44
         },
         {
-          "label": "载入官方原声播放器",
-          "height": 44
-        },
-        {
           "label": "返回游戏",
-          "height": 44
+          "height": 46.09375
         }
       ],
       "w": 844,
@@ -168,10 +164,10 @@
             "x": 192,
             "y": 8,
             "width": 460,
-            "height": 353,
+            "height": 245.75,
             "top": 8,
             "right": 652,
-            "bottom": 361,
+            "bottom": 253.75,
             "left": 192
           }
         }
@@ -265,6 +261,26 @@
           "height": 92
         },
         {
+          "label": "豌豆射手 ✓",
+          "height": 44
+        },
+        {
+          "label": "寒冰射手 ✓",
+          "height": 44
+        },
+        {
+          "label": "回旋镖 ✓",
+          "height": 44
+        },
+        {
+          "label": "大喷菇 ✓",
+          "height": 44
+        },
+        {
+          "label": "卷心菜投手 ✓",
+          "height": 44
+        },
+        {
           "label": "戴夫 · 出发 ▷",
           "height": 54.796875
         }
@@ -324,27 +340,27 @@
           "height": 44
         },
         {
-          "label": "Lv.30.6s",
+          "label": "Lv.3就绪",
           "height": 111
         },
         {
-          "label": "Lv.30.6s",
+          "label": "Lv.3就绪",
           "height": 111
         },
         {
-          "label": "Lv.30.9s",
+          "label": "Lv.3就绪",
           "height": 111
         },
         {
-          "label": "Lv.31.2s",
+          "label": "Lv.3就绪",
           "height": 111
         },
         {
-          "label": "Lv.21.1s",
+          "label": "Lv.2就绪",
           "height": 111
         },
         {
-          "label": "Lv.21.3s",
+          "label": "Lv.2就绪",
           "height": 111
         },
         {
@@ -441,23 +457,23 @@
           "height": 44
         },
         {
-          "label": "Lv.30.4s",
+          "label": "Lv.30.5s",
           "height": 111
         },
         {
-          "label": "Lv.30.4s",
+          "label": "Lv.30.5s",
           "height": 111
         },
         {
-          "label": "Lv.30.7s",
+          "label": "Lv.30.8s",
           "height": 111
         },
         {
-          "label": "Lv.31.0s",
+          "label": "Lv.31.1s",
           "height": 111
         },
         {
-          "label": "Lv.20.9s",
+          "label": "Lv.21.0s",
           "height": 111
         },
         {
@@ -519,7 +535,7 @@
           "height": 44
         },
         {
-          "label": "Lv.30.2s",
+          "label": "Lv.30.3s",
           "height": 111
         },
         {
@@ -527,11 +543,11 @@
           "height": 111
         },
         {
-          "label": "Lv.30.5s",
+          "label": "Lv.30.6s",
           "height": 111
         },
         {
-          "label": "Lv.30.8s",
+          "label": "Lv.30.9s",
           "height": 111
         },
         {
@@ -539,7 +555,7 @@
           "height": 111
         },
         {
-          "label": "Lv.21.0s",
+          "label": "Lv.21.1s",
           "height": 111
         },
         {
@@ -601,7 +617,7 @@
           "height": 44
         },
         {
-          "label": "Lv.30.2s",
+          "label": "Lv.30.3s",
           "height": 111
         },
         {
@@ -609,11 +625,11 @@
           "height": 111
         },
         {
-          "label": "Lv.30.5s",
+          "label": "Lv.30.6s",
           "height": 111
         },
         {
-          "label": "Lv.30.8s",
+          "label": "Lv.30.9s",
           "height": 111
         },
         {
@@ -621,7 +637,7 @@
           "height": 111
         },
         {
-          "label": "Lv.21.0s",
+          "label": "Lv.21.1s",
           "height": 111
         },
         {
@@ -637,16 +653,16 @@
           "height": 111
         },
         {
-          "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透",
-          "height": 116.390625
+          "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透命中伤害 40 → 48 · 冷却 0.61 → 0.56 秒 · 解锁穿透",
+          "height": 155.171875
         },
         {
-          "label": "寒冰射手 Lv.4冰晶减速；Lv.3 穿透",
-          "height": 116.390625
+          "label": "寒冰射手 Lv.4冰晶减速；Lv.3 穿透命中伤害 40 → 48 · 冷却 0.65 → 0.59 秒",
+          "height": 155.171875
         },
         {
-          "label": "坚果 Lv.2生命上限 +25，并回复 40",
-          "height": 116.390625
+          "label": "坚果 Lv.2生命上限 +25，并回复 40生命上限 +25 · 立即回复 40",
+          "height": 155.171875
         },
         {
           "label": "重掷 · 2",
@@ -672,12 +688,12 @@
           "q": ".upgrade-content",
           "rect": {
             "x": 72,
-            "y": 63.953125,
+            "y": 19.359375,
             "width": 700,
-            "height": 241.09375,
-            "top": 63.953125,
+            "height": 330.265625,
+            "top": 19.359375,
             "right": 772,
-            "bottom": 305.046875,
+            "bottom": 349.625,
             "left": 72
           }
         }
@@ -695,7 +711,7 @@
           "height": 44
         },
         {
-          "label": "Lv.40.2s",
+          "label": "Lv.40.3s",
           "height": 111
         },
         {
@@ -703,11 +719,11 @@
           "height": 111
         },
         {
-          "label": "Lv.30.5s",
+          "label": "Lv.30.6s",
           "height": 111
         },
         {
-          "label": "Lv.30.8s",
+          "label": "Lv.30.9s",
           "height": 111
         },
         {
@@ -715,7 +731,7 @@
           "height": 111
         },
         {
-          "label": "Lv.21.0s",
+          "label": "Lv.21.1s",
           "height": 111
         },
         {
@@ -732,19 +748,19 @@
         },
         {
           "label": "继续战斗 ▷",
-          "height": 54.796875
+          "height": 44
         },
         {
           "label": "查看本局花园",
-          "height": 46.09375
+          "height": 44
         },
         {
           "label": "战斗音效：开",
-          "height": 46.09375
+          "height": 44
         },
         {
           "label": "♫ 背景音乐",
-          "height": 46.09375
+          "height": 44
         },
         {
           "label": "减少动态：关",

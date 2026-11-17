@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-11-17T05:50:32.076Z",
+  "clock": [
+    {
+      "fps": 60,
+      "wallSeconds": 10,
+      "gameSeconds": 10.000000000000076,
+      "distance": 1200
+    },
+    {
+      "fps": 30,
+      "wallSeconds": 10,
+      "gameSeconds": 9.999999999999975,
+      "distance": 1200
+    },
+    {
+      "fps": 20,
+      "wallSeconds": 10,
+      "gameSeconds": 10.000000000000007,
+      "distance": 1200
+    },
+    {
+      "fps": 10,
+      "wallSeconds": 10,
+      "gameSeconds": 4.99999999999999,
+      "distance": 600
+    }
+  ],
+  "kernelSolo": [
+    {
+      "time": 0.017,
+      "butter": false,
+      "globalVolley": 1
+    },
+    {
+      "time": 1.483,
+      "butter": false,
+      "globalVolley": 2
+    },
+    {
+      "time": 2.95,
+      "butter": true,
+      "globalVolley": 3
+    },
+    {
+      "time": 4.417,
+      "butter": false,
+      "globalVolley": 4
+    },
+    {
+      "time": 5.883,
+      "butter": false,
+      "globalVolley": 5
+    },
+    {
+      "time": 7.35,
+      "butter": true,
+      "globalVolley": 6
+    },
+    {
+      "time": 8.817,
+      "butter": false,
+      "globalVolley": 7
+    },
+    {
+      "time": 10.283,
+      "butter": false,
+      "globalVolley": 8
+    },
+    {
+      "time": 11.75,
+      "butter": true,
+      "globalVolley": 9
+    }
+  ],
+  "kernelWithPea": [
+    {
+      "time": 0.017,
+      "butter": false,
+      "globalVolley": 2
+    },
+    {
+      "time": 1.483,
+      "butter": false,
+      "globalVolley": 4
+    },
+    {
+      "time": 2.95,
+      "butter": false,
+      "globalVolley": 7
+    },
+    {
+      "time": 4.417,
+      "butter": false,
+      "globalVolley": 10
+    },
+    {
+      "time": 5.883,
+      "butter": false,
+      "globalVolley": 13
+    },
+    {
+      "time": 7.35,
+      "butter": false,
+      "globalVolley": 16
+    },
+    {
+      "time": 8.817,
+      "butter": true,
+      "globalVolley": 19
+    },
+    {
+      "time": 10.283,
+      "butter": true,
+      "globalVolley": 21
+    },
+    {
+      "time": 11.75,
+      "butter": true,
+      "globalVolley": 24
+    }
+  ],
+  "evolutionSlotTrap": {
+    "plants": {
+      "pea": 5,
+      "sunflower": 1,
+      "walnut": 1,
+      "torchwood": 1
+    },
+    "bagAvailableAfter100Rerolls": false
+  }
+}

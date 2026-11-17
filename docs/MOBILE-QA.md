@@ -41,3 +41,6 @@
 发行图像预算：总文件 ≤4.5 MiB、最大单图 ≤512 KiB、RGBA 理论值 ≤64 MiB，由构建脚本检查。音频独立计重，原声播放器不进入离线资源包。新机制或内容超过预算时需要明确测量、解释和审查，不能悄悄删除检查。
 
 真机待验清单：Safari 的触摸/音频恢复与横竖切换；低端 Android 的 GPU/热降频；至少 20 分钟实际触控连续战斗；首次玩家能解释升级和死亡原因。没有这些设备或参与者时写“未验证”，不能把 Chromium 尺寸矩阵改名为真机报告。
+
+
+冷加载与录像：`tests/cold-loading.mjs` 的 `coldLoad(page,url)` 使用禁用缓存、12 Mbps 下行、60 ms 延迟；每次在 finally 中恢复网络和缓存，页面就绪上限 50 秒，超时保留失败而不算通过。`tests/battle-recording.mjs` 捕获实际 Canvas+Web Audio，录制完成后停止视频轨道并保存 WebM；不能将 Canvas 录像称作包含整个 DOM HUD 的屏幕录制。

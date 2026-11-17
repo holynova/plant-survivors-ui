@@ -16,6 +16,10 @@
         "experienceColor": null,
         "touchTargets": [
           {
+            "label": "继续远征 · 00:00",
+            "height": 89.59375
+          },
+          {
             "label": "开始远征 ▷",
             "height": 54.796875
           },
@@ -59,10 +63,10 @@
             "q": ".lobby-actions",
             "rect": {
               "x": 8,
-              "y": 290.40625,
+              "y": 188.8125,
               "width": 304,
-              "height": 197.59375,
-              "top": 290.40625,
+              "height": 299.1875,
+              "top": 188.8125,
               "right": 312,
               "bottom": 488,
               "left": 8
@@ -104,6 +108,10 @@
         "experienceColor": null,
         "touchTargets": [
           {
+            "label": "继续远征 · 00:00",
+            "height": 89.59375
+          },
+          {
             "label": "开始远征 ▷",
             "height": 54.796875
           },
@@ -140,10 +148,6 @@
             "height": 44.78125
           },
           {
-            "label": "载入官方原声播放器",
-            "height": 46.09375
-          },
-          {
             "label": "返回游戏",
             "height": 46.09375
           }
@@ -167,12 +171,12 @@
             "q": ".original-music>.paper",
             "rect": {
               "x": 20,
-              "y": 85.390625,
+              "y": 141.546875,
               "width": 280,
-              "height": 397.203125,
-              "top": 85.390625,
+              "height": 284.90625,
+              "top": 141.546875,
               "right": 300,
-              "bottom": 482.59375,
+              "bottom": 426.453125,
               "left": 20
             }
           }
@@ -191,15 +195,15 @@
           },
           {
             "label": "阳光后院3 分钟 · 击败首领",
-            "height": 77.234375
+            "height": 70.65625
           },
           {
             "label": "月光泳池3.5 分钟 · 击败首领",
-            "height": 77.25
+            "height": 70.671875
           },
           {
             "label": "屋顶花园通关前一关解锁",
-            "height": 77.25
+            "height": 70.671875
           },
           {
             "label": "前往花园 ▷",
@@ -266,6 +270,26 @@
             "height": 84
           },
           {
+            "label": "豌豆射手 ✓",
+            "height": 44
+          },
+          {
+            "label": "寒冰射手 ✓",
+            "height": 44
+          },
+          {
+            "label": "回旋镖 ✓",
+            "height": 44
+          },
+          {
+            "label": "大喷菇 ✓",
+            "height": 44
+          },
+          {
+            "label": "卷心菜投手 ✓",
+            "height": 44
+          },
+          {
             "label": "戴夫 · 出发 ▷",
             "height": 54.796875
           }
@@ -325,27 +349,27 @@
             "height": 44
           },
           {
-            "label": "Lv.30.6s",
+            "label": "Lv.3就绪",
             "height": 64
           },
           {
-            "label": "Lv.30.6s",
+            "label": "Lv.3就绪",
             "height": 64
           },
           {
-            "label": "Lv.30.9s",
+            "label": "Lv.3就绪",
             "height": 64
           },
           {
-            "label": "Lv.31.2s",
+            "label": "Lv.3就绪",
             "height": 64
           },
           {
-            "label": "Lv.21.1s",
+            "label": "Lv.2就绪",
             "height": 64
           },
           {
-            "label": "Lv.21.3s",
+            "label": "Lv.2就绪",
             "height": 64
           },
           {
@@ -407,10 +431,10 @@
             "rect": {
               "x": 8,
               "y": 56.140625,
-              "width": 180.59375,
+              "width": 180.609375,
               "height": 28,
               "top": 56.140625,
-              "right": 188.59375,
+              "right": 188.609375,
               "bottom": 84.140625,
               "left": 8
             }
@@ -420,10 +444,10 @@
             "rect": {
               "x": 10,
               "y": 58.140625,
-              "width": 176.59375,
+              "width": 176.609375,
               "height": 24,
               "top": 58.140625,
-              "right": 186.59375,
+              "right": 186.609375,
               "bottom": 82.140625,
               "left": 10
             }
@@ -442,27 +466,27 @@
             "height": 44
           },
           {
-            "label": "Lv.30.3s",
-            "height": 64
-          },
-          {
-            "label": "Lv.30.3s",
-            "height": 64
-          },
-          {
             "label": "Lv.30.5s",
             "height": 64
           },
           {
-            "label": "Lv.30.9s",
+            "label": "Lv.30.6s",
             "height": 64
           },
           {
-            "label": "Lv.20.8s",
+            "label": "Lv.30.8s",
             "height": 64
           },
           {
-            "label": "Lv.21.0s",
+            "label": "Lv.31.1s",
+            "height": 64
+          },
+          {
+            "label": "Lv.21.1s",
+            "height": 64
+          },
+          {
+            "label": "Lv.21.3s",
             "height": 64
           },
           {
@@ -520,11 +544,7 @@
             "height": 44
           },
           {
-            "label": "Lv.30.1s",
-            "height": 64
-          },
-          {
-            "label": "Lv.30.2s",
+            "label": "Lv.30.4s",
             "height": 64
           },
           {
@@ -536,11 +556,15 @@
             "height": 64
           },
           {
-            "label": "Lv.20.7s",
+            "label": "Lv.31.0s",
             "height": 64
           },
           {
-            "label": "Lv.20.9s",
+            "label": "Lv.21.0s",
+            "height": 64
+          },
+          {
+            "label": "Lv.21.2s",
             "height": 64
           },
           {
@@ -579,12 +603,12 @@
             "q": ".game-modal",
             "rect": {
               "x": 12,
-              "y": 124.796875,
+              "y": 112.90625,
               "width": 296,
-              "height": 318.390625,
-              "top": 124.796875,
+              "height": 342.1875,
+              "top": 112.90625,
               "right": 308,
-              "bottom": 443.1875,
+              "bottom": 455.09375,
               "left": 12
             }
           }
@@ -602,11 +626,7 @@
             "height": 44
           },
           {
-            "label": "Lv.30.1s",
-            "height": 64
-          },
-          {
-            "label": "Lv.30.2s",
+            "label": "Lv.30.4s",
             "height": 64
           },
           {
@@ -618,11 +638,19 @@
             "height": 64
           },
           {
-            "label": "Lv.20.7s",
+            "label": "Lv.31.0s",
             "height": 64
           },
           {
-            "label": "Lv.20.9s",
+            "label": "Lv.21.0s",
+            "height": 64
+          },
+          {
+            "label": "Lv.21.2s",
+            "height": 64
+          },
+          {
+            "label": "Lv.1被动",
             "height": 64
           },
           {
@@ -634,20 +662,16 @@
             "height": 64
           },
           {
-            "label": "Lv.1被动",
-            "height": 64
+            "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透命中伤害 40 → 48 · 冷却 0.61 → 0.56 秒 · 解锁穿透",
+            "height": 114.171875
           },
           {
-            "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透",
-            "height": 95
+            "label": "寒冰射手 Lv.4冰晶减速；Lv.3 穿透命中伤害 40 → 48 · 冷却 0.65 → 0.59 秒",
+            "height": 114.171875
           },
           {
-            "label": "寒冰射手 Lv.4冰晶减速；Lv.3 穿透",
-            "height": 95
-          },
-          {
-            "label": "坚果 Lv.2生命上限 +25，并回复 40",
-            "height": 95
+            "label": "坚果 Lv.2生命上限 +25，并回复 40生命上限 +25 · 立即回复 40",
+            "height": 96.78125
           },
           {
             "label": "重掷 · 2",
@@ -673,12 +697,12 @@
             "q": ".upgrade-content",
             "rect": {
               "x": 12,
-              "y": 62.59375,
+              "y": 12,
               "width": 296,
-              "height": 442.796875,
-              "top": 62.59375,
+              "height": 555.703125,
+              "top": 12,
               "right": 308,
-              "bottom": 505.390625,
+              "bottom": 567.703125,
               "left": 12
             }
           }
@@ -696,11 +720,7 @@
             "height": 44
           },
           {
-            "label": "Lv.40.1s",
-            "height": 64
-          },
-          {
-            "label": "Lv.30.2s",
+            "label": "Lv.40.4s",
             "height": 64
           },
           {
@@ -712,11 +732,15 @@
             "height": 64
           },
           {
-            "label": "Lv.20.7s",
+            "label": "Lv.31.0s",
             "height": 64
           },
           {
-            "label": "Lv.20.9s",
+            "label": "Lv.21.0s",
+            "height": 64
+          },
+          {
+            "label": "Lv.21.2s",
             "height": 64
           },
           {
@@ -733,19 +757,19 @@
           },
           {
             "label": "继续战斗 ▷",
-            "height": 54.796875
+            "height": 52.25
           },
           {
             "label": "查看本局花园",
-            "height": 46.09375
+            "height": 44.171875
           },
           {
             "label": "战斗音效：开",
-            "height": 46.09375
+            "height": 44.1875
           },
           {
             "label": "♫ 背景音乐",
-            "height": 46.09375
+            "height": 44.171875
           },
           {
             "label": "减少动态：关",

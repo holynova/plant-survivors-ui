@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {plantIds} from '../src/game/plants.ts';
 import {newEnemyIds} from '../src/game/enemies.ts';
 const root=new URL('../public/assets/game/',import.meta.url);
+async function writeGenerated(path,text){try{if(await readFile(path,'utf8')===text)return}catch{}await writeFile(path,text);}
 // Explicit runtime dependency graph. Source artwork remains available to artists, not preloaded.
 const animations=['dave','flora','rusty','zombie','cone','bucket','boss-trim','plants','fx',...newEnemyIds];
 const characters=['dave','flora','rusty','zombie','cone','bucket','boss-trim',...newEnemyIds];
@@ -19,8 +20,8 @@ for(const id of characters){const path=`animations/${id}-idle.webp`;manifest.pus
 let decodedBytes=0;for(const item of manifest){const meta=await sharp(fileURLToPath(new URL(item.path,root))).metadata();decodedBytes+=meta.width*meta.height*4;if(item.bytes>512*1024)throw Error(`Runtime image exceeds 512 KiB budget: ${item.path}`);}
 const compressedBytes=manifest.reduce((n,item)=>n+item.bytes,0);
 if(compressedBytes>4.5*1048576||decodedBytes>64*1048576)throw Error(`Image budget exceeded: ${compressedBytes} compressed / ${decodedBytes} estimated RGBA bytes`);
-await writeFile(new URL('../src/game/asset-manifest.json',import.meta.url),JSON.stringify(manifest.sort((a,b)=>a.path.localeCompare(b.path)),null,2)+'\n');
-const pkg=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'));await writeFile(new URL('../src/game/version.ts',import.meta.url),`// Generated from package.json.\nexport const versionLabel=${JSON.stringify('v'+pkg.version)};\n`);
+await writeGenerated(new URL('../src/game/asset-manifest.json',import.meta.url),JSON.stringify(manifest.sort((a,b)=>a.path.localeCompare(b.path)),null,2)+'\n');
+const pkg=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'));await writeGenerated(new URL('../src/game/version.ts',import.meta.url),`// Generated from package.json.\nexport const versionLabel=${JSON.stringify('v'+pkg.version)};\n`);
 console.log(`Runtime images: ${manifest.length}, ${(manifest.reduce((n,m)=>n+m.bytes,0)/1048576).toFixed(2)} MiB`);
 
-const audioWeights={};for(const f of await readdir(new URL('audio/',root)))if(f.endsWith('.wav'))audioWeights[f.replace('.wav','')]=(await stat(new URL('audio/'+f,root))).size;const audioBytes=Object.values(audioWeights).reduce((a,b)=>a+b,0);await writeFile(new URL('../src/game/audio-manifest.ts',import.meta.url),`// Generated from shipped audio.\nexport const audioWeights:Record<string,number>=${JSON.stringify(audioWeights)};\nexport const audioBytes=${audioBytes};\n`);
+const audioWeights={};for(const f of await readdir(new URL('audio/',root)))if(f.endsWith('.wav'))audioWeights[f.replace('.wav','')]=(await stat(new URL('audio/'+f,root))).size;const audioBytes=Object.values(audioWeights).reduce((a,b)=>a+b,0);await writeGenerated(new URL('../src/game/audio-manifest.ts',import.meta.url),`// Generated from shipped audio.\nexport const audioWeights:Record<string,number>=${JSON.stringify(audioWeights)};\nexport const audioBytes=${audioBytes};\n`);

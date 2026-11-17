@@ -1,0 +1,212 @@
+{
+  "images": 104,
+  "compressedMB": 32.90402889251709,
+  "estimatedRGBA_MB": 111.34083938598633,
+  "largest": [
+    {
+      "file": "effects.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 375651,
+      "rgbaBytes": 6294152
+    },
+    {
+      "file": "battle-bg.png",
+      "width": 853,
+      "height": 1844,
+      "bytes": 2291135,
+      "rgbaBytes": 6291728
+    },
+    {
+      "file": "boss.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2071256,
+      "rgbaBytes": 6291456
+    },
+    {
+      "file": "logo.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1969716,
+      "rgbaBytes": 6291456
+    },
+    {
+      "file": "lobby-bg.png",
+      "width": 948,
+      "height": 1659,
+      "bytes": 2455803,
+      "rgbaBytes": 6290928
+    },
+    {
+      "file": "sprites.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1449081,
+      "rgbaBytes": 6290112
+    },
+    {
+      "file": "items.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1301427,
+      "rgbaBytes": 6290064
+    },
+    {
+      "file": "ui-skin.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1371688,
+      "rgbaBytes": 6290064
+    },
+    {
+      "file": "boss-trim.png",
+      "width": 1351,
+      "height": 993,
+      "bytes": 2493254,
+      "rgbaBytes": 5366172
+    },
+    {
+      "file": "logo-trim.png",
+      "width": 1425,
+      "height": 881,
+      "bytes": 2441107,
+      "rgbaBytes": 5021700
+    },
+    {
+      "file": "battle-night.png",
+      "width": 780,
+      "height": 1360,
+      "bytes": 2799266,
+      "rgbaBytes": 4243200
+    },
+    {
+      "file": "battle-roof.png",
+      "width": 780,
+      "height": 1360,
+      "bytes": 2389185,
+      "rgbaBytes": 4243200
+    }
+  ],
+  "strips": [
+    {
+      "file": "animations/boss-trim.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 158596,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/bucket.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 148688,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/cone.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 141172,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/dave.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 246802,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/flora.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 190576,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/fx.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 205392,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/plants.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 174002,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/rusty.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 182922,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/zombie.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 162804,
+      "rgbaBytes": 2359296
+    },
+    {
+      "file": "animations/balloon.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 39694,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/dancer.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 52824,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/digger.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 59482,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/football.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 60756,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/imp.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 56042,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/jetpack.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 71994,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/newspaper.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 55400,
+      "rgbaBytes": 589824
+    },
+    {
+      "file": "animations/wizard.webp",
+      "width": 768,
+      "height": 192,
+      "bytes": 64562,
+      "rgbaBytes": 589824
+    }
+  ]
+}

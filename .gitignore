@@ -8,3 +8,5 @@ playwright-report/
 .DS_Store
 # Full-resolution PNG captures stay local; portable WebP evidence is committed.
 docs/reports/mobile/**/*.png
+
+docs/reports/v09/*.png
