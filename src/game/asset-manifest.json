@@ -1,106 +1,314 @@
 [
-  "animations/balloon-idle.webp",
-  "animations/balloon.webp",
-  "animations/boss-trim-idle.webp",
-  "animations/boss-trim.webp",
-  "animations/bucket-idle.webp",
-  "animations/bucket.webp",
-  "animations/cone-idle.webp",
-  "animations/cone.webp",
-  "animations/dancer-idle.webp",
-  "animations/dancer.webp",
-  "animations/dave-idle.webp",
-  "animations/dave.webp",
-  "animations/digger-idle.webp",
-  "animations/digger.webp",
-  "animations/flora-idle.webp",
-  "animations/flora.webp",
-  "animations/football-idle.webp",
-  "animations/football.webp",
-  "animations/fx.webp",
-  "animations/imp-idle.webp",
-  "animations/imp.webp",
-  "animations/jetpack-idle.webp",
-  "animations/jetpack.webp",
-  "animations/newspaper-idle.webp",
-  "animations/newspaper.webp",
-  "animations/plants.webp",
-  "animations/rusty-idle.webp",
-  "animations/rusty.webp",
-  "animations/wizard-idle.webp",
-  "animations/wizard.webp",
-  "animations/zombie-idle.webp",
-  "animations/zombie.webp",
-  "bag-v2.png",
-  "bag.png",
-  "bamboo.png",
-  "battle-bg.png",
-  "battle-night.png",
-  "battle-roof.png",
-  "bonk.png",
-  "boomerang.png",
-  "boss-trim.png",
-  "boss.png",
-  "bucket.png",
-  "button.png",
-  "cabbage.png",
-  "cabbagevolt.png",
-  "cactus.png",
-  "cherry.png",
-  "chest-v2.png",
-  "chest.png",
-  "chomper.png",
-  "coconut.png",
-  "cone.png",
-  "crystal-v2.png",
-  "crystal.png",
-  "dave.png",
-  "effects.png",
-  "evolution-hero-v2.png",
-  "evolution-hero.png",
-  "gatling.png",
-  "grass-tile.webp",
-  "ice.png",
-  "iceberg.png",
-  "items.png",
-  "jalapeno.png",
-  "kernel.png",
-  "laser.png",
-  "lightning.png",
-  "lobby-bg.png",
-  "lobby-hero.png",
-  "logo-trim.png",
-  "logo.png",
-  "magnet.png",
-  "map-day.png",
-  "map-night.png",
-  "map-roof.png",
-  "melon.png",
-  "mushroom.png",
-  "paper-v2.png",
-  "paper.png",
-  "parchment.png",
-  "pea.png",
-  "potato.png",
-  "prep-hero.png",
-  "projectile.png",
-  "result-hero-v2.png",
-  "result-hero.png",
-  "seed-v2.png",
-  "seed.png",
-  "sign.png",
-  "slot.png",
-  "snapdragon.png",
-  "sprites.png",
-  "squash.png",
-  "starfruit.png",
-  "sun.png",
-  "sunflower.png",
-  "torchwood.png",
-  "ui-skin.png",
-  "walnut.png",
-  "warning.png",
-  "wood-v2.png",
-  "wood.png",
-  "zombie.png"
+  {
+    "path": "animations/balloon-idle.webp",
+    "bytes": 10070
+  },
+  {
+    "path": "animations/balloon.webp",
+    "bytes": 39694
+  },
+  {
+    "path": "animations/boss-trim-idle.webp",
+    "bytes": 8116
+  },
+  {
+    "path": "animations/boss-trim.webp",
+    "bytes": 158596
+  },
+  {
+    "path": "animations/bucket-idle.webp",
+    "bytes": 7044
+  },
+  {
+    "path": "animations/bucket.webp",
+    "bytes": 148688
+  },
+  {
+    "path": "animations/cone-idle.webp",
+    "bytes": 6660
+  },
+  {
+    "path": "animations/cone.webp",
+    "bytes": 141172
+  },
+  {
+    "path": "animations/dancer-idle.webp",
+    "bytes": 15262
+  },
+  {
+    "path": "animations/dancer.webp",
+    "bytes": 52824
+  },
+  {
+    "path": "animations/dave-idle.webp",
+    "bytes": 11736
+  },
+  {
+    "path": "animations/dave.webp",
+    "bytes": 246802
+  },
+  {
+    "path": "animations/digger-idle.webp",
+    "bytes": 16622
+  },
+  {
+    "path": "animations/digger.webp",
+    "bytes": 59482
+  },
+  {
+    "path": "animations/flora-idle.webp",
+    "bytes": 8454
+  },
+  {
+    "path": "animations/flora.webp",
+    "bytes": 190576
+  },
+  {
+    "path": "animations/football-idle.webp",
+    "bytes": 16312
+  },
+  {
+    "path": "animations/football.webp",
+    "bytes": 60756
+  },
+  {
+    "path": "animations/fx.webp",
+    "bytes": 205392
+  },
+  {
+    "path": "animations/imp-idle.webp",
+    "bytes": 13678
+  },
+  {
+    "path": "animations/imp.webp",
+    "bytes": 56042
+  },
+  {
+    "path": "animations/jetpack-idle.webp",
+    "bytes": 18464
+  },
+  {
+    "path": "animations/jetpack.webp",
+    "bytes": 71994
+  },
+  {
+    "path": "animations/newspaper-idle.webp",
+    "bytes": 15264
+  },
+  {
+    "path": "animations/newspaper.webp",
+    "bytes": 55400
+  },
+  {
+    "path": "animations/plants.webp",
+    "bytes": 174002
+  },
+  {
+    "path": "animations/rusty-idle.webp",
+    "bytes": 8304
+  },
+  {
+    "path": "animations/rusty.webp",
+    "bytes": 182922
+  },
+  {
+    "path": "animations/wizard-idle.webp",
+    "bytes": 16626
+  },
+  {
+    "path": "animations/wizard.webp",
+    "bytes": 64562
+  },
+  {
+    "path": "animations/zombie-idle.webp",
+    "bytes": 8094
+  },
+  {
+    "path": "animations/zombie.webp",
+    "bytes": 162804
+  },
+  {
+    "path": "release/bag-v2.webp",
+    "bytes": 43280
+  },
+  {
+    "path": "release/bamboo.webp",
+    "bytes": 24988
+  },
+  {
+    "path": "release/battle-bg.webp",
+    "bytes": 208304
+  },
+  {
+    "path": "release/bonk.webp",
+    "bytes": 20670
+  },
+  {
+    "path": "release/boomerang.webp",
+    "bytes": 26364
+  },
+  {
+    "path": "release/button.webp",
+    "bytes": 12714
+  },
+  {
+    "path": "release/cabbage.webp",
+    "bytes": 18010
+  },
+  {
+    "path": "release/cabbagevolt.webp",
+    "bytes": 28814
+  },
+  {
+    "path": "release/cactus.webp",
+    "bytes": 23182
+  },
+  {
+    "path": "release/cherry.webp",
+    "bytes": 18156
+  },
+  {
+    "path": "release/chest-v2.webp",
+    "bytes": 48644
+  },
+  {
+    "path": "release/chomper.webp",
+    "bytes": 21980
+  },
+  {
+    "path": "release/coconut.webp",
+    "bytes": 18902
+  },
+  {
+    "path": "release/crystal-v2.webp",
+    "bytes": 28024
+  },
+  {
+    "path": "release/gatling.webp",
+    "bytes": 29894
+  },
+  {
+    "path": "release/grass-tile.webp",
+    "bytes": 35092
+  },
+  {
+    "path": "release/ice.webp",
+    "bytes": 26310
+  },
+  {
+    "path": "release/iceberg.webp",
+    "bytes": 21276
+  },
+  {
+    "path": "release/jalapeno.webp",
+    "bytes": 13764
+  },
+  {
+    "path": "release/kernel.webp",
+    "bytes": 21032
+  },
+  {
+    "path": "release/laser.webp",
+    "bytes": 24676
+  },
+  {
+    "path": "release/lightning.webp",
+    "bytes": 31994
+  },
+  {
+    "path": "release/lobby-bg.webp",
+    "bytes": 249656
+  },
+  {
+    "path": "release/logo-trim.webp",
+    "bytes": 49792
+  },
+  {
+    "path": "release/magnet.webp",
+    "bytes": 17162
+  },
+  {
+    "path": "release/map-day.webp",
+    "bytes": 6626
+  },
+  {
+    "path": "release/map-night.webp",
+    "bytes": 5332
+  },
+  {
+    "path": "release/map-roof.webp",
+    "bytes": 5288
+  },
+  {
+    "path": "release/melon.webp",
+    "bytes": 18452
+  },
+  {
+    "path": "release/mushroom.webp",
+    "bytes": 15388
+  },
+  {
+    "path": "release/paper-v2.webp",
+    "bytes": 1668
+  },
+  {
+    "path": "release/parchment.webp",
+    "bytes": 42296
+  },
+  {
+    "path": "release/pea.webp",
+    "bytes": 24444
+  },
+  {
+    "path": "release/potato.webp",
+    "bytes": 14578
+  },
+  {
+    "path": "release/result-hero-v2.webp",
+    "bytes": 24578
+  },
+  {
+    "path": "release/seed-v2.webp",
+    "bytes": 40574
+  },
+  {
+    "path": "release/sign.webp",
+    "bytes": 20026
+  },
+  {
+    "path": "release/slot.webp",
+    "bytes": 19248
+  },
+  {
+    "path": "release/snapdragon.webp",
+    "bytes": 25350
+  },
+  {
+    "path": "release/squash.webp",
+    "bytes": 17238
+  },
+  {
+    "path": "release/starfruit.webp",
+    "bytes": 18556
+  },
+  {
+    "path": "release/sun.webp",
+    "bytes": 29626
+  },
+  {
+    "path": "release/sunflower.webp",
+    "bytes": 27720
+  },
+  {
+    "path": "release/torchwood.webp",
+    "bytes": 19880
+  },
+  {
+    "path": "release/walnut.webp",
+    "bytes": 19774
+  },
+  {
+    "path": "release/wood-v2.webp",
+    "bytes": 2476
+  }
 ]

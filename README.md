@@ -2,15 +2,15 @@
 
 [Demo](https://xiaosang.cc/plant-survivors-ui/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
-v0.8.0：碰撞空间索引与绘制缓存、图形化血条、强化受击动画和优先音效，移除草坪竖条。 / v0.8.0 adds spatial collision indexing, render caches, a graphical health meter and prioritized injury feedback.
+v0.9.0：三条进化路线、地图救援与地形机制、敌人动作和危险层级、情境音乐续播、战局恢复，发行图片体积减少 89%。 / v0.9.0 adds three evolution paths, map objectives, terrain rules, articulated enemy actions, continuous adaptive music, resumable runs and 89% smaller runtime images.
 
 手机优先的单机幸存者游戏：任意位置触摸拖动，左右手皆可；三位主角在三张大地图自由行走，镜头持续跟随。26 种植物、15 类敌人、升级进化与图鉴；精英和首领掉落金币、钻石，用于局外解锁与永久成长。首次进入显示资源加载进度，支持键盘、战斗音效、暂停和本地存档。
 
-原版音乐通过作者官方播放器播放，需联网并点击播放；可选 Grasswalk、Moongrains、Graze the Roof 与 Brainiac Maniac。另保留离线合成音乐。没有模拟手机外壳、账号或云同步。
+原版音乐通过作者官方播放器播放，需联网并点击播放；可选 Grasswalk、Moongrains、Graze the Roof 与 Brainiac Maniac。另有四段离线原创合成配乐，支持暂停续播和独立音量。没有模拟手机外壳、账号或云同步。
 
-A mobile-first survival game with free-position touch movement, three heroes and three large scrolling worlds. It features 26 plants, 15 enemy types, distinct attacks, evolution, a field guide, and persistent coin/diamond unlocks. A progress bar preloads game assets. Native safe areas, landscape layouts, keyboard controls, sound effects and local saves are supported. Original PvZ music uses the composer's official online player and requires a playback click; the synthesized offline loop is labeled separately.
+A mobile-first survival game with free-position touch movement, three heroes and three large scrolling worlds. It features 26 plants, 15 enemy types, distinct attacks, evolution, a field guide, and persistent coin/diamond unlocks. A progress bar preloads game assets. Native safe areas, landscape layouts, keyboard controls, sound effects and local saves are supported. Original PvZ music uses the composer's official online player and requires a playback click; the four original synthesized tracks are labeled separately, with pause/resume and independent volumes.
 
-![手机实际运行截图 / Runtime browser capture](docs/screenshots/v08-battle.png)
+![手机实际运行截图 / Runtime browser capture](docs/reports/mobile/standard-390/standard-390-battle.webp)
 
 ## 运行 / Run
 
@@ -32,7 +32,7 @@ npm run build:release
 
 Production assets in `dist/client` target `/plant-survivors-ui/`. Copy this build into the portfolio repository's matching folder, commit to its master branch, then stage that committed tree and manually deploy the existing `xiaosang-portfolio` Worker. Do not create another Worker.
 
-[多尺寸截图报告 / Mobile report](https://xiaosang.cc/plant-survivors-ui/qa/) · [性能基线对比 / Performance comparison](https://xiaosang.cc/plant-survivors-ui/qa/performance/) · [设计系统 / Design system](docs/DESIGN-SYSTEM.md) · [固定测试流程 / QA workflow](docs/MOBILE-QA.md)
+[多尺寸截图报告 / Mobile report](https://xiaosang.cc/plant-survivors-ui/qa/) · [v0.9 改进与验收 / Changes and verification](https://xiaosang.cc/plant-survivors-ui/qa/v09/) · [设计系统 / Design system](docs/DESIGN-SYSTEM.md) · [固定测试流程 / QA workflow](docs/MOBILE-QA.md)
 
 [v0.6 机制与手机验收 / Verification](docs/V06-VERIFICATION.md) · [设计依据 / Design and research](docs/V06-DESIGN.md) · [分阶段测试报告 / Test report](docs/TEST-REPORT.md) · [素材说明 / Assets](ASSETS.md)
 

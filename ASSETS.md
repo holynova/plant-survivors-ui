@@ -48,3 +48,12 @@
 Twenty plant icons, eight four-frame zombie walk strips and grass terrain were generated with the built-in image_gen tool. Sources, exact prompts, foot anchors and normalization are recorded in [V06-ART-PROMPTS.md](docs/V06-ART-PROMPTS.md) and [v06-art-sources.json](docs/v06-art-sources.json). Contact shadows, telegraphs, currency facets and projectile trails are native Canvas graphics. New impact/loot timbres use Web Audio synthesis.
 
 Original PvZ music is available through Laura Shigihara's official Bandcamp embed, not a bundled or rehosted recording. Attribution and the official source link are visible in the music box. The existing `garden-loop.wav` remains clearly labeled as the offline garden music.
+
+
+## v0.9 发行资源与功能动作
+
+`prepare-asset-manifest.mjs` 按实际依赖收集资源，PNG 源图保留在仓库；运行版本使用 `public/assets/game/release/*.webp` 和既有动画图集。图标按显示需求缩到 512 像素，较大背景/结算图最大 900 像素。发行清单 78 张，文件总量 3.542 MiB；原清单 104 张为 32.904 MiB。RGBA 估算从 111.341 MiB 降为 53.005 MiB，仅表示像素理论成本。
+
+八种新增敌人的四帧 walk 图集继续用于行走；`enemy-animation.ts` 与渲染器对同一美术切片进行躯干、手臂、腿部姿态变换，表达 windup、strike、hurt、death。没有在本版新绘制攻击/死亡图集，不能把这些运行时姿态描述为新增原画帧。
+
+`scripts/generate-music-states.py` 生成 camp-loop（22.4 秒）、elite-loop（17.28 秒）、boss-loop（15.36 秒）三段原创合成配乐，配合原 garden-loop（38.4 秒）。所有受控音乐都不是 PvZ 原声。原声仅沿用 Laura Shigihara 官方 Bandcamp 播放器，无下载、重新托管或跨域控制。

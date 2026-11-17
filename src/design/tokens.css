@@ -52,4 +52,8 @@
   --layer-notice: 80;
   --layer-music: 110;
   --layer-loading: 120;
+  --combat-friendlyOpacity: 0.68;
+  --combat-dangerEdgeWidth: 3;
+  --combat-hitSeconds: 0.3;
+  --combat-maxDamageLabels: 12;
 }
