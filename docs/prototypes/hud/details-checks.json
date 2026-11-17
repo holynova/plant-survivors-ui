@@ -1,0 +1,62 @@
+[
+  {
+    "v": "a",
+    "size": [
+      320,
+      568
+    ],
+    "fits": true,
+    "scrollable": true,
+    "effects": 6
+  },
+  {
+    "v": "b",
+    "size": [
+      320,
+      568
+    ],
+    "fits": true,
+    "scrollable": true,
+    "effects": 6
+  },
+  {
+    "v": "c",
+    "size": [
+      320,
+      568
+    ],
+    "fits": true,
+    "scrollable": true,
+    "effects": 6
+  },
+  {
+    "v": "a",
+    "size": [
+      844,
+      390
+    ],
+    "fits": true,
+    "scrollable": true,
+    "effects": 6
+  },
+  {
+    "v": "b",
+    "size": [
+      844,
+      390
+    ],
+    "fits": true,
+    "scrollable": true,
+    "effects": 6
+  },
+  {
+    "v": "c",
+    "size": [
+      844,
+      390
+    ],
+    "fits": true,
+    "scrollable": true,
+    "effects": 6
+  }
+]

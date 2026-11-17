@@ -2,7 +2,7 @@
 
 [Demo](https://xiaosang.cc/plant-survivors-ui/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
-v0.10.0：无限生存、四种轮换首领、回血掉落、Lv.5 武器质变、环绕植物、全新生图特效与三种地貌。 / Endless survival, four rotating bosses, healing drops, Lv.5 transformations, orbiting plants and generated combat/biome artwork.
+v0.11.0：采用单行 HUD，保留植物冷却；重做原版风格墓碑、庭院装饰和三种地面，修复接触阴影与掉落物贴图。 / A minimal HUD with persistent plant cooldowns, original-style graveyard/garden art, three terrain palettes and grounded props/pickups.
 
 手机优先的单机幸存者游戏：任意位置触摸拖动，左右手皆可；三位主角在三张大地图自由行走，镜头持续跟随。26 种植物、18 类敌人、升级进化与图鉴；精英和首领掉落金币、钻石，用于局外解锁与永久成长。首次进入显示资源加载进度，支持键盘、战斗音效、暂停和本地存档。
 
@@ -32,7 +32,7 @@ npm run build:release
 
 Production assets in `dist/client` target `/plant-survivors-ui/`. Copy this build into the portfolio repository's matching folder, commit to its master branch, then stage that committed tree and manually deploy the existing `xiaosang-portfolio` Worker. Do not create another Worker.
 
-[多尺寸截图报告 / Mobile report](https://xiaosang.cc/plant-survivors-ui/qa/) · [v0.10 改进与验收 / Changes and verification](https://xiaosang.cc/plant-survivors-ui/qa/v10/) · [设计系统 / Design system](docs/DESIGN-SYSTEM.md) · [固定测试流程 / QA workflow](docs/MOBILE-QA.md)
+[多尺寸截图报告 / Mobile report](https://xiaosang.cc/plant-survivors-ui/qa/) · [v0.11 画面对照与验收 / Visual comparison](https://xiaosang.cc/plant-survivors-ui/qa/v11.html) · [设计系统 / Design system](docs/DESIGN-SYSTEM.md) · [固定测试流程 / QA workflow](docs/MOBILE-QA.md)
 
 [v0.6 机制与手机验收 / Verification](docs/V06-VERIFICATION.md) · [设计依据 / Design and research](docs/V06-DESIGN.md) · [分阶段测试报告 / Test report](docs/TEST-REPORT.md) · [素材说明 / Assets](ASSETS.md)
 

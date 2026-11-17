@@ -144,10 +144,6 @@
     "bytes": 162804
   },
   {
-    "path": "release/apple-v10.webp",
-    "bytes": 5750
-  },
-  {
     "path": "release/bag-v2.webp",
     "bytes": 43280
   },
@@ -208,6 +204,22 @@
     "bytes": 28024
   },
   {
+    "path": "release/garden-grass.webp",
+    "bytes": 7698
+  },
+  {
+    "path": "release/garden-night.webp",
+    "bytes": 5564
+  },
+  {
+    "path": "release/garden-props.webp",
+    "bytes": 65736
+  },
+  {
+    "path": "release/garden-roof.webp",
+    "bytes": 15580
+  },
+  {
     "path": "release/gatling.webp",
     "bytes": 29894
   },
@@ -220,8 +232,20 @@
     "bytes": 35092
   },
   {
-    "path": "release/heal-v10.webp",
-    "bytes": 8320
+    "path": "release/ground-coin.webp",
+    "bytes": 2774
+  },
+  {
+    "path": "release/ground-gem.webp",
+    "bytes": 1914
+  },
+  {
+    "path": "release/ground-heal.webp",
+    "bytes": 2554
+  },
+  {
+    "path": "release/ground-sun.webp",
+    "bytes": 2972
   },
   {
     "path": "release/ice.webp",
@@ -292,20 +316,12 @@
     "bytes": 24444
   },
   {
-    "path": "release/pond-tile.webp",
-    "bytes": 22710
-  },
-  {
     "path": "release/potato.webp",
     "bytes": 14578
   },
   {
     "path": "release/result-hero-v2.webp",
     "bytes": 24578
-  },
-  {
-    "path": "release/roof-tile.webp",
-    "bytes": 25724
   },
   {
     "path": "release/seed-v2.webp",
@@ -350,10 +366,6 @@
   {
     "path": "release/v10-munitions.webp",
     "bytes": 107338
-  },
-  {
-    "path": "release/v10-props.webp",
-    "bytes": 209296
   },
   {
     "path": "release/walnut.webp",

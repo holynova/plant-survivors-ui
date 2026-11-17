@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "bossOverlap": false,
+      "cooldowns": 6,
+      "inBounds": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "bossOverlap": false,
+      "cooldowns": 6,
+      "inBounds": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "bossOverlap": false,
+      "cooldowns": 6,
+      "inBounds": true
+    }
+  ],
+  "elite": "场上精英 当前无精英",
+  "plantEffects": 6,
+  "escapeResumes": true,
+  "offlineFileWorks": true,
+  "animationToggle": true
+}

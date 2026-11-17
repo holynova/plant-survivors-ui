@@ -1,0 +1,818 @@
+[
+  {
+    "w": 320,
+    "h": 568,
+    "v": "a",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "a",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "a",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "a",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "b",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "b",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "b",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "b",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "c",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "c",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "c",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "v": "c",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      320,
+      568
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "a",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "a",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "a",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "a",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "b",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "b",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "b",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "b",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "c",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "c",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "c",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "v": "c",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "a",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "a",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "a",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "a",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "b",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "b",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "b",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "b",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "c",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "c",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "c",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 430,
+    "h": 932,
+    "v": "c",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      430,
+      932
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "a",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "a",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "a",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "a",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "b",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "b",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "b",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "b",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "c",
+    "state": "normal",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "c",
+    "state": "boss",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "c",
+    "state": "danger",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  },
+  {
+    "w": 844,
+    "h": 390,
+    "v": "c",
+    "state": "pause",
+    "frame": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "overflow": false,
+    "cdCount": 6,
+    "cdInBounds": true,
+    "pauseScrollable": true,
+    "brokenImages": 0
+  }
+]

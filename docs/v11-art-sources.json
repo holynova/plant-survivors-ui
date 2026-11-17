@@ -1,0 +1,38 @@
+{
+  "version": "0.11.0",
+  "date": "2026-11-18",
+  "method": "Built-in image generation; original screenshots used as visual references, not shipped as extracted sprites",
+  "references": [
+    {
+      "url": "https://source.roboflow.com/03dLkRIIvpZhuTxkgmMI7rtOcUj1/00BJ4DPaVvrmJUZNES6K/original.jpg",
+      "description": "Original PvZ night lawn gravestones screenshot, visually inspected"
+    },
+    {
+      "url": "https://gameoxigen.com/images/uploads/background.png",
+      "description": "Original PvZ day lawn screenshot, visually inspected"
+    }
+  ],
+  "assets": [
+    {
+      "source": "assets/source-v11/garden-atlas.png",
+      "prompt": "Use case: style-transfer. Create a transparent 4 columns x 4 rows sprite atlas for this actual Plants vs Zombies 2009-inspired survivor game. Reference1 is original 2009 night gameplay: copy the ORIGINAL FLAT HAND-DRAWN CARTOON visual grammar of its gravestones, chunky irregular silhouettes, bold dark desaturated outlines, only 2-3 broad painted tone regions. Reference2 original day lawn gives garden palette and charming crooked shapes. These screenshots are STYLE reference, NOT something to redraw whole. NOT realistic polished 3D mobile game assets, no intricate tiny leaves, no photorealistic speckled stone, no shiny material rendering. Exactly 16 objects isolated with true RGBA transparency and large empty gutters in exact equal cells. Row1: crooked rounded cracked gray gravestone like original / short wonky off-white picket fence / low bush of three chunky rounded green foliage masses with sparse large leaf marks / cluster of three simple chunky gray-green stones. Row2: a different squat chipped gray tombstone with tiny skull carving / small crooked plank footbridge / simple flat cattail reeds / small flat blue pond edged with few simple stones and lily pads. Row3: short orange-red brick chimney with chunky hand-drawn brick joints / simple dull gray roof vent / two plain orange terracotta flowerpots with large simple leaves / tiny old garden greenhouse with simple blue glass planes. Row4: gold coin with simple sun emblem / red strawberry with green leaf cap / pale blue diamond / flat golden sun XP token with rounded rays. All have same soft upper-left lighting, muted earthy shadow tones, dark green reflected tone at contact bases. Tombstones and vegetation have only a few short grass tufts merging into their feet, NO big oval dirt island. Row4 NO grass footplate, no external sparkle, no glow rings, no white outlines. Each complete silhouette 70% of its cell, bottom footing aligned at same height; no external cast shadows because game adds them. No words, labels, border, grids, backdrop. Match original 2009 game art much more closely than modern painted realistic game art.",
+      "runtime": [
+        "garden-props.webp",
+        "ground-coin.webp",
+        "ground-gem.webp",
+        "ground-heal.webp",
+        "ground-sun.webp"
+      ]
+    },
+    {
+      "source": "assets/source-v11/terrain.png",
+      "prompt": "Use case: style-transfer. A game texture sheet with exactly THREE equal square texture panels arranged horizontally, no spacing or borders, total aspect ratio 3:1. Style from these original Plants vs Zombies 2009 screenshots: simple softly painted cartoon ground, quiet broad color shapes and sparse small clover marks. PANEL1 is seamless mid-green garden grass, muted rich green around #628c38 with subtle irregular darker green patches and very sparse tiny clover clusters. PANEL2 is seamless cool blue-green night lawn, around #315c53 with subtle dim teal patches and sparse clover, no visible pool or water object. PANEL3 is seamless terracotta rooftop tiles, broad slightly crooked overlapping orange-brown clay shapes around #9c6243, simple darker joints, no shiny highlights. All are flat top-down ground textures with evenly distributed detail; no perspective vanishing point. Keep contrast low enough for zombies/plants/loot to stand out. Each panel must individually tile edge-to-edge on ALL sides, no concentrated center, no vignette or obvious repetition motif, no long straight path, no checkerboard lanes, no pale vertical strips, no trees buildings rocks props shadows characters or UI. Painted raster texture, NOT realistic grass blades, NOT highly detailed noise. Use actual opaque background. We are redesigning just terrain into the flatter ORIGINAL 2009 cartoon style.",
+      "runtime": [
+        "garden-grass.webp",
+        "garden-night.webp",
+        "garden-roof.webp"
+      ]
+    }
+  ],
+  "normalization": "scripts/prepare-v11-assets.mjs; alpha bounds, common opaque footing, raster WebP, metadata anchors; cached world-space AO and per-biome ambient tint"
+}
