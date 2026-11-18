@@ -10,7 +10,7 @@ import './prototype.css';
 import './forge.css';
 import './forge-precision.css';
 import {DoubleArrowRightIcon, MixerHorizontalIcon, PlayIcon, ReloadIcon, SpeakerLoudIcon} from '@radix-ui/react-icons';
-import {Camp, ExpeditionMap, Gold, HeroSelect, PlantLoadout, Sign, stages} from './ForgeUI';
+import {Camp, ExpeditionMap, Gold, HeroSelect, PlantLoadout, Sign, Tutorial, stages} from './ForgeUI';
 import {renderBattle} from './game/renderer';
 import {GameAudio} from './game/audio';
 import {heroes,type HeroId} from './game/catalog';
@@ -19,7 +19,7 @@ import {GameScroll} from './GameScroll';
 import {GardenShop} from './GardenShop';
 import {parseSave,bankLoot,settleRun,purchase,cost} from './game/progression';
 import {activePlants,plants} from './game/plants';
-import {evolutionRecipe,recipeText,upgradeBenefit} from './game/evolutions';
+import {evolutionRecipe,recipeText,upgradePreview} from './game/evolutions';
 import {stageStories,tutorialText} from './game/expedition';
 import {newEnemyIds} from './game/enemies';
 import {audioBytes} from './game/audio-manifest';
@@ -35,7 +35,6 @@ function stored(key:string){try{return localStorage.getItem(key)}catch{return nu
 function loadPreferences(){try{return parsePreferences(JSON.parse(stored(PREFERENCES_KEY)||'{}'),matchMedia('(prefers-reduced-motion: reduce)').matches)}catch{return parsePreferences({})}}
 export default function Prototype(){
  const [unlock,setUnlock]=useState<{id:string;selectAfter:boolean}|null>(null);
- const [campShortcut,setCampShortcut]=useState(false);
  const [preferences,setPreferences]=useState(loadPreferences),[resume,setResume]=useState(readCheckpoint);
  const checkpointAt=useRef(-10);
  const [page,setPage]=useState('lobby'),[starter,setStarter]=useState('pea'),[hero,setHero]=useState<HeroId>('dave'),[stage,setStage]=useState(0),[save,setSave]=useState(loadSave),[storageError,setStorageError]=useState(false),[revision,render]=useState(0),[sound,setSound]=useState(preferences.sound),[music,setMusic]=useState(preferences.music),[reduced,setReduced]=useState(preferences.reduced),[audioError,setAudioError]=useState(false),[ready,setReady]=useState(false),[assetError,setAssetError]=useState(false),[loading,setLoading]=useState({done:0,total:imageCount+audioBytes,label:'准备花园'}),[loadAttempt,setLoadAttempt]=useState(0),[touch,setTouch]=useState<TouchStick|null>(null),[musicPanel,setMusicPanel]=useState(false),[originalMusic,setOriginalMusic]=useState(preferences.original);
@@ -111,21 +110,26 @@ export default function Prototype(){
    <button className="cream-button forge-music-open" onClick={()=>setMusicPanel(true)}><MixerHorizontalIcon/>背景音乐</button>
   </details>
  </div>;
- const openCampShortcut=(target:'heroes'|'prepare')=>{setCampShortcut(true);setPage(target);};
  const battlePlantEntries=Object.entries(s.plants);
  return <div className={`garden-app forge-ui ${reduced?'reduced':''}`}><main className={`game-frame view-${page}`}>
  {page==='lobby'&&<Camp Art={Art} save={save} version={versionLabel} ready={ready}
    resume={resume&&!save.settled.includes(resume.runId)?clock(resume.time):null}
-   onResume={continueRun} onMap={()=>{setCampShortcut(false);setPage('map')}}
-   onHeroes={()=>openCampShortcut('heroes')} onPlants={()=>openCampShortcut('prepare')}
+   onResume={continueRun} onMap={()=>setPage('map')}
+   onPlants={()=>setPage('shop')} onTutorial={()=>setPage('tutorial')}
    onGuide={()=>setPage('atlas')} onGrowth={()=>setPage('growth')} onSettings={()=>setPage('settings')}/>}
+ {page==='tutorial'&&<Tutorial Art={Art} back={()=>setPage('lobby')}/>}
  {page==='map'&&<ExpeditionMap Art={Art} stage={stage} unlocked={save.unlocked} back={()=>setPage('lobby')} select={setStage} next={()=>setPage('heroes')}/>}
- {page==='heroes'&&<HeroSelect Art={Art} hero={hero} select={setHero} shortcut={campShortcut} back={()=>setPage(campShortcut?'lobby':'map')} next={()=>setPage(campShortcut?'lobby':'prepare')}/>}
- {page==='prepare'&&<PlantLoadout Art={Art} starter={starter} pool={pool} save={save} select={selectPlant} toggle={togglePool} shortcut={campShortcut} back={()=>setPage(campShortcut?'lobby':'heroes')} next={campShortcut?()=>setPage('lobby'):start}/>}
+ {page==='heroes'&&<HeroSelect Art={Art} hero={hero} select={setHero} back={()=>setPage('map')} next={()=>setPage('prepare')}/>}
+ {page==='prepare'&&<PlantLoadout Art={Art} starter={starter} pool={pool} save={save} select={selectPlant} toggle={togglePool} back={()=>setPage('heroes')} next={start}/>}
  {page==='settings'&&<div className="page forge-settings-page"><Sign back={()=>setPage('lobby')}>设置</Sign><GameScroll>{settings}</GameScroll></div>}
  {page==='battle'&&<div className={`arena live-arena hud-a ${Object.keys(s.plants).length<=6?'compact-dock':''} ${reduced?'reduced-motion':''}`} onPointerDown={drag} onPointerMove={drag} onPointerUp={reset} onPointerCancel={reset} onLostPointerCapture={reset}><canvas data-moving={s.moving} data-events={s.eventId} ref={canvas} width={390} height={680} aria-label="实时花园战场"/><BattleHud run={s} reduced={reduced} onPause={pause}/>{touch&&<div className="joystick floating-stick" aria-hidden="true" style={{left:touch.originX-34,top:touch.originY-34}}><span style={{transform:`translate(${touch.x*22}px,${touch.y*22}px)`}}/></div>}{tutorialText(s)&&!touch&&<div className="touch-hint">{tutorialText(s)}</div>}<div className="weapon-dock minimal-dock">{Object.entries(s.plants).filter(([id])=>plants[id].interval>0).map(([id,level])=>{const cd=cooldownState(s,id);return <button key={id} className="plant-card" aria-label={`${names[id]}，${level>=5?'已质变，':''}冷却 ${cd.remaining.toFixed(1)} 秒，查看本局花园`} onClick={()=>{pause();setPage('build')}}><Art id={id}/>{level>=5&&<i className="awakening-dot" aria-hidden="true"/>}<span className="cooldown-track" role="progressbar" aria-label={`${names[id]}充能`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(cd.progress*100)}><i style={{width:`${cd.progress*100}%`}}/></span></button>})}</div>
 
- {s.status==='upgrade'&&<div className="modal-shade"><section className="upgrade-content"><Sign>选择升级</Sign><div className="upgrade-list">{s.choices.map(id=><button className="upgrade-choice" key={id} onClick={()=>{select(s,id);reset();render(n=>n+1)}}><Art id={id}/><div><h2>{names[id]} Lv.{(s.plants[id]||0)+1}</h2><p>{descriptions[id]}</p><p className="upgrade-benefit">{upgradeBenefit(s,id)}</p></div></button>)}</div><p className="recipe-caption">武器 Lv.5 解锁质变 · 满级搭配被动可额外进化<br/>{recipeText(s)}</p>{!s.plants.bag&&s.replacements>0&&Object.keys(s.plants).filter(id=>!plants[id].interval).length>=3&&<details className="replacement"><summary>被动槽已满 · 替换一件为弹药袋</summary>{Object.keys(s.plants).filter(id=>!plants[id].interval).map(id=><button key={id} onClick={()=>{replacePassive(s,id);render(n=>n+1)}}>替换 {names[id]}</button>)}</details>}<Gold disabled={!s.rerolls} onClick={()=>{reroll(s);render(n=>n+1)}}><ReloadIcon/>换一批 · {s.rerolls}</Gold></section></div>}
+ {s.status==='upgrade'&&<div className="modal-shade upgrade-shade"><section className="upgrade-content" role="dialog" aria-modal="true" aria-label="选择升级"><Sign>选择升级</Sign>
+  <div className="upgrade-list">{s.choices.map(id=>{
+    const level=s.plants[id]||0, {summary,detail}=upgradePreview(s,id);
+    return <button className="upgrade-choice" key={id} aria-label={names[id]+'，'+detail} title={detail} onClick={()=>{select(s,id);reset();render(n=>n+1)}}>
+      <span className="upgrade-art"><Art id={id}/></span><span className="upgrade-copy"><strong>{names[id]} <em>{level?'+1':'新'}</em></strong><span>{summary}</span></span>
+    </button>})}</div>{!s.plants.bag&&s.replacements>0&&Object.keys(s.plants).filter(id=>!plants[id].interval).length>=3&&<details className="replacement"><summary>被动槽已满 · 替换一件为弹药袋</summary>{Object.keys(s.plants).filter(id=>!plants[id].interval).map(id=><button key={id} onClick={()=>{replacePassive(s,id);render(n=>n+1)}}>替换 {names[id]}</button>)}</details>}<Gold disabled={!s.rerolls} onClick={()=>{reroll(s);render(n=>n+1)}}><ReloadIcon/>换一批 · {s.rerolls}</Gold></section></div>}
  {s.status==='paused'&&<RunPause run={s} base={base} onResume={()=>{s.status='playing';render(n=>n+1)}} onBuild={()=>setPage('build')} settings={<>{settings}<button className="forge-retreat" onClick={()=>setPage('abandon')}>结束本局</button></>}/>}
  {s.evolutionNotice&&s.status==='playing'&&<div className="modal-shade"><section className="game-modal forge-evolution" role="dialog" aria-modal="true" aria-label="武器质变">
   <h1>武器质变！</h1>
@@ -170,7 +174,7 @@ export default function Prototype(){
   <div className="forge-footer result-actions"><button className="cream-button" onClick={()=>setPage('lobby')}>返回营地</button><Gold onClick={start}><ReloadIcon/>再来一局</Gold></div>
  </div>}
  {page==='atlas'&&<FieldGuide Art={Art} save={save} back={()=>setPage('lobby')}/>}
- {page==='growth'&&<GardenShop save={save} onSave={persist} Art={Art} onUnlock={id=>setUnlock({id,selectAfter:false})} back={()=>setPage('lobby')}/>}
+ {(page==='growth'||page==='shop')&&<GardenShop initialTab={page==='growth'?'upgrades':'plants'} save={save} onSave={persist} Art={Art} onUnlock={id=>setUnlock({id,selectAfter:false})} back={()=>setPage('lobby')}/>}
  </main>
  {unlock&&(()=>{
   const {id,selectAfter}=unlock,price=cost(save,id),affordable=save.coins>=price.coins&&save.gems>=price.gems;

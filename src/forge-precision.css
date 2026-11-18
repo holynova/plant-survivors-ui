@@ -450,15 +450,6 @@
 .forge-loadout-tabs button svg {width:19px;height:19px;}
 
 @media (orientation:portrait) {
-  .forge-ui .camp-rail button > svg {display:none;}
-  .forge-ui .forge-rail-icon {
-    display:block;width:calc(29 * var(--fu));height:calc(29 * var(--fu));
-    background:url('/assets/game/release/forge-camp-icons.webp') 0 0/100% 500% no-repeat;
-  }
-  .forge-rail-icon[data-icon="1"] {background-position:0 25%;}
-  .forge-rail-icon[data-icon="2"] {background-position:0 50%;}
-  .forge-rail-icon[data-icon="3"] {background-position:0 75%;}
-  .forge-rail-icon[data-icon="4"] {background-position:0 100%;}
   .forge-ui .guide-tabs {grid-template-columns:none;}
   .forge-ui .forge-loadout-tabs button {display:flex;align-items:center;justify-content:center;gap:calc(4 * var(--fu));}
   .forge-ui .forge-loadout-tabs button svg {width:calc(14 * var(--fu));height:calc(14 * var(--fu));}
@@ -505,4 +496,86 @@
   .forge-ui .forge-result-title .art {display:block;width:100%;height:100%;object-fit:cover;mask-image:linear-gradient(var(--color-black) 94%,transparent);}
   .forge-ui .forge-result-take {margin:calc(2 * var(--fu)) calc(4 * var(--fu)) 0;padding:calc(5 * var(--fu));border:2px solid var(--forge-border);border-radius:calc(8 * var(--fu));}
   .forge-ui .forge-specimen-stage .cream-button svg {width:calc(17 * var(--fu));height:calc(17 * var(--fu));stroke:currentColor;stroke-width:1.4;}
+}
+
+/* Keep each home destination identifiable at phone size. */
+.forge-ui .camp-top {z-index:3;}
+.camp-settings {
+  position:absolute;right:6px;top:calc(100% + 4px);width:44px;height:44px;display:grid;place-items:center;
+  background:var(--forge-panel);border:1px solid var(--forge-border);border-radius:var(--radius-control);color:var(--forge-white);
+}
+.camp-settings svg {width:21px;height:21px;}
+.forge-ui .camp-rail button {line-height:1;gap:1px;}
+.forge-ui .camp-rail button :is(.art,svg) {width:24px;height:24px;object-fit:contain;}
+.forge-ui .camp-rail button span {font-size:11px;white-space:nowrap;font-weight:850;}
+.forge-ui .forge-camp .camp-dave {pointer-events:none;object-position:center bottom;object-fit:contain;}
+.forge-ui .forge-hero-card {overflow:visible;}
+.forge-ui .forge-hero-portrait {overflow:visible;background:none;}
+.forge-ui .forge-hero-portrait img {
+  position:absolute;bottom:0;left:0;width:100%;height:105%;object-fit:contain;object-position:left bottom;transform:none;
+}
+.forge-ui .forge-hero-portrait b {
+  background:linear-gradient(0deg,var(--forge-navy) 35%,transparent);color:var(--forge-white);
+  border-radius:0 0 0 var(--radius-control);text-shadow:0 2px 3px var(--color-black);
+}
+.forge-ui .forge-hero-copy {gap:5px;}
+.forge-hero-copy > span {display:flex;align-items:center;gap:5px;font-size:var(--type-caption);font-weight:850;white-space:nowrap;}
+.forge-hero-copy svg {width:1.2em;height:1.2em;flex:none;color:var(--forge-gold);}
+.forge-hero-copy > span:first-child svg {color:var(--color-forge-danger);}
+.forge-hero-copy > span:last-child svg {color:var(--forge-mint);}
+.forge-ui .forge-hero-selected {top:-5px;right:-3px;width:24px;height:24px;border:2px solid var(--forge-panel);}
+.forge-tutorial .game-scroll {padding:var(--space-2);}
+.tutorial-lessons {display:grid;gap:var(--space-2);}
+.tutorial-lesson {display:grid;grid-template-columns:48px 1fr;gap:var(--space-3);align-items:center;padding:var(--space-3);border-radius:var(--radius-card);background:var(--forge-paper);color:var(--forge-text);}
+.tutorial-lesson img {width:48px;height:48px;object-fit:contain;border-radius:var(--radius-control);}
+.tutorial-lesson h2 {font-size:var(--type-label);margin:0 0 4px;}
+.tutorial-lesson p {font-size:var(--type-small);line-height:1.5;margin:0;}
+.forge-ui .upgrade-choice {
+  display:grid;align-items:stretch;text-align:left;gap:0;
+  background:linear-gradient(125deg,var(--color-leaf-light),var(--forge-mint));
+  border-color:var(--color-leaf-pale);box-shadow:inset 0 -3px var(--color-leaf-light),0 3px var(--color-forge-inset);
+}
+.upgrade-art {position:relative;display:block;overflow:hidden;min-height:0;min-width:0;border-radius:var(--radius-control);
+  background:radial-gradient(at 50% 30%,var(--color-leaf),var(--color-leaf-dark));}
+.forge-ui .upgrade-art .art {position:absolute;inset:3%;width:94%;height:94%;object-fit:contain;transform:none;background:none;}
+.upgrade-copy {display:flex;flex-direction:column;min-width:0;overflow:hidden;border-radius:var(--radius-control);background:var(--forge-paper);}
+.upgrade-copy strong,.upgrade-copy > span {display:flex;align-items:center;flex-wrap:wrap;align-content:center;gap:.25em;padding:3px 9px;}
+.upgrade-copy strong {flex:0 0 45%;font-size:var(--type-label);font-weight:950;line-height:1.05;color:var(--forge-text);background:var(--forge-white);}
+.upgrade-copy em {font-style:normal;color:var(--color-leaf-dark);}
+.upgrade-copy > span {flex:1;font-size:var(--type-small);line-height:1.22;color:var(--forge-text);}
+.forge-ui .upgrade-content .sign h1 {border-bottom:2px solid var(--forge-gold);padding-bottom:2px;}
+@media (orientation:portrait) {
+  .forge-ui .camp-rail button :is(.art,svg) {width:calc(19 * var(--fu));height:calc(19 * var(--fu));}
+  .forge-ui .camp-rail button span {font-size:clamp(10px,calc(7.3 * var(--fu)),16px);}
+  .forge-ui .forge-camp .camp-dave {
+    left:calc(44 * var(--fu));top:calc(108 * var(--fu));bottom:auto;
+    width:calc(156 * var(--fu));height:calc(221 * var(--fu));object-fit:fill;
+  }
+  .forge-ui .forge-camp:has(.camp-actions .cream-button) .camp-dave {top:calc(90 * var(--fu));height:calc(213 * var(--fu));}
+  .forge-ui .forge-tutorial > .game-scroll {position:absolute;inset:calc(40 * var(--fu)) 0 0;}
+  .forge-ui .forge-heroes-scroll {top:calc(46 * var(--fu));inset-inline:calc(2 * var(--fu));}
+  .forge-ui .forge-hero-list {padding:calc(4 * var(--fu)) calc(2 * var(--fu));gap:calc(8 * var(--fu));}
+  .forge-ui .forge-hero-card {grid-template-columns:55% minmax(0,1fr);height:calc(89 * var(--fu));margin-inline:calc(3 * var(--fu));}
+  .forge-ui .forge-hero-card[aria-pressed=true] {height:calc(98 * var(--fu));margin-inline:0;}
+  .forge-ui .forge-hero-portrait b {font-size:calc(14 * var(--fu));}
+  .forge-ui .forge-hero-copy {gap:calc(6 * var(--fu));padding:calc(4 * var(--fu));}
+  .forge-hero-copy > span {font-size:calc(9.5 * var(--fu));}
+  .forge-ui .forge-hero-selected {width:calc(20 * var(--fu));height:calc(20 * var(--fu));top:calc(-4 * var(--fu));right:0;}
+  .forge-ui .upgrade-choice {grid-template-columns:calc(60 * var(--fu)) minmax(0,1fr);gap:calc(1 * var(--fu));padding:calc(3 * var(--fu));}
+  .upgrade-copy strong {font-size:calc(13.5 * var(--fu));}
+  .upgrade-copy > span {font-size:max(12px,calc(9.4 * var(--fu)));}
+  .upgrade-copy strong,.upgrade-copy > span {padding:calc(2 * var(--fu)) calc(7 * var(--fu));}
+  .forge-ui .upgrade-content .gold {margin-top:calc(11 * var(--fu));}
+}
+@media (orientation:landscape) and (max-height:600px) {
+  .forge-ui .forge-camp .camp-dave {object-position:50% 100%;height:80%;bottom:0;}
+  .forge-ui .forge-hero-list {padding-top:7px;}
+  .forge-ui .forge-hero-card {height:168px;grid-template-rows:100px 1fr;}
+  .forge-ui .forge-hero-portrait img {object-position:center bottom;}
+  .forge-ui .forge-hero-copy {gap:1px;padding:3px 8px;}
+  .forge-ui .upgrade-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
+  .forge-ui .live-arena .upgrade-content {max-width:700px;}
+  .forge-ui .upgrade-choice {grid-template-columns:1fr;grid-template-rows:65px minmax(66px,auto);padding:4px;gap:3px;}
+  .upgrade-copy strong {font-size:16px;}
+  .upgrade-copy > span {font-size:13px;}
 }

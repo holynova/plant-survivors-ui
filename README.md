@@ -12,10 +12,12 @@
 
 植物幸存者是一款手机优先的单机幸存者游戏：任意位置触摸拖动走位，植物自动攻击；三位主角在三张大地图上自由行走，镜头持续跟随。26 种植物、18 类敌人，升级、进化、图鉴一应俱全；无尽生存，四位首领轮换登场，击败首领是里程碑，阵亡后解锁下一张地图。
 
+**v0.14.0**：营地保留图鉴、局外成长、解锁植物和教程四个入口。选人肖像、升级三选一和战斗角色比例也已调整。[查看 12 种屏幕的 252 张实跑截图](https://xiaosang.cc/plant-survivors-ui/qa/camp)。
+
 ## 截图
 
 <p align="center">
-  <img src="./assets/readme/screenshot-lobby.png" width="300" alt="主界面：植物幸存者标题，戴夫推着小推车，开始远征与花园图鉴按钮">
+  <img src="./assets/readme/screenshot-lobby.png" width="300" alt="新版营地：站立的戴夫、四个左侧入口和出发按钮">
   <img src="./assets/readme/screenshot-battle.png" width="300" alt="Boss 战：02:15，巨人领主血条，植物阵容迎战">
 </p>
 

@@ -12,10 +12,12 @@
 
 Plant Survivors is a mobile-first survival game: drag anywhere to move, your plants attack automatically. Three heroes roam three large scrolling worlds with a following camera. 26 plants, 18 enemy types, upgrades, evolutions, and a field guide — endless survival with four bosses rotating in; defeating a boss is a milestone, and dying after a boss kill unlocks the next map.
 
+**v0.14.0** updates camp navigation, hero portraits, upgrade choices and character scale. [Mobile QA: 252 runtime screenshots across 12 viewports](https://xiaosang.cc/plant-survivors-ui/qa/camp).
+
 ## Screenshots
 
 <p align="center">
-  <img src="./assets/readme/screenshot-lobby.png" width="300" alt="Main screen: Plant Survivors title, Dave pushing a cart, buttons for Start Expedition and Garden Guide">
+  <img src="./assets/readme/screenshot-lobby.png" width="300" alt="Dave in camp beside the four shortcuts and the expedition button">
   <img src="./assets/readme/screenshot-battle.png" width="300" alt="Boss fight: 02:15 on the clock, the Giant Lord's health bar, your plant lineup facing it">
 </p>
 

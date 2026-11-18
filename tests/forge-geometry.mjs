@@ -7,7 +7,7 @@ export const forgeMeasurements = {
     ['.camp-actions .gold',11,325,182,65],
   ],
   map:[['.forge-map-tile:first-child',8,50,186,94]],
-  heroes:[['.forge-hero-card:first-child',4,50,194,95]],
+  heroes:[['.forge-hero-card:first-child',4,50,194,98]],
   prepare:[
     ['.starter-grid .plant-card:first-child',11,84,56,82],
     ['.forge-loadout-summary',5,270,192,70],

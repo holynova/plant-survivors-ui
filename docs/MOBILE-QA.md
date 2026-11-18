@@ -2,7 +2,7 @@
 
 1. 安装依赖，运行 `npm run check:runtime && npm run check:design && npm run test:game && npm run build && npm run test:sites`。
 2. 准备已安装的 Ego Browser，先阅读 `ego-browser skill`。执行 `npm run test:mobile`，脚本会检查本地预览并在缺失时限时启动，不会无限等待。使用 `GARDEN_QA_URL` 可指定另一个 DEV 预览地址（必须保留 DEV 测试钩子）。
-3. 脚本使用单个 TaskSpace，逐一模拟 12 个手机视口与横屏/安全区配置，各覆盖 19 个场景：营地、设置、音乐、地图、主角、配装、解锁、战斗、首领、进化、升级、暂停、暂停地图、本局花园、结算、图鉴、详情、种子商店、永久成长。DPR 默认 2；正式 Canvas 同样封顶 2。
+3. 脚本使用单个 TaskSpace，逐一模拟 12 个手机视口与横屏/安全区配置，各覆盖 21 个场景：营地、教程、设置、音乐、地图、主角、配装、解锁、战斗、密集怪群、首领、进化、升级、暂停、暂停地图、本局花园、结算、图鉴、详情、种子商店、永久成长。DPR 默认 2；正式 Canvas 同样封顶 2。
 4. 每个场景检查原生全屏、无横向溢出、图片成功解码、主要控件边界、按钮高度。逐场景保留 PNG、JSON；HTML 使用 WebP，链接可查看完整截图。报告默认输出 `docs/reports/mobile/index.html`。设置 `GARDEN_QA_REPORT=docs/reports/forge` 可保留历史报告并生成独立目录。失败会保留已完成场景并使命令返回非零。
 5. 在浏览器打开 HTML，依次筛选尺寸与场景，人工确认画面、文字遮挡、画稿风格；特别检查 320 宽、短视口和横屏。HTML 不是自动证明视觉质量。
 6. 性能使用 DEV `window.__gardenQA.benchmark('normal'|'ceiling'|'extreme')`，实际调用生产模拟和渲染。先启动一局，再以异步任务启动 benchmark，并轮询结果，避免跨浏览器 evaluate 的 15 秒超时。通过 CDP `Emulation.setCPUThrottlingRate` 设置 1 或 4。完成后恢复为 1，并使用 `stopBenchmark()` 或重新加载。

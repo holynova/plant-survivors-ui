@@ -37,6 +37,17 @@ if(existsSync(join(precisionReport,'index.html'))){
   writeFileSync('dist/client/qa/precision.html',html);
 }
 
+// Bundle the camp QA evidence into one report to fit the shared Worker's asset limit.
+const campReport='docs/reports/camp-refinement';
+const evidence=readFileSync(join(campReport,'index.html'),'utf8')
+  .replace('href="devices.json"','href="camp-devices.json"')
+  .replace(/<a href="([\w/-]+\.webp)" target="_blank"><img loading="lazy" src="\1"/g,(_,file)=>{
+    const image='data:image/webp;base64,'+readFileSync(join(campReport,file)).toString('base64');
+    return `<a href="#" download="${file.split('/').pop()}" onclick="this.href=this.firstElementChild.src"><img loading="lazy" src="${image}"`;
+  });
+writeFileSync('dist/client/qa/camp.html',evidence);
+cpSync(join(campReport,'devices.json'),'dist/client/qa/camp-devices.json');
+
 // Historical intermediate profiler traces remain in Git; final reports do not reference them.
 for(const trace of ['performance/index-only','performance/render-cache','performance/baseline/v07-1x.json','performance/baseline/v07-4x.json','fixes.json','v09/battle-recording.json','v09/paused-render.json','v09/resources.json'])rmSync(join('dist/client/qa',trace),{recursive:true,force:true});
 

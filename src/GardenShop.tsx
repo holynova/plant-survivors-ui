@@ -7,8 +7,8 @@ import {upgrades, cost, purchase, type GardenSave} from './game/progression';
 
 const upgradeArt:Record<keyof typeof upgrades,string>={vigor:'walnut',magnetism:'magnet',fortune:'bag'};
 
-export function GardenShop({save,onSave,onUnlock,Art,back}:{save:GardenSave;onSave:(s:GardenSave)=>void;onUnlock:(id:string)=>void;Art:GameArt;back:()=>void}){
-  const [tab,setTab]=useState<'plants'|'upgrades'>('plants');
+export function GardenShop({save,onSave,onUnlock,Art,back,initialTab}:{initialTab:"plants"|"upgrades";save:GardenSave;onSave:(s:GardenSave)=>void;onUnlock:(id:string)=>void;Art:GameArt;back:()=>void}){
+  const [tab,setTab]=useState(initialTab);
   const [notice,setNotice]=useState('');
   const scroll=useRef<HTMLElement>(null);
   const buyUpgrade=(id:string)=>{

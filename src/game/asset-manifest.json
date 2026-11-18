@@ -204,8 +204,8 @@
     "bytes": 28024
   },
   {
-    "path": "release/forge-camp-icons.webp",
-    "bytes": 1338
+    "path": "release/forge-dave-standing.webp",
+    "bytes": 60930
   },
   {
     "path": "release/forge-dave.webp",
@@ -346,6 +346,18 @@
   {
     "path": "release/pea.webp",
     "bytes": 24444
+  },
+  {
+    "path": "release/portrait-dave.webp",
+    "bytes": 22064
+  },
+  {
+    "path": "release/portrait-flora.webp",
+    "bytes": 25320
+  },
+  {
+    "path": "release/portrait-rusty.webp",
+    "bytes": 25026
   },
   {
     "path": "release/potato.webp",
