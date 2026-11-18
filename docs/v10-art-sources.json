@@ -1,0 +1,47 @@
+{
+  "mode": "built-in image_gen",
+  "entries": [
+    {
+      "id": "dave",
+      "prompt": "Edit this exact 4 by 4 animation atlas. Keep Dave's face, clothing, pan hat, pose in all sixteen frames, trolley wheels and animation. REMOVE EVERY PLANT from the trolley in all 16 frames: no peashooter, no sunflower, no potato, no greenery or weapon. Trolley has an EMPTY open dark wooden interior and folded red checked cloth over edge. Preserve cell boundaries and foot baselines exactly. Transparent RGBA background. No labels. Polished original cartoon game sprite style.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-8b0ce203-e8ca-49f6-8fbb-6330d62b1918.png"
+    },
+    {
+      "id": "effects",
+      "prompt": "Create one transparent RGBA sprite atlas for a polished charming hand-painted garden zombie survivor game. EXACT GRID 4 columns by 4 rows, square equal cells, generously padded. Each row is an animation of one effect with four sequential frames, all centered and no overlap between cells. Row1 luminous emerald pea/leaf impact burst, row2 icy cyan snow-crystal impact burst, row3 orange golden explosive fire burst, row4 violet spores and electrical magic burst. Each row frames grow from spark to compact punch to expanding petals to dissipated small particles. Rich painted translucent textures, crisp silhouettes at small size, playful 2D game art, no outlines around ground circles, no text, no objects other than effects. All effects on genuine transparency, no checkerboard, no black background.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-bcd63067-e9b5-4a6f-a009-965049ae6385.png"
+    },
+    {
+      "id": "bosses",
+      "prompt": "Create transparent RGBA cartoon zombie game sprite atlas EXACT 4 columns and 3 rows. Equal rectangular cells separated by generous empty gutters. Each row has four walking/action animation frames of the SAME boss, consistent size and grounded foot baseline. Row1 massive red football commander zombie with huge shoulder armor and helmet, moves then braces for tackle. Row2 tall sinister purple marsh sorcerer zombie with vine staff and ragged moss cape, moves then casts spell. Row3 squat broad mechanical zombie walker with orange terracotta armor, exhaust pipes and twin cannons, moves then recoils firing. Plants vs Zombies inspired charming hand-painted original characters, rich soft shading, readable at 110px. Full bodies never cropped, no text, no scenery, NO drop shadow. Transparent background.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-29bb2390-79c8-4231-9d57-f176cf4b6048.png"
+    },
+    {
+      "id": "props",
+      "prompt": "Create one transparent RGBA atlas of 12 isolated painted game assets EXACT 4 columns and 3 rows, each in own equal cell, generous empty gutters, top-down three-quarter view garden zombie survivor aesthetic. Row1: small charming garden shed with green roof; white picket fence with flowers; lush hedge bush; rounded garden stones. Row2: mossy stone fountain basin with blue water; wooden footbridge with visible water underneath; cattail reeds cluster; small garden pond with lily pads. Row3: red brick chimney; rooftop ventilation turbine on terracotta base; cluster of terracotta flowerpots; rooftop greenhouse with blue glass. High quality colorful hand-painted 2D art, compact silhouettes, all completely visible, no labels, NO ground plane beyond object bases, NO shadows extending outside cells.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-6c22cbde-dca4-4249-ac6b-210bf92afc39.png"
+    },
+    {
+      "id": "munitions",
+      "prompt": "Transparent RGBA 4 by 4 equal square cell sprite atlas, polished painted garden zombie game projectile icons. Each cell a SINGLE isolated projectile aimed RIGHT with transparent padding. Row1: emerald glowing pea with leaf tail; icy cyan crystal dart with frost tail; orange flaming pea; curved golden wooden boomerang with green leaf ends. Row2: purple luminous spore puff; golden five-point star; sharp green cactus spine; three bamboo leaves as arrow. Row3: small cabbage ball; yellow corn kernel; striped watermelon projectile; brown coconut projectile. Row4: yellow rectangular butter pat; thin horizontal cyan-white laser streak; jagged violet horizontal lightning bolt; warm red hostile energy orb. No characters, no faces, no circles or frames around icons, no text. Crisp detailed painted game assets, consistent top-down angle, each centered separately.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-8a7a941f-3a4d-441f-a0ca-83f1c3e8464f.png"
+    },
+    {
+      "id": "terrain",
+      "prompt": "A texture atlas, EXACT two square tiles side-by-side, no margins, full opaque coverage. LEFT tile: seamless repeatable mossy blue slate paving for a moonlit garden around a swimming pond, scattered tiny damp moss patches, subtle blue-gray hand-painted uneven stone slabs. RIGHT tile: seamless repeatable warm terracotta roof tiles viewed directly overhead, orderly staggered curved burnt-orange tiles, soft painted ridges, occasional gentle aged marks. Both equally legible low-contrast painterly cartoon Plants vs Zombies game ground textures, no objects, no plants, no paths, no walls, no text, no perspective horizon, NO borders. Each half tile independently tileable across opposite edges.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-b525c73a-8550-431b-a393-c8736704cd1e.png"
+    },
+    {
+      "id": "pickups",
+      "prompt": "Transparent RGBA one square sheet EXACT 2 by 2 equal cells, each isolated large game pickup icon with generous transparent padding. Top left: beautiful chunky embossed golden coin with sunflower emblem, warm amber bevel, glint, three-quarter view. Top right: fresh red strawberry with small green leaves and tiny golden healing sparkles. Bottom left: glowing blue faceted diamond crystal. Bottom right: red apple with leaf and small healing sparkle. Charming polished painted garden zombie survivor game inventory art, readable at 20 pixels, bold soft shaded shapes, no text, no backgrounds, no circle frame, no hearts overlay.",
+      "source": "/Users/sym/.codex/generated_images/01a1e279-4c15-74e0-be67-536e08188f7b/exec-f6cebd94-4195-44e6-9932-adea6e57779b.png"
+    },
+    {
+      "id": "bosses-clean",
+      "source": "assets/source-v10/bosses-clean.png",
+      "modelOutput": "exec-d824dd94-08cf-40b6-aee8-648219bcc4ce.png",
+      "operation": "Built-in image_gen edit removing cloudy background; all twelve sprites preserved."
+    }
+  ],
+  "normalization": "scripts/prepare-v10-assets.mjs; shared scale and foot baselines; imp/balloon cuts at 25%, 46.6%, 74.6% of source height"
+}

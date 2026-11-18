@@ -10,3 +10,7 @@ playwright-report/
 docs/reports/mobile/**/*.png
 
 docs/reports/v09/*.png
+
+docs/reports/v10/*.png
+docs/reports/forge/**/*.png
+docs/reports/forge-precision/**/*.png

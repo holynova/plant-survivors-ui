@@ -179,15 +179,15 @@
           "height": 44
         },
         {
-          "label": "阳光后院3 分钟 · 击败首领",
+          "label": "阳光后院无限生存 · 战斗到最后",
           "height": 94.78125
         },
         {
-          "label": "月光泳池3.5 分钟 · 击败首领",
+          "label": "月光泳池无限生存 · 战斗到最后",
           "height": 94.796875
         },
         {
-          "label": "屋顶花园通关前一关解锁",
+          "label": "屋顶花园击败前一关首领后解锁",
           "height": 94.78125
         },
         {
@@ -236,23 +236,95 @@
         },
         {
           "label": "豌豆射手",
-          "height": 92
+          "height": 114
         },
         {
           "label": "寒冰射手",
-          "height": 92
+          "height": 114
         },
         {
           "label": "回旋镖",
-          "height": 92
+          "height": 114
         },
         {
           "label": "大喷菇",
-          "height": 92
+          "height": 114
         },
         {
           "label": "卷心菜投手",
-          "height": 92
+          "height": 114
+        },
+        {
+          "label": "玉米投手待解锁",
+          "height": 114
+        },
+        {
+          "label": "西瓜投手待解锁",
+          "height": 114
+        },
+        {
+          "label": "樱桃炸弹待解锁",
+          "height": 114
+        },
+        {
+          "label": "火爆辣椒待解锁",
+          "height": 114
+        },
+        {
+          "label": "土豆地雷待解锁",
+          "height": 114
+        },
+        {
+          "label": "大嘴花待解锁",
+          "height": 114
+        },
+        {
+          "label": "窝瓜待解锁",
+          "height": 114
+        },
+        {
+          "label": "杨桃待解锁",
+          "height": 114
+        },
+        {
+          "label": "仙人掌待解锁",
+          "height": 114
+        },
+        {
+          "label": "磁力菇待解锁",
+          "height": 114
+        },
+        {
+          "label": "菜问待解锁",
+          "height": 114
+        },
+        {
+          "label": "火龙草待解锁",
+          "height": 114
+        },
+        {
+          "label": "闪电芦苇待解锁",
+          "height": 114
+        },
+        {
+          "label": "激光豆待解锁",
+          "height": 114
+        },
+        {
+          "label": "竹笋炮手待解锁",
+          "height": 114
+        },
+        {
+          "label": "椰子加农炮待解锁",
+          "height": 114
+        },
+        {
+          "label": "冰冻生菜待解锁",
+          "height": 114
+        },
+        {
+          "label": "电能卷心菜待解锁",
+          "height": 114
         },
         {
           "label": "豌豆射手 ✓",
@@ -311,12 +383,12 @@
           "q": ".hero-grid",
           "rect": {
             "x": 28,
-            "y": 129.09375,
+            "y": 145.09375,
             "width": 319,
             "height": 136.6875,
-            "top": 129.09375,
+            "top": 145.09375,
             "right": 347,
-            "bottom": 265.78125,
+            "bottom": 281.78125,
             "left": 28
           }
         }
@@ -326,48 +398,214 @@
       "pass": true
     },
     {
-      "scene": "battle",
-      "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+      "scene": "unlock",
+      "experienceColor": null,
       "touchTargets": [
         {
-          "label": "Ⅱ",
+          "label": "‹",
           "height": 44
         },
         {
-          "label": "Lv.3就绪",
-          "height": 64
+          "label": "戴夫后院守护者",
+          "height": 136.6875
         },
         {
-          "label": "Lv.3就绪",
-          "height": 64
+          "label": "小葵阳光园丁",
+          "height": 136.6875
         },
         {
-          "label": "Lv.3就绪",
-          "height": 64
+          "label": "阿栓花园机械师",
+          "height": 136.6875
         },
         {
-          "label": "Lv.3就绪",
-          "height": 64
+          "label": "豌豆射手",
+          "height": 114
         },
         {
-          "label": "Lv.2就绪",
-          "height": 64
+          "label": "寒冰射手",
+          "height": 114
         },
         {
-          "label": "Lv.2就绪",
-          "height": 64
+          "label": "回旋镖",
+          "height": 114
         },
         {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "大喷菇",
+          "height": 114
         },
         {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "卷心菜投手",
+          "height": 114
         },
         {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "玉米投手待解锁",
+          "height": 114
+        },
+        {
+          "label": "西瓜投手待解锁",
+          "height": 114
+        },
+        {
+          "label": "樱桃炸弹待解锁",
+          "height": 114
+        },
+        {
+          "label": "火爆辣椒待解锁",
+          "height": 114
+        },
+        {
+          "label": "土豆地雷待解锁",
+          "height": 114
+        },
+        {
+          "label": "大嘴花待解锁",
+          "height": 114
+        },
+        {
+          "label": "窝瓜待解锁",
+          "height": 114
+        },
+        {
+          "label": "杨桃待解锁",
+          "height": 114
+        },
+        {
+          "label": "仙人掌待解锁",
+          "height": 114
+        },
+        {
+          "label": "磁力菇待解锁",
+          "height": 114
+        },
+        {
+          "label": "菜问待解锁",
+          "height": 114
+        },
+        {
+          "label": "火龙草待解锁",
+          "height": 114
+        },
+        {
+          "label": "闪电芦苇待解锁",
+          "height": 114
+        },
+        {
+          "label": "激光豆待解锁",
+          "height": 114
+        },
+        {
+          "label": "竹笋炮手待解锁",
+          "height": 114
+        },
+        {
+          "label": "椰子加农炮待解锁",
+          "height": 114
+        },
+        {
+          "label": "冰冻生菜待解锁",
+          "height": 114
+        },
+        {
+          "label": "电能卷心菜待解锁",
+          "height": 114
+        },
+        {
+          "label": "豌豆射手 ✓",
+          "height": 44
+        },
+        {
+          "label": "寒冰射手 ✓",
+          "height": 44
+        },
+        {
+          "label": "回旋镖 ✓",
+          "height": 44
+        },
+        {
+          "label": "大喷菇 ✓",
+          "height": 44
+        },
+        {
+          "label": "卷心菜投手 ✓",
+          "height": 44
+        },
+        {
+          "label": "戴夫 · 出发 ▷",
+          "height": 54.796875
+        },
+        {
+          "label": "解锁并选择",
+          "height": 54.796875
+        },
+        {
+          "label": "返回选植物",
+          "height": 46.09375
+        }
+      ],
+      "w": 375,
+      "h": 667,
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 667,
+        "top": 0,
+        "right": 375,
+        "bottom": 667,
+        "left": 0
+      },
+      "simulator": false,
+      "overflow": false,
+      "controls": [
+        {
+          "q": ".unlock-shade .game-modal",
+          "rect": {
+            "x": 12,
+            "y": 87.046875,
+            "width": 351,
+            "height": 492.90625,
+            "top": 87.046875,
+            "right": 363,
+            "bottom": 579.953125,
+            "left": 12
+          }
+        }
+      ],
+      "images": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "scene": "battle",
+      "experienceColor": null,
+      "touchTargets": [
+        {
+          "label": "暂停战斗",
+          "height": 44
+        },
+        {
+          "label": "豌豆射手，冷却 0.0 秒，查看本局花园",
+          "height": 44
+        },
+        {
+          "label": "寒冰射手，冷却 0.0 秒，查看本局花园",
+          "height": 44
+        },
+        {
+          "label": "回旋镖，冷却 0.0 秒，查看本局花园",
+          "height": 44
+        },
+        {
+          "label": "大喷菇，冷却 0.0 秒，查看本局花园",
+          "height": 44
+        },
+        {
+          "label": "卷心菜投手，冷却 0.0 秒，查看本局花园",
+          "height": 44
+        },
+        {
+          "label": "闪电芦苇，冷却 0.0 秒，查看本局花园",
+          "height": 44
         }
       ],
       "w": 375,
@@ -388,53 +626,40 @@
         {
           "q": ".hud",
           "rect": {
-            "x": 8,
-            "y": 8,
-            "width": 359,
-            "height": 100.296875,
-            "top": 8,
-            "right": 367,
-            "bottom": 108.296875,
-            "left": 8
+            "x": 0,
+            "y": 0,
+            "width": 375,
+            "height": 55,
+            "top": 0,
+            "right": 375,
+            "bottom": 55,
+            "left": 0
           }
         },
         {
           "q": ".weapon-dock",
           "rect": {
-            "x": 8,
-            "y": 515,
-            "width": 359,
-            "height": 144,
-            "top": 515,
-            "right": 367,
-            "bottom": 659,
-            "left": 8
+            "x": 37.5,
+            "y": 601,
+            "width": 300,
+            "height": 54,
+            "top": 601,
+            "right": 337.5,
+            "bottom": 655,
+            "left": 37.5
           }
         },
         {
           "q": ".health-meter",
           "rect": {
-            "x": 8,
-            "y": 56.140625,
-            "width": 220,
-            "height": 28,
-            "top": 56.140625,
-            "right": 228,
-            "bottom": 84.140625,
-            "left": 8
-          }
-        },
-        {
-          "q": ".health-value",
-          "rect": {
-            "x": 10,
-            "y": 58.140625,
-            "width": 216,
-            "height": 24,
-            "top": 58.140625,
-            "right": 226,
-            "bottom": 82.140625,
-            "left": 10
+            "x": 77.0625,
+            "y": 29,
+            "width": 168.1875,
+            "height": 8,
+            "top": 29,
+            "right": 245.25,
+            "bottom": 37,
+            "left": 77.0625
           }
         }
       ],
@@ -444,47 +669,35 @@
     },
     {
       "scene": "boss",
-      "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+      "experienceColor": null,
       "touchTargets": [
         {
-          "label": "Ⅱ",
+          "label": "暂停战斗",
           "height": 44
         },
         {
-          "label": "Lv.30.5s",
-          "height": 64
+          "label": "豌豆射手，冷却 0.5 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.5s",
-          "height": 64
+          "label": "寒冰射手，冷却 0.5 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.8s",
-          "height": 64
+          "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.31.1s",
-          "height": 64
+          "label": "大喷菇，冷却 1.1 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.21.0s",
-          "height": 64
+          "label": "卷心菜投手，冷却 1.0 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.21.3s",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "闪电芦苇，冷却 1.2 秒，查看本局花园",
+          "height": 44
         }
       ],
       "w": 375,
@@ -505,14 +718,14 @@
         {
           "q": ".boss-health",
           "rect": {
-            "x": 17,
-            "y": 128,
-            "width": 341,
-            "height": 37.390625,
-            "top": 128,
-            "right": 358,
-            "bottom": 165.390625,
-            "left": 17
+            "x": 32,
+            "y": 67,
+            "width": 311,
+            "height": 18,
+            "top": 67,
+            "right": 343,
+            "bottom": 85,
+            "left": 32
           }
         }
       ],
@@ -522,47 +735,35 @@
     },
     {
       "scene": "evolution",
-      "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+      "experienceColor": null,
       "touchTargets": [
         {
-          "label": "Ⅱ",
+          "label": "暂停战斗",
           "height": 44
         },
         {
-          "label": "Lv.30.3s",
-          "height": 64
+          "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.4s",
-          "height": 64
+          "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.6s",
-          "height": 64
+          "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.9s",
-          "height": 64
+          "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.20.9s",
-          "height": 64
+          "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.21.1s",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "闪电芦苇，冷却 1.1 秒，查看本局花园",
+          "height": 44
         },
         {
           "label": "继续战斗",
@@ -604,47 +805,35 @@
     },
     {
       "scene": "upgrade",
-      "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+      "experienceColor": null,
       "touchTargets": [
         {
-          "label": "Ⅱ",
+          "label": "暂停战斗",
           "height": 44
         },
         {
-          "label": "Lv.30.3s",
-          "height": 64
+          "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.4s",
-          "height": 64
+          "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.6s",
-          "height": 64
+          "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.9s",
-          "height": 64
+          "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.20.9s",
-          "height": 64
+          "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.21.1s",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
-        },
-        {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "闪电芦苇，冷却 1.1 秒，查看本局花园",
+          "height": 44
         },
         {
           "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透命中伤害 40 → 48 · 冷却 0.61 → 0.56 秒 · 解锁穿透",
@@ -682,12 +871,12 @@
           "q": ".upgrade-content",
           "rect": {
             "x": 12,
-            "y": 64.34375,
+            "y": 53.140625,
             "width": 351,
-            "height": 538.3125,
-            "top": 64.34375,
+            "height": 560.703125,
+            "top": 53.140625,
             "right": 363,
-            "bottom": 602.65625,
+            "bottom": 613.84375,
             "left": 12
           }
         }
@@ -698,70 +887,62 @@
     },
     {
       "scene": "pause",
-      "experienceColor": "linear-gradient(rgb(255, 241, 172), rgb(244, 203, 83))",
+      "experienceColor": null,
       "touchTargets": [
         {
-          "label": "Ⅱ",
+          "label": "暂停战斗",
           "height": 44
         },
         {
-          "label": "Lv.40.3s",
-          "height": 64
+          "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.4s",
-          "height": 64
+          "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.6s",
-          "height": 64
+          "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.30.9s",
-          "height": 64
+          "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.20.9s",
-          "height": 64
+          "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.21.1s",
-          "height": 64
+          "label": "闪电芦苇，冷却 1.1 秒，查看本局花园",
+          "height": 44
         },
         {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "×",
+          "height": 44
         },
         {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "本局",
+          "height": 44
         },
         {
-          "label": "Lv.1被动",
-          "height": 64
+          "label": "植物",
+          "height": 44
         },
         {
-          "label": "继续战斗 ▷",
-          "height": 54.796875
+          "label": "地图",
+          "height": 44
+        },
+        {
+          "label": "设置",
+          "height": 44
         },
         {
           "label": "查看本局花园",
-          "height": 46.09375
-        },
-        {
-          "label": "战斗音效：开",
-          "height": 46.09375
-        },
-        {
-          "label": "♫ 背景音乐",
-          "height": 46.09375
-        },
-        {
-          "label": "减少动态：关",
           "height": 44
         },
         {
-          "label": "结束本局",
+          "label": "继续战斗 ▷",
           "height": 44
         }
       ],
@@ -875,7 +1056,7 @@
           "height": 44
         },
         {
-          "label": "僵尸 · 15",
+          "label": "僵尸 · 18",
           "height": 44
         },
         {
@@ -936,6 +1117,18 @@
         },
         {
           "label": "巨人领主首领",
+          "height": 126.78125
+        },
+        {
+          "label": "橄榄球队长首领",
+          "height": 126.78125
+        },
+        {
+          "label": "沼泽大法师首领",
+          "height": 126.78125
+        },
+        {
+          "label": "屋顶机甲首领",
           "height": 126.78125
         }
       ],

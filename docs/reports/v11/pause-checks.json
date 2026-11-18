@@ -1,0 +1,213 @@
+{
+  "results": [
+    {
+      "w": 390,
+      "h": 844,
+      "modal": {
+        "x": 15,
+        "y": 168.671875,
+        "width": 360,
+        "height": 506.65625,
+        "top": 168.671875,
+        "right": 375,
+        "bottom": 675.328125,
+        "left": 15
+      },
+      "resume": {
+        "x": 35,
+        "y": 611.328125,
+        "width": 320,
+        "height": 44,
+        "top": 611.328125,
+        "right": 355,
+        "bottom": 655.328125,
+        "left": 35
+      },
+      "overflow": false,
+      "tab": "本局"
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "modal": {
+        "x": 15,
+        "y": 134.875,
+        "width": 360,
+        "height": 574.25,
+        "top": 134.875,
+        "right": 375,
+        "bottom": 709.125,
+        "left": 15
+      },
+      "resume": {
+        "x": 35,
+        "y": 645.125,
+        "width": 320,
+        "height": 44,
+        "top": 645.125,
+        "right": 355,
+        "bottom": 689.125,
+        "left": 35
+      },
+      "overflow": false,
+      "tab": "植物"
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "modal": {
+        "x": 15,
+        "y": 180.40625,
+        "width": 360,
+        "height": 483.1875,
+        "top": 180.40625,
+        "right": 375,
+        "bottom": 663.59375,
+        "left": 15
+      },
+      "resume": {
+        "x": 35,
+        "y": 599.59375,
+        "width": 320,
+        "height": 44,
+        "top": 599.59375,
+        "right": 355,
+        "bottom": 643.59375,
+        "left": 35
+      },
+      "overflow": false,
+      "tab": "地图"
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "modal": {
+        "x": 15,
+        "y": 127.90625,
+        "width": 360,
+        "height": 588.1875,
+        "top": 127.90625,
+        "right": 375,
+        "bottom": 716.09375,
+        "left": 15
+      },
+      "resume": {
+        "x": 35,
+        "y": 652.09375,
+        "width": 320,
+        "height": 44,
+        "top": 652.09375,
+        "right": 355,
+        "bottom": 696.09375,
+        "left": 35
+      },
+      "overflow": false,
+      "tab": "设置"
+    },
+    {
+      "w": 320,
+      "h": 568,
+      "modal": {
+        "x": 12,
+        "y": 42.671875,
+        "width": 296,
+        "height": 482.65625,
+        "top": 42.671875,
+        "right": 308,
+        "bottom": 525.328125,
+        "left": 12
+      },
+      "resume": {
+        "x": 24,
+        "y": 469.328125,
+        "width": 272,
+        "height": 44,
+        "top": 469.328125,
+        "right": 296,
+        "bottom": 513.328125,
+        "left": 24
+      },
+      "overflow": false,
+      "tab": "本局"
+    },
+    {
+      "w": 320,
+      "h": 568,
+      "modal": {
+        "x": 12,
+        "y": 12,
+        "width": 296,
+        "height": 544,
+        "top": 12,
+        "right": 308,
+        "bottom": 556,
+        "left": 12
+      },
+      "resume": {
+        "x": 24,
+        "y": 500,
+        "width": 272,
+        "height": 44,
+        "top": 500,
+        "right": 296,
+        "bottom": 544,
+        "left": 24
+      },
+      "overflow": false,
+      "tab": "植物"
+    },
+    {
+      "w": 320,
+      "h": 568,
+      "modal": {
+        "x": 12,
+        "y": 50.40625,
+        "width": 296,
+        "height": 467.1875,
+        "top": 50.40625,
+        "right": 308,
+        "bottom": 517.59375,
+        "left": 12
+      },
+      "resume": {
+        "x": 24,
+        "y": 461.59375,
+        "width": 272,
+        "height": 44,
+        "top": 461.59375,
+        "right": 296,
+        "bottom": 505.59375,
+        "left": 24
+      },
+      "overflow": false,
+      "tab": "地图"
+    },
+    {
+      "w": 320,
+      "h": 568,
+      "modal": {
+        "x": 12,
+        "y": 12,
+        "width": 296,
+        "height": 544,
+        "top": 12,
+        "right": 308,
+        "bottom": 556,
+        "left": 12
+      },
+      "resume": {
+        "x": 24,
+        "y": 500,
+        "width": 272,
+        "height": 44,
+        "top": 500,
+        "right": 296,
+        "bottom": 544,
+        "left": 24
+      },
+      "overflow": false,
+      "tab": "设置"
+    }
+  ],
+  "resumeAndMovement": true
+}

@@ -2,8 +2,8 @@
 
 1. 安装依赖，运行 `npm run check:runtime && npm run check:design && npm run test:game && npm run build && npm run test:sites`。
 2. 准备已安装的 Ego Browser，先阅读 `ego-browser skill`。执行 `npm run test:mobile`，脚本会检查本地预览并在缺失时限时启动，不会无限等待。使用 `GARDEN_QA_URL` 可指定另一个 DEV 预览地址（必须保留 DEV 测试钩子）。
-3. 脚本使用单个 TaskSpace，逐一模拟 12 个手机视口与横屏/安全区配置，各覆盖 14 个场景：营地、音乐面板、选关、准备、战斗、Boss、进化、升级、暂停、本局植物、结算、图鉴、商店、永久成长。DPR 默认 2；正式 Canvas 同样封顶 2。
-4. 每个场景检查原生全屏、无横向溢出、图片成功解码、主要控件边界、按钮高度。逐场景保留 PNG、JSON；HTML 使用 WebP，链接可查看完整截图。报告输出 `docs/reports/mobile/index.html`。失败会保留已完成场景并使命令返回非零。
+3. 脚本使用单个 TaskSpace，逐一模拟 12 个手机视口与横屏/安全区配置，各覆盖 19 个场景：营地、设置、音乐、地图、主角、配装、解锁、战斗、首领、进化、升级、暂停、暂停地图、本局花园、结算、图鉴、详情、种子商店、永久成长。DPR 默认 2；正式 Canvas 同样封顶 2。
+4. 每个场景检查原生全屏、无横向溢出、图片成功解码、主要控件边界、按钮高度。逐场景保留 PNG、JSON；HTML 使用 WebP，链接可查看完整截图。报告默认输出 `docs/reports/mobile/index.html`。设置 `GARDEN_QA_REPORT=docs/reports/forge` 可保留历史报告并生成独立目录。失败会保留已完成场景并使命令返回非零。
 5. 在浏览器打开 HTML，依次筛选尺寸与场景，人工确认画面、文字遮挡、画稿风格；特别检查 320 宽、短视口和横屏。HTML 不是自动证明视觉质量。
 6. 性能使用 DEV `window.__gardenQA.benchmark('normal'|'ceiling'|'extreme')`，实际调用生产模拟和渲染。先启动一局，再以异步任务启动 benchmark，并轮询结果，避免跨浏览器 evaluate 的 15 秒超时。通过 CDP `Emulation.setCPUThrottlingRate` 设置 1 或 4。完成后恢复为 1，并使用 `stopBenchmark()` 或重新加载。
 7. 性能结果保存 `optimized.json` / `optimized-4x.json`；旧版基线为 `baseline.json` / `baseline-4x.json`。运行 `npm run report:mobile` 重建 HTML。对比必须使用相同种子、视口、DPR、实体数量和宿主。样本少于 60 不通过，不用 0 ms 表示流畅。
@@ -48,3 +48,11 @@
 生产资源完整性：`build:release` 自动执行 `scripts/check-release-assets.mjs`，检查应用入口、主报告、v0.9 报告与 CSS 的本地链接，核验 78 张运行图片大小，并要求 HTML application-version 与 package.json 一致。发行时网站图标使用 release/sunflower.webp，不能指向被剔除的原始 PNG。
 
 生产触控回归：在同一 Ego 脚本中调用 `productionFlow(page,生产URL,截图绝对路径)`（`tests/production-flow.mjs`）。用 CDP 真实触摸事件分别从左、右半区拖动，验证移动/停止、暂停恢复、刷新后安全恢复存档，以及无 DEV 钩子、无破图。执行结束前读取返回结果，不跨脚本保留尺寸仿真假设。
+
+## v0.10 无限生存回归
+
+- `test:mobile` 固定 12 配置 × 15 场景，新增灰色植物与解锁弹窗；保留 v10/mobile-first-pass.json 的首轮失败。
+- `node --test tests/endless-v10.test.mjs`：轮换 8 轮首领、跨 2 小时存档、死亡解锁、回血、环绕发射与 5 级质变。
+- `tests/campaign.mjs` 的 81 组模拟现在观察至死亡或 600 秒；到观察边界仍存活是有效结果，不人为结束游戏。结果保存在 v10/campaign.json，不代表人类通关率。
+- 性能比较固定 v0.9 提交 68ff351f4fb38ea7b5283e29a714ccb8699a4b86 与 v0.10；每组 2 轮、1×/4× CPU、3 个相同实体负载。明确标注无效采样及超预算。
+- 新增实际运行的三地形、三新首领、气球/小鬼裁切与回血截图，发布报告位于 qa/v10/。

@@ -18,4 +18,4 @@ export function stepExpedition(s:Run,dt:number,emit:(s:Run,type:string,x:number,
  if(s.hero==='rusty'&&s.moving)s.charge=Math.min(1,s.charge+dt/5);else if(s.hero==='rusty')s.charge=Math.max(0,s.charge-dt*.3);
  if(s.hero==='rusty'&&s.charge>=1&&s.heroAbility<=0){s.heroAbility=3;s.charge=0;emit(s,'pulse',s.x,s.y,'lightning',45);}
 }
-export function tutorialText(s:Run){if(s.tutorial.moved<1.2)return '按住空白战场并拖动 · 左右手皆可';if(!s.tutorial.collected)return '靠近金色阳光，自动拾取经验';if(!s.tutorial.upgraded)return '积攒阳光后，选择一次植物升级';if(!s.landmarks.some(p=>p.done)&&s.time<35)return '跟随小地图的 ◆，停留即可救回种子';return '';}
+export function tutorialText(s:Run){if(s.tutorial.moved<1.2)return '按住空白战场并拖动 · 左右手皆可';if(!s.tutorial.collected)return '靠近金色阳光，自动拾取经验';if(!s.tutorial.upgraded)return '积攒阳光后，选择一次植物升级';if(!s.landmarks.some(p=>p.done)&&s.time<35)return '暂停 → 地图，查看附近探索点';return '';}

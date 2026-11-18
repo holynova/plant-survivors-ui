@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>花园幸存者 · 全流程 UI 设计评审</title>
+<style>
+:root{color-scheme:dark;--bg:#141a17;--panel:#202824;--line:#3a4640;--ink:#edf1ea;--muted:#b2bfb4;--link:#b9ef9c}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,sans-serif}main{max-width:1480px;margin:auto;padding:36px clamp(16px,4vw,56px) 60px}
+h1,h2,p{margin:0}h1{font-size:clamp(29px,5vw,52px);line-height:1.1;letter-spacing:-.04em}h2{font-size:24px}
+.hero p{color:var(--muted);margin-top:12px;max-width:65ch}.eyebrow{display:block;color:var(--link);font-size:13px;margin-bottom:8px}
+button,select{font:inherit;color:inherit;border:1px solid var(--line);border-radius:8px;background:var(--panel);min-height:44px;padding:8px 12px;cursor:pointer}button[aria-pressed=true]{background:var(--link);color:#17271b;border-color:var(--link);font-weight:750}button:hover,select:hover{border-color:var(--link)}button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}.group{border-top:1px solid var(--line);padding-top:10px}.group span{display:block;color:var(--muted);margin-bottom:8px}.group nav,.toolbar{display:flex;flex-wrap:wrap;gap:8px}
+.toolbar{position:sticky;top:0;z-index:2;background:var(--bg);padding:10px 0;align-items:center;justify-content:space-between}.modes{display:flex;gap:8px}.selector{display:flex;align-items:center;gap:8px}
+.intro{border-bottom:1px solid var(--line);padding:14px 0 18px;margin-bottom:16px}.intro p{color:var(--muted);max-width:70ch}.swatches{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.swatch{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:30px;padding:3px 9px;font:12px ui-monospace,monospace}.swatch i{width:14px;height:14px;border-radius:50%;border:1px solid #ffffff48}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}.frame{min-width:0;padding:0;overflow:hidden;text-align:left}.frame img{display:block;width:100%;aspect-ratio:390/844;object-fit:contain;background:#101613}.caption{display:block;padding:8px 10px;min-height:46px;font-weight:700}.caption small{display:block;color:var(--muted);font-weight:500}.full{display:block;max-width:100%;margin:auto;max-height:90vh;object-fit:contain}.board{display:block;width:100%;padding:8px;margin-bottom:16px}
+details{margin-top:30px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;font-weight:700}details li{margin:8px 0}a{color:var(--link)}
+dialog{max-height:95dvh;max-width:min(95vw,780px);background:var(--panel);color:var(--ink);border:1px solid var(--line);padding:12px;border-radius:12px;overflow:auto}dialog::backdrop{background:#050807d9}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.dialog-image{display:block;max-height:73dvh;max-width:100%;margin:12px auto;object-fit:contain}.dialog-nav{display:flex;justify-content:space-between;gap:8px}.dialog-note{color:var(--muted);max-width:50ch;margin:8px 0}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:520px){.groups{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.toolbar{position:static}.caption{padding:7px}.hero p{font-size:14px}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+ <span class="eyebrow">移动端设计评审</span><h1>花园幸存者</h1>
+ <p>两种视觉方向，各三套完整 UI。选择一套逐屏查看，或在「同页对比」里并排看六套的营地、配装、HUD 和结算。</p>
+</header>
+<section class="groups" aria-label="六套方案">
+ <div class="group"><span>Supercell 启发</span><nav id="arcade"></nav></div>
+ <div class="group"><span>《植物大战僵尸 2》手机版启发</span><nav id="garden"></nav></div>
+</section>
+<section class="toolbar" aria-label="查看方式">
+ <div class="modes"><button id="single" aria-pressed="true">逐套浏览</button><button id="compare" aria-pressed="false">同页对比</button></div>
+ <label class="selector" id="selector">界面 <select id="scene"></select></label>
+</section>
+<div class="intro"><h2 id="heading"></h2><p id="description"></p><div class="swatches" id="palette"></div></div>
+<div id="visuals"></div>
+<details><summary>研究来源与取舍</summary>
+ <ul>
+  <li>Supercell 方向从大角色入口、清晰的编队和章节进度出发。<a href="https://apps.apple.com/us/app/brawl-stars/id1229016807">Brawl Stars 官方截图</a> · <a href="https://apps.apple.com/us/app/clash-royale/id1053012308">Clash Royale 官方截图</a> · <a href="https://supercell.com/en/games/clashroyale/blog/release-notes/new-update-feature-enter-the-trophy-road/">Supercell 进度路线说明</a></li>
+  <li>花园方向从主题世界、种子卡、植物收集和成长出发。<a href="https://www.ea.com/games/plants-vs-zombies/plants-vs-zombies-2/features">EA 玩法说明</a> · <a href="https://apps.apple.com/us/app/plants-vs-zombies-2/id597986893">国际版官方截图</a> · <a href="https://apps.apple.com/cn/app/id639516529">中国版官方截图</a></li>
+ </ul>
+ <p>这些图是设计稿。示例人物和数值用于比较界面。技术规格以配套研究记录中的顶边经验、常驻冷却、无倒计时及安全区约束为准。</p>
+</details>
+</main>
+<dialog id="viewer" aria-labelledby="viewer-title">
+ <div class="dialog-head"><strong id="viewer-title"></strong><button id="close" aria-label="关闭预览">关闭</button></div>
+ <img class="dialog-image" id="zoom" alt="">
+ <p class="dialog-note" id="note"></p>
+ <div class="dialog-nav" id="dialog-nav"><button id="prev">上一页</button><button id="next">下一页</button></div>
+</dialog>
+<script>
+const {concepts,scenes}=__DATA__;
+const get=id=>document.getElementById(id);
+const buttons=[];
+const current=new URLSearchParams(location.hash.slice(1));
+let selected=Math.max(0,concepts.findIndex(concept=>concept.id===current.get('concept')));
+let mode=current.get('mode')==='compare'?'compare':'single';
+let scene=Math.max(0,scenes.findIndex(item=>item.id===current.get('screen')));
+let zoomed=null;
+const viewer=get('viewer');
+function create(tag,text,className){
+  const node=document.createElement(tag);
+  if(text)node.textContent=text;
+  if(className)node.className=className;
+  return node;
+}
+function open(index,frame){
+  zoomed={index,frame};
+  const concept=concepts[index];
+  const board=frame===null;
+  const label=board?'完整方案总板':scenes[frame].label;
+  get('viewer-title').textContent=concept.name+' · '+label;
+  get('zoom').src=board?concept.board:concept.frames[frame];
+  get('zoom').alt=label;
+  get('note').textContent=board?concept.desc:scenes[frame].note;
+  get('dialog-nav').hidden=board;
+  if(!viewer.open)viewer.showModal();
+}
+function card(concept,index,frame,label){
+  const button=create('button',null,'frame');
+  button.type='button';
+  const image=create('img');
+  image.src=concept.frames[frame];
+  image.alt=concept.name+' · '+scenes[frame].label;
+  image.loading='lazy';
+  const caption=create('span',label,'caption');
+  button.append(image,caption);
+  button.addEventListener('click',()=>open(index,frame));
+  return button;
+}
+function render(){
+  const concept=concepts[selected];
+  buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selected&&mode==='single')));
+  get('single').setAttribute('aria-pressed',String(mode==='single'));
+  get('compare').setAttribute('aria-pressed',String(mode==='compare'));
+  get('selector').style.display=mode==='compare'?'flex':'none';
+  get('scene').value=scene;
+  get('heading').textContent=mode==='single'?concept.name:scenes[scene].label+' · 六套方案';
+  get('description').textContent=mode==='single'?concept.desc:scenes[scene].note;
+  get('palette').replaceChildren();
+  if(mode==='single')for(const color of concept.palette){
+    const s=create('span',color,'swatch');
+    const chip=create('i');
+    chip.style.background=color;
+    s.prepend(chip);
+    get('palette').append(s);
+  }
+  const visuals=get('visuals');
+  visuals.replaceChildren();
+  if(mode==='single'){
+    const board=create('button','查看完整总板','board');
+    board.addEventListener('click',()=>open(selected,null));
+    visuals.append(board);
+  }
+  const grid=create('div',null,'grid');
+  if(mode==='compare') concepts.forEach((c,i)=>grid.append(card(c,i,scene,c.name)));
+  else scenes.forEach((s,i)=>grid.append(card(concept,selected,i,s.label)));
+  visuals.append(grid);
+  history.replaceState(null,'','#'+new URLSearchParams({concept:concept.id,mode,screen:scenes[scene].id}));
+}
+concepts.forEach((concept,index)=>{
+  const button=create('button',concept.name);
+  button.addEventListener('click',()=>{selected=index;mode='single';render();});
+  get(concept.family).append(button);
+  buttons.push(button);
+});
+scenes.forEach((item,index)=>{const option=create('option',item.label);option.value=index;get('scene').append(option);});
+get('single').addEventListener('click',()=>{mode='single';render();});
+get('compare').addEventListener('click',()=>{mode='compare';render();});
+get('scene').addEventListener('change',event=>{scene=Number(event.target.value);render();});
+get('close').addEventListener('click',()=>viewer.close());
+function move(delta){
+  if(!viewer.open||zoomed.frame===null)return;
+  open(zoomed.index,(zoomed.frame+delta+scenes.length)%scenes.length);
+}
+get('prev').addEventListener('click',()=>move(-1));
+get('next').addEventListener('click',()=>move(1));
+viewer.addEventListener('keydown',event=>{
+  if(event.key==='ArrowRight')move(1);
+  if(event.key==='ArrowLeft')move(-1);
+});
+render();
+</script>
+</body>
+</html>

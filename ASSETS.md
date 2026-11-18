@@ -57,3 +57,7 @@ Original PvZ music is available through Laura Shigihara's official Bandcamp embe
 八种新增敌人的四帧 walk 图集继续用于行走；`enemy-animation.ts` 与渲染器对同一美术切片进行躯干、手臂、腿部姿态变换，表达 windup、strike、hurt、death。没有在本版新绘制攻击/死亡图集，不能把这些运行时姿态描述为新增原画帧。
 
 `scripts/generate-music-states.py` 生成 camp-loop（22.4 秒）、elite-loop（17.28 秒）、boss-loop（15.36 秒）三段原创合成配乐，配合原 garden-loop（38.4 秒）。所有受控音乐都不是 PvZ 原声。原声仅沿用 Laura Shigihara 官方 Bandcamp 播放器，无下载、重新托管或跨域控制。
+
+## v0.10 generated artwork
+
+`assets/source-v10/` contains the built-in image model outputs: plantless Dave, three bosses, four animated impact families, 16 projectiles, 12 biome props, 2 terrain tiles and 4 pickups. Prompts and sources: `docs/v10-art-sources.json`. `scripts/prepare-v10-assets.mjs` normalizes shared foot anchors and creates runtime WebP atlases. Balloon/imp use the original source with corrected nonuniform row boundaries. No procedural SVG replacements are used for these assets.

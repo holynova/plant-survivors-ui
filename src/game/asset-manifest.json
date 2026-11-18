@@ -1,11 +1,35 @@
 [
   {
     "path": "animations/balloon-idle.webp",
-    "bytes": 10070
+    "bytes": 6506
   },
   {
     "path": "animations/balloon.webp",
-    "bytes": 39694
+    "bytes": 28554
+  },
+  {
+    "path": "animations/boss-captain-idle.webp",
+    "bytes": 11206
+  },
+  {
+    "path": "animations/boss-captain.webp",
+    "bytes": 50624
+  },
+  {
+    "path": "animations/boss-marsh-idle.webp",
+    "bytes": 14396
+  },
+  {
+    "path": "animations/boss-marsh.webp",
+    "bytes": 64818
+  },
+  {
+    "path": "animations/boss-mech-idle.webp",
+    "bytes": 12958
+  },
+  {
+    "path": "animations/boss-mech.webp",
+    "bytes": 58378
   },
   {
     "path": "animations/boss-trim-idle.webp",
@@ -41,11 +65,11 @@
   },
   {
     "path": "animations/dave-idle.webp",
-    "bytes": 11736
+    "bytes": 9256
   },
   {
     "path": "animations/dave.webp",
-    "bytes": 246802
+    "bytes": 155736
   },
   {
     "path": "animations/digger-idle.webp",
@@ -72,16 +96,12 @@
     "bytes": 60756
   },
   {
-    "path": "animations/fx.webp",
-    "bytes": 205392
-  },
-  {
     "path": "animations/imp-idle.webp",
-    "bytes": 13678
+    "bytes": 11262
   },
   {
     "path": "animations/imp.webp",
-    "bytes": 56042
+    "bytes": 51726
   },
   {
     "path": "animations/jetpack-idle.webp",
@@ -98,10 +118,6 @@
   {
     "path": "animations/newspaper.webp",
     "bytes": 55400
-  },
-  {
-    "path": "animations/plants.webp",
-    "bytes": 174002
   },
   {
     "path": "animations/rusty-idle.webp",
@@ -180,16 +196,88 @@
     "bytes": 18902
   },
   {
+    "path": "release/coin-v10.webp",
+    "bytes": 7412
+  },
+  {
     "path": "release/crystal-v2.webp",
     "bytes": 28024
+  },
+  {
+    "path": "release/forge-camp-icons.webp",
+    "bytes": 1338
+  },
+  {
+    "path": "release/forge-dave.webp",
+    "bytes": 27996
+  },
+  {
+    "path": "release/forge-loading.webp",
+    "bytes": 109688
+  },
+  {
+    "path": "release/forge-map-day.webp",
+    "bytes": 53424
+  },
+  {
+    "path": "release/forge-map-night.webp",
+    "bytes": 42086
+  },
+  {
+    "path": "release/forge-map-roof.webp",
+    "bytes": 43774
+  },
+  {
+    "path": "release/forge-result-banner.webp",
+    "bytes": 7550
+  },
+  {
+    "path": "release/forge-workshop.webp",
+    "bytes": 98840
+  },
+  {
+    "path": "release/garden-grass.webp",
+    "bytes": 7698
+  },
+  {
+    "path": "release/garden-night.webp",
+    "bytes": 5564
+  },
+  {
+    "path": "release/garden-props.webp",
+    "bytes": 65736
+  },
+  {
+    "path": "release/garden-roof.webp",
+    "bytes": 15580
   },
   {
     "path": "release/gatling.webp",
     "bytes": 29894
   },
   {
+    "path": "release/gem-v10.webp",
+    "bytes": 6282
+  },
+  {
     "path": "release/grass-tile.webp",
     "bytes": 35092
+  },
+  {
+    "path": "release/ground-coin.webp",
+    "bytes": 2774
+  },
+  {
+    "path": "release/ground-gem.webp",
+    "bytes": 1914
+  },
+  {
+    "path": "release/ground-heal.webp",
+    "bytes": 2554
+  },
+  {
+    "path": "release/ground-sun.webp",
+    "bytes": 2972
   },
   {
     "path": "release/ice.webp",
@@ -302,6 +390,14 @@
   {
     "path": "release/torchwood.webp",
     "bytes": 19880
+  },
+  {
+    "path": "release/v10-effects.webp",
+    "bytes": 132764
+  },
+  {
+    "path": "release/v10-munitions.webp",
+    "bytes": 107338
   },
   {
     "path": "release/walnut.webp",

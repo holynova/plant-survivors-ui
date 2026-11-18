@@ -1,0 +1,1763 @@
+[
+  {
+    "name": "android-360",
+    "w": 360,
+    "h": 640,
+    "safe": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "dpr": 2,
+    "scenes": [
+      {
+        "scene": "lobby",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "主角",
+            "height": 56.46875
+          },
+          {
+            "label": "配装",
+            "height": 56.46875
+          },
+          {
+            "label": "成长",
+            "height": 56.46875
+          },
+          {
+            "label": "花园图鉴",
+            "height": 56.46875
+          },
+          {
+            "label": "设置",
+            "height": 56.46875
+          },
+          {
+            "label": "出发",
+            "height": 101.953125
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".camp-actions",
+            "rect": {
+              "x": 38.8203125,
+              "y": 509.8125,
+              "width": 285.5,
+              "height": 101.953125,
+              "top": 509.8125,
+              "right": 324.3203125,
+              "bottom": 611.765625,
+              "left": 38.8203125
+            }
+          },
+          {
+            "q": ".camp-rail",
+            "rect": {
+              "x": 30.9765625,
+              "y": 138.03125,
+              "width": 56.46875,
+              "height": 319.96875,
+              "top": 138.03125,
+              "right": 87.4453125,
+              "bottom": 458,
+              "left": 30.9765625
+            }
+          },
+          {
+            "q": ".game-meta",
+            "rect": {
+              "x": 37.5703125,
+              "y": 608.875,
+              "width": 284.859375,
+              "height": 28,
+              "top": 608.875,
+              "right": 322.4296875,
+              "bottom": 636.875,
+              "left": 37.5703125
+            }
+          },
+          {
+            "q": ".camp-dave",
+            "rect": {
+              "x": 56.0703125,
+              "y": 197.65625,
+              "width": 282.34375,
+              "height": 341.953125,
+              "top": 197.65625,
+              "right": 338.4140625,
+              "bottom": 539.609375,
+              "left": 56.0703125
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "settings",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "减少动态 关闭",
+            "height": 86.90625
+          },
+          {
+            "label": "恢复默认",
+            "height": 65.875
+          },
+          {
+            "label": "战斗音效 开启",
+            "height": 55.640625
+          },
+          {
+            "label": "背景音乐",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".forge-settings-page .sign",
+            "rect": {
+              "x": 21.5703125,
+              "y": 0,
+              "width": 316.859375,
+              "height": 58.03125,
+              "top": 0,
+              "right": 338.4296875,
+              "bottom": 58.03125,
+              "left": 21.5703125
+            }
+          },
+          {
+            "q": ".forge-settings-page .game-scroll",
+            "rect": {
+              "x": 34.1171875,
+              "y": 105.09375,
+              "width": 291.765625,
+              "height": 523.9375,
+              "top": 105.09375,
+              "right": 325.8828125,
+              "bottom": 629.03125,
+              "left": 34.1171875
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "music",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "减少动态 关闭",
+            "height": 86.90625
+          },
+          {
+            "label": "恢复默认",
+            "height": 65.875
+          },
+          {
+            "label": "战斗音效 开启",
+            "height": 55.640625
+          },
+          {
+            "label": "背景音乐",
+            "height": 44
+          },
+          {
+            "label": "原版游戏音乐",
+            "height": 44
+          },
+          {
+            "label": "离线花园音乐",
+            "height": 44
+          },
+          {
+            "label": "关闭音乐",
+            "height": 44
+          },
+          {
+            "label": "载入官方原声播放器",
+            "height": 44
+          },
+          {
+            "label": "返回游戏",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".original-music>.paper",
+            "rect": {
+              "x": 20,
+              "y": 130.875,
+              "width": 320,
+              "height": 378.234375,
+              "top": 130.875,
+              "right": 340,
+              "bottom": 509.109375,
+              "left": 20
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "map",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "阳光后院当前",
+            "height": 147.4375
+          },
+          {
+            "label": "月光泳池",
+            "height": 147.4375
+          },
+          {
+            "label": "屋顶花园 未解锁",
+            "height": 147.4375
+          },
+          {
+            "label": "前往花园",
+            "height": 54.890625
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".forge-map-list .forge-map-tile:first-child",
+            "rect": {
+              "x": 34.1171875,
+              "y": 78.421875,
+              "width": 291.765625,
+              "height": 147.4375,
+              "top": 78.421875,
+              "right": 325.8828125,
+              "bottom": 225.859375,
+              "left": 34.1171875
+            }
+          },
+          {
+            "q": ".forge-footer",
+            "rect": {
+              "x": 67.0546875,
+              "y": 552.171875,
+              "width": 225.875,
+              "height": 54.890625,
+              "top": 552.171875,
+              "right": 292.9296875,
+              "bottom": 607.0625,
+              "left": 67.0546875
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "heroes",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "戴夫厚实围裙生命 125 · 减伤 20%；站稳 1.5 秒获得额外 25% 减伤",
+            "height": 149.015625
+          },
+          {
+            "label": "小葵阳光亲和经验 +25% · 拾取范围 +20；修复与取水更快",
+            "height": 149.015625
+          },
+          {
+            "label": "阿栓超频背包攻击冷却 −20% · 移速 +15%；持续移动充能，触发 3 秒超频",
+            "height": 149.015625
+          },
+          {
+            "label": "选择植物",
+            "height": 54.890625
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".forge-hero-card:first-child",
+            "rect": {
+              "x": 27.8359375,
+              "y": 78.421875,
+              "width": 304.328125,
+              "height": 149.015625,
+              "top": 78.421875,
+              "right": 332.1640625,
+              "bottom": 227.4375,
+              "left": 27.8359375
+            }
+          },
+          {
+            "q": ".forge-footer",
+            "rect": {
+              "x": 67.0546875,
+              "y": 552.171875,
+              "width": 225.875,
+              "height": 54.890625,
+              "top": 552.171875,
+              "right": 292.9296875,
+              "bottom": 607.0625,
+              "left": 67.0546875
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "prepare",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "起始植物",
+            "height": 44
+          },
+          {
+            "label": "升级候选",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手起始",
+            "height": 128.625
+          },
+          {
+            "label": "寒冰射手可选",
+            "height": 128.625
+          },
+          {
+            "label": "回旋镖可选",
+            "height": 128.625
+          },
+          {
+            "label": "大喷菇可选",
+            "height": 128.625
+          },
+          {
+            "label": "卷心菜投手可选",
+            "height": 128.625
+          },
+          {
+            "label": "玉米投手 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "西瓜投手 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "樱桃炸弹 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "火爆辣椒 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "土豆地雷 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "大嘴花 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "窝瓜 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "杨桃 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "仙人掌 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "磁力菇 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "菜问 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "火龙草 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "闪电芦苇 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "激光豆 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "竹笋炮手 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "椰子加农炮 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "冰冻生菜 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "电能卷心菜 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "开始战斗",
+            "height": 54.890625
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".prepare-footer",
+            "rect": {
+              "x": 67.0546875,
+              "y": 552.15625,
+              "width": 225.875,
+              "height": 54.890625,
+              "top": 552.15625,
+              "right": 292.9296875,
+              "bottom": 607.046875,
+              "left": 67.0546875
+            }
+          },
+          {
+            "q": ".forge-loadout-summary",
+            "rect": {
+              "x": 29.3984375,
+              "y": 423.515625,
+              "width": 301.203125,
+              "height": 109.796875,
+              "top": 423.515625,
+              "right": 330.6015625,
+              "bottom": 533.3125,
+              "left": 29.3984375
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "unlock",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "起始植物",
+            "height": 44
+          },
+          {
+            "label": "升级候选",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手起始",
+            "height": 128.625
+          },
+          {
+            "label": "寒冰射手可选",
+            "height": 128.625
+          },
+          {
+            "label": "回旋镖可选",
+            "height": 128.625
+          },
+          {
+            "label": "大喷菇可选",
+            "height": 128.625
+          },
+          {
+            "label": "卷心菜投手可选",
+            "height": 128.625
+          },
+          {
+            "label": "玉米投手 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "西瓜投手 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "樱桃炸弹 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "火爆辣椒 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "土豆地雷 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "大嘴花 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "窝瓜 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "杨桃 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "仙人掌 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "磁力菇 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "菜问 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "火龙草 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "闪电芦苇 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "激光豆 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "竹笋炮手 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "椰子加农炮 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "冰冻生菜 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "电能卷心菜 未解锁",
+            "height": 128.625
+          },
+          {
+            "label": "开始战斗",
+            "height": 54.890625
+          },
+          {
+            "label": "×",
+            "height": 44
+          },
+          {
+            "label": "解锁并选择",
+            "height": 61.171875
+          },
+          {
+            "label": "取消",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".unlock-shade .game-modal",
+            "rect": {
+              "x": 45.1015625,
+              "y": 233.71875,
+              "width": 269.796875,
+              "height": 346.65625,
+              "top": 233.71875,
+              "right": 314.8984375,
+              "bottom": 580.375,
+              "left": 45.1015625
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "battle",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "暂停战斗",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手，冷却 0.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "寒冰射手，冷却 0.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "回旋镖，冷却 0.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "大喷菇，冷却 0.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "卷心菜投手，冷却 0.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "闪电芦苇，冷却 0.0 秒，查看本局花园",
+            "height": 67.4375
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".hud",
+            "rect": {
+              "x": 21.5703125,
+              "y": 0,
+              "width": 316.859375,
+              "height": 141.171875,
+              "top": 0,
+              "right": 338.4296875,
+              "bottom": 141.171875,
+              "left": 21.5703125
+            }
+          },
+          {
+            "q": ".weapon-dock",
+            "rect": {
+              "x": 33.3359375,
+              "y": 533.34375,
+              "width": 293.328125,
+              "height": 76.859375,
+              "top": 533.34375,
+              "right": 326.6640625,
+              "bottom": 610.203125,
+              "left": 33.3359375
+            }
+          },
+          {
+            "q": ".health-meter",
+            "rect": {
+              "x": 105.5703125,
+              "y": 21.171875,
+              "width": 112.609375,
+              "height": 15.671875,
+              "top": 21.171875,
+              "right": 218.1796875,
+              "bottom": 36.84375,
+              "left": 105.5703125
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "boss",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "暂停战斗",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手，冷却 0.5 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "寒冰射手，冷却 0.5 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "回旋镖，冷却 0.8 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "大喷菇，冷却 1.1 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "卷心菜投手，冷却 1.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "闪电芦苇，冷却 1.2 秒，查看本局花园",
+            "height": 67.4375
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".boss-health",
+            "rect": {
+              "x": 73.3203125,
+              "y": 72.15625,
+              "width": 246.296875,
+              "height": 42.328125,
+              "top": 72.15625,
+              "right": 319.6171875,
+              "bottom": 114.484375,
+              "left": 73.3203125
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "evolution",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "暂停战斗",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "闪电芦苇，冷却 1.2 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "继续战斗",
+            "height": 59.59375
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".game-modal",
+            "rect": {
+              "x": 21.5703125,
+              "y": 0,
+              "width": 316.859375,
+              "height": 640,
+              "top": 0,
+              "right": 338.4296875,
+              "bottom": 640,
+              "left": 21.5703125
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "upgrade",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "暂停战斗",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "闪电芦苇，冷却 1.2 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "豌豆射手 Lv.4自动瞄准；Lv.3 双发，Lv.4 穿透命中伤害 40 → 48 · 冷却 0.61 → 0.56 秒 · 解锁穿透",
+            "height": 105.09375
+          },
+          {
+            "label": "寒冰射手 Lv.4冰晶减速；Lv.3 穿透命中伤害 40 → 48 · 冷却 0.65 → 0.59 秒",
+            "height": 105.09375
+          },
+          {
+            "label": "坚果 Lv.2生命上限 +25，并回复 40生命上限 +25 · 立即回复 40",
+            "height": 105.09375
+          },
+          {
+            "label": "换一批 · 2",
+            "height": 54.890625
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".upgrade-content",
+            "rect": {
+              "x": 29.4140625,
+              "y": 80,
+              "width": 301.171875,
+              "height": 495.609375,
+              "top": 80,
+              "right": 330.5859375,
+              "bottom": 575.609375,
+              "left": 29.4140625
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "pause",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "暂停战斗",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "闪电芦苇，冷却 1.2 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "×",
+            "height": 44
+          },
+          {
+            "label": "本局",
+            "height": 67.4375
+          },
+          {
+            "label": "植物",
+            "height": 67.4375
+          },
+          {
+            "label": "地图",
+            "height": 67.4375
+          },
+          {
+            "label": "设置",
+            "height": 67.4375
+          },
+          {
+            "label": "查看本局花园",
+            "height": 44
+          },
+          {
+            "label": "继续战斗",
+            "height": 76.859375
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".pause-modal",
+            "rect": {
+              "x": 21.5703125,
+              "y": 0,
+              "width": 316.859375,
+              "height": 640,
+              "top": 0,
+              "right": 338.4296875,
+              "bottom": 640,
+              "left": 21.5703125
+            }
+          },
+          {
+            "q": ".resume-run",
+            "rect": {
+              "x": 53.9296875,
+              "y": 520.203125,
+              "width": 254.109375,
+              "height": 76.859375,
+              "top": 520.203125,
+              "right": 308.0390625,
+              "bottom": 597.0625,
+              "left": 53.9296875
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "pause-map",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "暂停战斗",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "寒冰射手，冷却 0.4 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "回旋镖，冷却 0.7 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "大喷菇，冷却 1.0 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "卷心菜投手，冷却 0.9 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "闪电芦苇，冷却 1.2 秒，查看本局花园",
+            "height": 67.4375
+          },
+          {
+            "label": "×",
+            "height": 44
+          },
+          {
+            "label": "本局",
+            "height": 67.4375
+          },
+          {
+            "label": "植物",
+            "height": 67.4375
+          },
+          {
+            "label": "地图",
+            "height": 67.4375
+          },
+          {
+            "label": "设置",
+            "height": 67.4375
+          },
+          {
+            "label": "继续战斗",
+            "height": 76.859375
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".pause-modal",
+            "rect": {
+              "x": 21.5703125,
+              "y": 0,
+              "width": 316.859375,
+              "height": 640,
+              "top": 0,
+              "right": 338.4296875,
+              "bottom": 640,
+              "left": 21.5703125
+            }
+          },
+          {
+            "q": ".resume-run",
+            "rect": {
+              "x": 53.9296875,
+              "y": 520.203125,
+              "width": 254.109375,
+              "height": 76.859375,
+              "top": 520.203125,
+              "right": 308.0390625,
+              "bottom": 597.0625,
+              "left": 53.9296875
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "build",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "返回战斗",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".forge-build .forge-footer",
+            "rect": {
+              "x": 67.0546875,
+              "y": 596.09375,
+              "width": 225.875,
+              "height": 40.78125,
+              "top": 596.09375,
+              "right": 292.9296875,
+              "bottom": 636.875,
+              "left": 67.0546875
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "result",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回营地",
+            "height": 70.578125
+          },
+          {
+            "label": "再来一局",
+            "height": 70.578125
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".result-actions",
+            "rect": {
+              "x": 29.3984375,
+              "y": 528.625,
+              "width": 301.203125,
+              "height": 70.578125,
+              "top": 528.625,
+              "right": 330.6015625,
+              "bottom": 599.203125,
+              "left": 29.3984375
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "guide",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "植物 · 27",
+            "height": 44
+          },
+          {
+            "label": "僵尸 · 18",
+            "height": 44
+          },
+          {
+            "label": "主角 · 3",
+            "height": 44
+          },
+          {
+            "label": "豌豆射手单体",
+            "height": 122.34375
+          },
+          {
+            "label": "寒冰射手控制",
+            "height": 122.34375
+          },
+          {
+            "label": "回旋镖穿透",
+            "height": 122.34375
+          },
+          {
+            "label": "大喷菇近距",
+            "height": 122.34375
+          },
+          {
+            "label": "向日葵被动",
+            "height": 122.34375
+          },
+          {
+            "label": "坚果被动",
+            "height": 122.34375
+          },
+          {
+            "label": "弹药袋装备",
+            "height": 122.34375
+          },
+          {
+            "label": "卷心菜投手投掷",
+            "height": 122.34375
+          },
+          {
+            "label": "玉米投手 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "西瓜投手 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "樱桃炸弹 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "火爆辣椒 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "土豆地雷 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "大嘴花 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "窝瓜 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "杨桃 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "仙人掌 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "火炬树桩 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "磁力菇 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "菜问 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "火龙草 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "闪电芦苇 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "激光豆 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "竹笋炮手 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "椰子加农炮 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "冰冻生菜 未解锁",
+            "height": 122.34375
+          },
+          {
+            "label": "电能卷心菜 未解锁",
+            "height": 122.34375
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".guide-tabs",
+            "rect": {
+              "x": 27.8359375,
+              "y": 72.15625,
+              "width": 304.328125,
+              "height": 47,
+              "top": 72.15625,
+              "right": 332.1640625,
+              "bottom": 119.15625,
+              "left": 27.8359375
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "detail",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "上一条",
+            "height": 44
+          },
+          {
+            "label": "下一条",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".forge-specimen-stage",
+            "rect": {
+              "x": 27.8359375,
+              "y": 72.15625,
+              "width": 304.328125,
+              "height": 235.28125,
+              "top": 72.15625,
+              "right": 332.1640625,
+              "bottom": 307.4375,
+              "left": 27.8359375
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "shop",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "植物种子",
+            "height": 44
+          },
+          {
+            "label": "永久成长",
+            "height": 44
+          },
+          {
+            "label": "35",
+            "height": 44
+          },
+          {
+            "label": "651",
+            "height": 44
+          },
+          {
+            "label": "701",
+            "height": 44
+          },
+          {
+            "label": "651",
+            "height": 44
+          },
+          {
+            "label": "30",
+            "height": 44
+          },
+          {
+            "label": "651",
+            "height": 44
+          },
+          {
+            "label": "45",
+            "height": 44
+          },
+          {
+            "label": "45",
+            "height": 44
+          },
+          {
+            "label": "45",
+            "height": 44
+          },
+          {
+            "label": "551",
+            "height": 44
+          },
+          {
+            "label": "601",
+            "height": 44
+          },
+          {
+            "label": "40",
+            "height": 44
+          },
+          {
+            "label": "651",
+            "height": 44
+          },
+          {
+            "label": "752",
+            "height": 44
+          },
+          {
+            "label": "802",
+            "height": 44
+          },
+          {
+            "label": "701",
+            "height": 44
+          },
+          {
+            "label": "1003",
+            "height": 44
+          },
+          {
+            "label": "551",
+            "height": 44
+          },
+          {
+            "label": "1103",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".forge-wallet",
+            "rect": {
+              "x": 173.6015625,
+              "y": 45.484375,
+              "width": 157,
+              "height": 29.796875,
+              "top": 45.484375,
+              "right": 330.6015625,
+              "bottom": 75.28125,
+              "left": 173.6015625
+            }
+          },
+          {
+            "q": ".shop-tabs",
+            "rect": {
+              "x": 27.8359375,
+              "y": 54.890625,
+              "width": 149.015625,
+              "height": 44,
+              "top": 54.890625,
+              "right": 176.8515625,
+              "bottom": 98.890625,
+              "left": 27.8359375
+            }
+          },
+          {
+            "q": ".shop-notice",
+            "rect": {
+              "x": 29.3984375,
+              "y": 599.109375,
+              "width": 301.203125,
+              "height": 36.1875,
+              "top": 599.109375,
+              "right": 330.6015625,
+              "bottom": 635.296875,
+              "left": 29.3984375
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      },
+      {
+        "scene": "permanent",
+        "experienceColor": null,
+        "touchTargets": [
+          {
+            "label": "返回",
+            "height": 44
+          },
+          {
+            "label": "植物种子",
+            "height": 44
+          },
+          {
+            "label": "永久成长",
+            "height": 44
+          },
+          {
+            "label": "55",
+            "height": 44
+          },
+          {
+            "label": "45",
+            "height": 44
+          },
+          {
+            "label": "801",
+            "height": 44
+          }
+        ],
+        "w": 360,
+        "h": 640,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 640,
+          "top": 0,
+          "right": 360,
+          "bottom": 640,
+          "left": 0
+        },
+        "simulator": false,
+        "overflow": false,
+        "controls": [
+          {
+            "q": ".shop-notice",
+            "rect": {
+              "x": 29.3984375,
+              "y": 599.109375,
+              "width": 301.203125,
+              "height": 36.1875,
+              "top": 599.109375,
+              "right": 330.6015625,
+              "bottom": 635.296875,
+              "left": 29.3984375
+            }
+          }
+        ],
+        "images": true,
+        "errors": [],
+        "pass": true
+      }
+    ]
+  }
+]
