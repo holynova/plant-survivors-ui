@@ -24,6 +24,19 @@ if(existsSync('docs/reports/v11/index.html')){
   cpSync('docs/reports/v11/index.html','dist/client/qa/v11.html');
 }
 
+const precisionReport='docs/reports/forge-precision/comparisons';
+if(existsSync(join(precisionReport,'index.html'))){
+  // Keep the complete comparison in one static asset on the shared Worker.
+  const html=readFileSync(join(precisionReport,'index.html'),'utf8')
+    .replace('href="../index.html">12 种视口的实跑截图','href="https://github.com/holynova/plant-survivors-ui/tree/main/docs/reports/forge-precision">12 种视口的实跑截图')
+    .replace('点击可查看原图。','点击可下载三栏原图。')
+    .replace(/<a href="([\w-]+\.webp)"><img src="\1"/g,(_,image)=>{
+      const data='data:image/webp;base64,'+readFileSync(join(precisionReport,image)).toString('base64');
+      return `<a href="${data}" download="${image}"><img src="${data}"`;
+    });
+  writeFileSync('dist/client/qa/precision.html',html);
+}
+
 // Historical intermediate profiler traces remain in Git; final reports do not reference them.
 for(const trace of ['performance/index-only','performance/render-cache','performance/baseline/v07-1x.json','performance/baseline/v07-4x.json','fixes.json','v09/battle-recording.json','v09/paused-render.json','v09/resources.json'])rmSync(join('dist/client/qa',trace),{recursive:true,force:true});
 

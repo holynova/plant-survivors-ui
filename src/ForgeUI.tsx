@@ -1,5 +1,5 @@
 import {useState, type ComponentType, type ReactNode} from 'react';
-import {BackpackIcon, ChevronLeftIcon, ChevronRightIcon, DoubleArrowRightIcon, GearIcon, LockClosedIcon, PersonIcon, ReaderIcon, RocketIcon, CheckIcon} from '@radix-ui/react-icons';
+import {BackpackIcon, ChevronLeftIcon, ChevronRightIcon, DoubleArrowRightIcon, FileTextIcon, GearIcon, MixIcon, LockClosedIcon, PersonIcon, ReaderIcon, RocketIcon, CheckIcon} from '@radix-ui/react-icons';
 import {GameScroll} from './GameScroll';
 import {heroIds, heroes, type HeroId} from './game/catalog';
 import {activePlants, plants} from './game/plants';
@@ -41,8 +41,8 @@ export function Camp({Art,save,version,ready,resume,onResume,onMap,onHeroes,onPl
     <Art id="forge-workshop" className="camp-backdrop"/>
     <div className="camp-top"><Sign>营地</Sign><Wallet Art={Art} save={save}/></div>
     <nav className="camp-rail" aria-label="营地菜单">
-      {actions.map(([Icon,label,action])=><button key={label} aria-label={label} title={label} onClick={action}>
-        <Icon/><span>{label==='花园图鉴'?'图鉴':label}</span>
+      {actions.map(([Icon,label,action],index)=><button key={label} aria-label={label} title={label} onClick={action}>
+        <Icon/><span className="forge-rail-icon" aria-hidden="true" data-icon={index}/>
       </button>)}
     </nav>
     <Art id="forge-dave" className="camp-dave" alt="戴夫推着花园手推车"/>
@@ -99,8 +99,8 @@ export function PlantLoadout({Art,starter,pool,save,select,toggle,back,next,shor
   return <div className="page forge-loadout">
     <Sign back={back}>配装</Sign>
     <div className="guide-tabs forge-loadout-tabs" aria-label="配装类别">
-      <button aria-pressed={tab==='starter'} onClick={()=>setTab('starter')}>起始植物</button>
-      <button aria-pressed={tab==='pool'} onClick={()=>setTab('pool')}>升级候选</button>
+      <button aria-pressed={tab==='starter'} onClick={()=>setTab('starter')}><MixIcon/>起始植物</button>
+      <button aria-pressed={tab==='pool'} onClick={()=>setTab('pool')}><FileTextIcon/>升级候选</button>
     </div>
     <GameScroll className="forge-loadout-scroll">
       <div className="starter-grid">
@@ -112,15 +112,16 @@ export function PlantLoadout({Art,starter,pool,save,select,toggle,back,next,shor
             onClick={()=>tab==='starter'?select(id):toggle(id)}>
             <Art id={id}/>
             <b>{plants[id].name}</b>
-            {locked?<small className="forge-locked"><LockClosedIcon/> 未解锁</small>:<small>{chosen?(tab==='starter'?'起始':'已加入'):'可选'}</small>}
+            {locked?<small className="forge-locked"><LockClosedIcon/> 未解锁</small>:<span className={`forge-card-state ${chosen?'is-chosen':''}`}>{chosen?(tab==='starter'?'起始':'已加入'):'可选'}</span>}
           </button>;
         })}
       </div>
     </GameScroll>
     <div className="forge-loadout-summary">
-      <div className="forge-section-title"><b>{tab==='starter'?'起始植物':'升级候选'}</b><span>{tab==='starter'?'Lv.5 质变':`${pool.length}/8`}</span></div>
-      {tab==='starter'?<div className="forge-chosen"><Art id={starter}/><div><b>{plants[starter].name}</b><small>{awakeningText(starter)}</small></div></div>
-        :<div className="forge-pool-strip">{pool.map(id=><Art key={id} id={id} alt={plants[id].name}/>)}</div>}
+      <div className="forge-section-title"><b>出战候选 ({pool.length}/8)</b></div>
+      <div className="forge-pool-strip" aria-label={`起始植物 ${plants[starter].name}，Lv.5 质变：${awakeningText(starter)}`}>
+        {[starter,...pool.filter(id=>id!==starter)].slice(0,8).map(id=><div className={`forge-pool-slot ${id===starter?'is-starter':''}`} key={id} title={`${plants[id].name} · ${awakeningText(id)}`}><Art id={id} alt={plants[id].name}/></div>)}
+      </div>
     </div>
     <div className="forge-footer prepare-footer"><Gold onClick={next}>{shortcut?'确认配装':'开始战斗'} <DoubleArrowRightIcon/></Gold></div>
   </div>;

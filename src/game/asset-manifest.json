@@ -204,6 +204,10 @@
     "bytes": 28024
   },
   {
+    "path": "release/forge-camp-icons.webp",
+    "bytes": 1338
+  },
+  {
     "path": "release/forge-dave.webp",
     "bytes": 27996
   },
@@ -222,6 +226,10 @@
   {
     "path": "release/forge-map-roof.webp",
     "bytes": 43774
+  },
+  {
+    "path": "release/forge-result-banner.webp",
+    "bytes": 7550
   },
   {
     "path": "release/forge-workshop.webp",

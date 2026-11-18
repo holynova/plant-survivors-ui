@@ -2,12 +2,13 @@ import {BattleHud} from './BattleHud';
 import {RunPause} from './RunPause';
 import {bossIds} from './game/bosses';
 import {awakeningText} from './game/awakening';
-import {useEffect,useRef,useState,type PointerEvent} from 'react';
+import {useEffect,useRef,useState,type CSSProperties,type PointerEvent} from 'react';
 import {SimulationClock,parsePreferences,encodeCheckpoint,decodeCheckpoint,CHECKPOINT_KEY,PREFERENCES_KEY} from './game/runtime';
 import {versionLabel} from './game/version';
 import {createRun,step,select,replacePassive,reroll,names,descriptions,clock,cooldownState,resizeArena,type Run} from './game/simulation';
 import './prototype.css';
 import './forge.css';
+import './forge-precision.css';
 import {DoubleArrowRightIcon, MixerHorizontalIcon, PlayIcon, ReloadIcon, SpeakerLoudIcon} from '@radix-ui/react-icons';
 import {Camp, ExpeditionMap, Gold, HeroSelect, PlantLoadout, Sign, stages} from './ForgeUI';
 import {renderBattle} from './game/renderer';
@@ -92,17 +93,23 @@ export default function Prototype(){
   setMusic(defaults.music);
   setOriginalMusic(defaults.original);
  };
+ const volumeControl=(key:'effectsVolume'|'musicVolume'|'warningVolume',label:string)=><label className="forge-volume" key={key}>
+  <span><SpeakerLoudIcon/>{label}</span>
+  <input style={{'--volume':`${preferences[key]*100}%`} as CSSProperties} aria-label={label} type="range" min="0" max="1" step="0.05" value={preferences[key]} onChange={event=>setPreferences(p=>({...p,[key]:Number(event.target.value)}))}/>
+ </label>;
  const settings=<div className="forge-settings">
-   {(['effectsVolume','musicVolume','warningVolume'] as const).map((key,index)=>{
-    const label=['战斗音量','离线音乐音量','危险提示音量'][index];
-    return <label className="forge-volume" key={key}><span><SpeakerLoudIcon/>{label}</span>
-     <input aria-label={label} type="range" min="0" max="1" step="0.05" value={preferences[key]} onChange={event=>setPreferences(p=>({...p,[key]:Number(event.target.value)}))}/>
-    </label>;
-   })}
-   <button className="forge-setting-row" role="switch" aria-checked={sound} onClick={()=>setSound(v=>!v)}>战斗音效 <span>{sound?'开启':'关闭'}</span></button>
+  <div className="forge-settings-card">
+   {volumeControl('effectsVolume','音效')}
+   {volumeControl('musicVolume','音乐')}
    <button className="forge-setting-row" role="switch" aria-checked={reduced} onClick={()=>setReduced(v=>!v)}>减少动态 <span>{reduced?'开启':'关闭'}</span></button>
-   <button className="cream-button" onClick={()=>setMusicPanel(true)}><MixerHorizontalIcon/>背景音乐</button>
-   <button className="cream-button" onClick={restoreDefaults}><ReloadIcon/>恢复默认</button>
+  </div>
+  <button className="cream-button forge-reset" onClick={restoreDefaults}><ReloadIcon/>恢复默认</button>
+  <details className="forge-audio-options">
+   <summary>更多音频设置</summary>
+   {volumeControl('warningVolume','危险提示音量')}
+   <button className="forge-setting-row" role="switch" aria-checked={sound} onClick={()=>setSound(v=>!v)}>战斗音效 <span>{sound?'开启':'关闭'}</span></button>
+   <button className="cream-button forge-music-open" onClick={()=>setMusicPanel(true)}><MixerHorizontalIcon/>背景音乐</button>
+  </details>
  </div>;
  const openCampShortcut=(target:'heroes'|'prepare')=>{setCampShortcut(true);setPage(target);};
  const battlePlantEntries=Object.entries(s.plants);
@@ -145,11 +152,18 @@ export default function Prototype(){
  {page==='abandon'&&<div className="page forge-abandon"><Sign back={()=>setPage('battle')}>结束远征？</Sign><section className="paper"><p>撤退后会结算本局，保留已获得的奖励。</p></section><div className="forge-footer"><Gold onClick={()=>{s.status='lost';setPage('battle')}}>确认撤退</Gold><button className="cream-button" onClick={()=>setPage('battle')}>继续本局</button></div></div>}
  {page==='result'&&<div className="page forge-result">
   <GameScroll className="forge-result-scroll">
-   <h1 className="forge-result-title">生存结算</h1>
-   <div className="forge-result-score"><span>生存时间</span><strong>{clock(s.time)}</strong><small>{stages[s.stage]} · {s.lastDamage||'主动撤退'}</small></div>
-   <dl className="forge-result-counts"><div><dt>击败敌人</dt><dd>{s.kills}</dd></div><div><dt>击败精英</dt><dd>{s.eliteKills}</dd></div><div><dt>击败首领</dt><dd>{s.bossKills}</dd></div></dl>
-   <h2>获得战利品</h2>
-   <div className="forge-result-reward"><div><Art id="ground-coin"/><b>+{s.coins}</b><small>金币</small></div><div><Art id="ground-gem"/><b>+{s.gems}</b><small>钻石</small></div></div>
+   <h1 className="forge-result-title"><span>生存结算</span><Art id="forge-result-banner"/></h1>
+   <div className="forge-result-score"><span>生存时间</span><strong>{clock(s.time)}</strong></div>
+   <div className="forge-result-kills"><span>本局击败</span><strong>{s.kills.toLocaleString('zh-CN')}</strong></div>
+   <section className="forge-result-take" aria-label="本局收获">
+    <h2>本局收获</h2>
+    <div className="forge-result-reward">
+     <div><Art id="ground-coin"/><b>×{s.coins}</b><small>金币</small></div>
+     <div><Art id="ground-gem"/><b>×{s.gems}</b><small>钻石</small></div>
+     <div><Art id="seed-v2"/><b>×{s.bossKills}</b><small>击败首领</small></div>
+    </div>
+   </section>
+   <p className="forge-result-progress">{stages[s.stage]} · {s.lastDamage||'主动撤退'}</p>
    {s.bossKills>0&&<p className="forge-result-progress">{stageStories[s.stage].ending}</p>}
    {!!Object.keys(s.damage).length&&<details className="forge-damage"><summary>实际伤害统计</summary><div className="damage-list">{Object.entries(s.damage).sort((a,b)=>b[1]-a[1]).map(([id,n])=><div className="damage-row" key={id}><Art id={id}/><span>{names[id]}</span><meter value={n} max={Math.max(1,...Object.values(s.damage))}/><b>{Math.round(n)}</b></div>)}</div></details>}
   </GameScroll>
@@ -162,8 +176,9 @@ export default function Prototype(){
   const {id,selectAfter}=unlock,price=cost(save,id),affordable=save.coins>=price.coins&&save.gems>=price.gems;
   return <div className="modal-shade unlock-shade" role="dialog" aria-modal="true" aria-label="解锁植物">
    <section className="game-modal forge-unlock">
-    <Sign>解锁</Sign>
+    <button className="forge-unlock-close" aria-label="关闭解锁确认" onClick={()=>setUnlock(null)}>×</button>
     <Art id={id} className="modal-plant"/>
+    <h1>解锁植物</h1>
     <section className="paper"><h2>{names[id]}</h2><p>{descriptions[id]}</p><small>Lv.5 质变 · {awakeningText(id)}</small></section>
     <p className="unlock-cost"><Art id="ground-coin"/>{price.coins} 金币{price.gems>0&&<><Art id="ground-gem"/>{price.gems} 钻石</>}</p>
     <small>余额 · {save.coins} 金币 / {save.gems} 钻石</small>
