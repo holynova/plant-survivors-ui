@@ -1,0 +1,34 @@
+{
+  "hurt": {
+    "hp": 111,
+    "max": 125,
+    "hit": 14,
+    "sound": 1
+  },
+  "screens": [
+    "small-320-boss.webp",
+    "small-320-upgrade.webp",
+    "android-360-boss.webp",
+    "android-360-upgrade.webp",
+    "compact-375-boss.webp",
+    "compact-375-upgrade.webp",
+    "standard-390-boss.webp",
+    "standard-390-upgrade.webp",
+    "standard-393-boss.webp",
+    "standard-393-upgrade.webp",
+    "large-412-boss.webp",
+    "large-412-upgrade.webp",
+    "large-430-boss.webp",
+    "large-430-upgrade.webp",
+    "browser-short-boss.webp",
+    "browser-short-upgrade.webp",
+    "landscape-667-boss.webp",
+    "landscape-667-upgrade.webp",
+    "landscape-844-boss.webp",
+    "landscape-844-upgrade.webp",
+    "safe-portrait-boss.webp",
+    "safe-portrait-upgrade.webp",
+    "safe-landscape-boss.webp",
+    "safe-landscape-upgrade.webp"
+  ]
+}

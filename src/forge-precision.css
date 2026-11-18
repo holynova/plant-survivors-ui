@@ -597,3 +597,17 @@
   .upgrade-copy strong {font-size:16px;}
   .upgrade-copy > span {font-size:13px;}
 }
+
+/* Painted enamel boss gauge: dark keyline, amber rim, jelly fill and four pips. */
+.forge-ui .live-arena.hud-a .encounter-bar .boss-health {display:grid;grid-template-columns:minmax(0,1fr);justify-items:stretch;gap:1px;background:none;border:0;box-shadow:none;}
+.forge-ui .hud-a .encounter-bar .boss-health > b {justify-self:center;color:var(--forge-white);font-size:clamp(12px,3.4vw,18px);text-shadow:1px 2px var(--color-forge-inset),-1px -1px var(--color-forge-inset);}
+.boss-gauge {position:relative;isolation:isolate;overflow:hidden;width:100%;height:clamp(15px,2.4vh,20px);border:2px solid var(--forge-gold);border-radius:var(--radius-pill);background:var(--color-danger-dark);box-shadow:0 0 0 2px var(--color-forge-inset),0 3px 0 1px var(--color-forge-inset);}
+.boss-gauge i,.boss-gauge::after,.boss-gauge strong {position:absolute;inset:0;}
+.boss-gauge i {right:auto;border-radius:inherit;background:linear-gradient(to bottom,var(--color-danger-light) 0 23%,var(--color-danger) 25% 74%,var(--color-danger-dark));}
+.boss-gauge::after {content:"";background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 2px),var(--color-forge-inset) calc(25% - 2px) 25%);opacity:.45;}
+.boss-gauge strong {z-index:1;text-align:center;font:950 11px/1 system-ui;align-content:center;color:var(--forge-white);text-shadow:0 1px 2px var(--color-forge-inset);}
+.forge-ui .minimal-dock .plant-card {position:relative;}
+.forge-ui .minimal-dock .dock-level {position:absolute;top:0;right:0;z-index:1;padding:1px 3px;border-radius:var(--radius-control);background:var(--color-forge-inset);color:var(--forge-white);font:850 clamp(9px,2.6vw,12px)/1.1 system-ui;pointer-events:none;}
+.forge-ui .upgrade-copy strong em {white-space:nowrap;font-size:.75em;}
+.forge-ui .hud-a .encounter-bar .boss-health > b {display:flex;align-items:center;gap:4px;border:2px solid var(--color-forge-inset);border-radius:var(--radius-pill);background:var(--forge-panel);padding:0 8px 0 0;}
+.boss-health b img {width:24px;height:20px;object-fit:cover;object-position:50% 30%;border-radius:var(--radius-pill);background:var(--forge-gold);}

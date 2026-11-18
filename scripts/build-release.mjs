@@ -55,6 +55,14 @@ const bleedHtml=readFileSync(join(bleedDir,'index.html'),'utf8').replace(
 );
 writeFileSync('dist/client/qa/full-bleed.html',bleedHtml);
 
+// Keep the new battle captures in one asset on the shared Worker.
+const combatDir='docs/reports/combat-readability';
+const combatReport=readFileSync(join(combatDir,'index.html'),'utf8').replace(
+  /<a href="([\w-]+\.webp)"><img loading="lazy" width="160" src="\1"/g,
+  (_,file)=>`<a href="#" download="${file}" onclick="this.href=this.firstElementChild.src"><img loading="lazy" width="160" src="data:image/webp;base64,${readFileSync(join(combatDir,file)).toString('base64')}"`
+);
+writeFileSync('dist/client/qa/combat.html',combatReport);
+
 // Historical intermediate profiler traces remain in Git; final reports do not reference them.
 for(const trace of ['performance/index-only','performance/render-cache','performance/baseline/v07-1x.json','performance/baseline/v07-4x.json','fixes.json','v09/battle-recording.json','v09/paused-render.json','v09/resources.json'])rmSync(join('dist/client/qa',trace),{recursive:true,force:true});
 

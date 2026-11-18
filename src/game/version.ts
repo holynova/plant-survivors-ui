@@ -1,2 +1,2 @@
 // Generated from package.json.
-export const versionLabel="v0.14.1";
+export const versionLabel="v0.15.0";
