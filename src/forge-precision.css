@@ -22,6 +22,24 @@
   background:var(--forge-panel);color:var(--forge-white);font-size:26px!important;
 }
 
+/* Artwork paints the entire display; only controls fit the safe reference board. */
+.forge-ui .loading-safe {
+  position:absolute;inset:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+  container-type:size;
+}
+.forge-ui .loading-composition,.forge-ui .camp-scenery {position:absolute;inset:0;}
+.forge-ui .camp-scenery .camp-backdrop {width:100%;height:100%;object-fit:cover;}
+.forge-ui .camp-scenery::after {content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--color-forge-inset),transparent 36%);}
+.garden-app.forge-ui {background:linear-gradient(155deg,var(--color-forge-inset),var(--forge-panel) 75%);}
+.forge-ui .game-frame,.forge-ui .game-frame.view-lobby > .forge-camp {background:transparent;box-shadow:none;border-radius:0;}
+.forge-ui .forge-camp::after {content:none;}
+.forge-ui .game-frame.view-battle,.forge-ui .live-arena {overflow:visible;}
+.forge-ui .live-arena canvas {
+  top:calc(0px - var(--safe-top));left:calc(0px - var(--safe-left));
+  width:calc(100% + var(--safe-left) + var(--safe-right));
+  height:calc(100% + var(--safe-top) + var(--safe-bottom));
+}
+
 @media (orientation:portrait) {
   .garden-app.forge-ui,.forge-ui .game-frame {container-type:size;}
 
@@ -29,7 +47,7 @@
   .forge-ui .live-arena.hud-a :is(.hud-minimal,.minimal-dock,.pause-modal,.forge-evolution),
   .forge-ui .live-arena .upgrade-content,
   .forge-ui .forge-unlock,
-  .forge-ui .forge-loading {
+  .forge-ui .loading-composition {
     --fu:min(calc(100cqw / 202),calc(100cqh / 408));
     --fw:calc(202 * var(--fu));
     --fh:calc(408 * var(--fu));
@@ -78,7 +96,7 @@
 
   /* Camp: x/y/width/height 6/88/36/36 for the first rail key;
      11/325/182/65 for the amber action. */
-  .forge-ui .game-frame > .forge-camp {background:var(--forge-panel);}
+  .forge-ui .game-frame > .page:not(.forge-camp):not(.forge-result) {background:transparent;border-radius:0;box-shadow:none;}
   .forge-ui .camp-top {height:calc(37 * var(--fu));padding:0;display:block;}
   .forge-ui .camp-top .sign {width:calc(93 * var(--fu));}
   .forge-ui .camp-top .sign::before {width:100%;}
@@ -420,7 +438,7 @@
   .forge-ui .forge-result .result-actions > button {height:100%;min-height:44px!important;font-size:calc(16 * var(--fu))!important;}
 
   /* Loading logo and meter stay pinned to the same artboard coordinates. */
-  .forge-ui .forge-loading {
+  .forge-ui .loading-composition {
     inset:50% auto auto 50%;transform:translate(-50%,-50%);width:var(--fw);height:var(--fh);
   }
   .forge-ui .forge-loading .forge-loading-logo {

@@ -111,7 +111,7 @@ export default function Prototype(){
   </details>
  </div>;
  const battlePlantEntries=Object.entries(s.plants);
- return <div className={`garden-app forge-ui ${reduced?'reduced':''}`}><main className={`game-frame view-${page}`}>
+ return <div className={`garden-app forge-ui ${reduced?'reduced':''}`}>{page==='lobby'&&<div className="camp-scenery" aria-hidden="true"><Art id="forge-workshop" className="camp-backdrop"/></div>}<main className={`game-frame view-${page}`}>
  {page==='lobby'&&<Camp Art={Art} save={save} version={versionLabel} ready={ready}
    resume={resume&&!save.settled.includes(resume.runId)?clock(resume.time):null}
    onResume={continueRun} onMap={()=>setPage('map')}
@@ -198,13 +198,13 @@ export default function Prototype(){
   </div>;
  })()}
  {!ready&&<div className="loading-screen forge-loading" role="status">
-   <Art id="forge-loading" className="forge-loading-backdrop"/><Art id="logo-trim" className="forge-loading-logo" alt="植物幸存者"/><Art id="forge-dave" className="forge-loading-dave"/>
+   <Art id="forge-loading" className="forge-loading-backdrop"/><div className="loading-safe"><div className="loading-composition"><Art id="logo-trim" className="forge-loading-logo" alt="植物幸存者"/><Art id="forge-dave" className="forge-loading-dave"/>
    <section className="forge-loading-content">
     <h1>{assetError?'素材加载失败':'正在载入…'}</h1>
     <div className="loading-track" role="progressbar" aria-label="资源加载进度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(loading.done/loading.total*100)}><i style={{width:`${loading.done/loading.total*100}%`}}/><b>{Math.round(loading.done/loading.total*100)}%</b></div>
     <small>{assetError?'检查网络连接后重试':loading.label}</small>
     {assetError&&<Gold onClick={()=>setLoadAttempt(v=>v+1)}>重新加载</Gold>}
    </section>
- </div>}
+ </div></div></div>}
  <OriginalMusic open={musicPanel} onClose={()=>setMusicPanel(false)} original={originalMusic} onOriginal={setOriginalMusic} music={music} onMusic={setMusic}/>{audioError&&<div className="audio-note" role="status">音频未能加载，仍可静音游玩</div>}{storageError&&<div className="toast">浏览器无法保存进度，本次奖励仍保留在当前页面。</div>}</div>;
 }

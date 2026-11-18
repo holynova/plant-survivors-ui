@@ -37,7 +37,6 @@ export function Camp({Art,save,version,ready,resume,onResume,onMap,onPlants,onGu
     {label:'教程', image:null, open:onTutorial},
   ];
   return <div className="page forge-camp">
-    <Art id="forge-workshop" className="camp-backdrop"/>
     <div className="camp-top"><Sign>营地</Sign><Wallet Art={Art} save={save}/><button className="camp-settings" aria-label="设置" onClick={onSettings}><GearIcon/></button></div>
     <nav className="camp-rail" aria-label="营地菜单">
       {actions.map(({label,image,open})=><button key={label} aria-label={label} onClick={open}>

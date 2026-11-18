@@ -48,6 +48,13 @@ const evidence=readFileSync(join(campReport,'index.html'),'utf8')
 writeFileSync('dist/client/qa/camp.html',evidence);
 cpSync(join(campReport,'devices.json'),'dist/client/qa/camp-devices.json');
 
+const bleedDir='docs/reports/full-bleed';
+const bleedHtml=readFileSync(join(bleedDir,'index.html'),'utf8').replace(
+  /<a href="([\w-]+\.webp)"><img loading="lazy" src="\1"/g,
+  (_,file)=>`<a href="#" download="${file}" onclick="this.href=this.firstElementChild.src"><img loading="lazy" src="data:image/webp;base64,${readFileSync(join(bleedDir,file)).toString('base64')}"`
+);
+writeFileSync('dist/client/qa/full-bleed.html',bleedHtml);
+
 // Historical intermediate profiler traces remain in Git; final reports do not reference them.
 for(const trace of ['performance/index-only','performance/render-cache','performance/baseline/v07-1x.json','performance/baseline/v07-4x.json','fixes.json','v09/battle-recording.json','v09/paused-render.json','v09/resources.json'])rmSync(join('dist/client/qa',trace),{recursive:true,force:true});
 
