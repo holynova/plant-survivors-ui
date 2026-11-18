@@ -1,7 +1,7 @@
 <p align="right"><a href="README.md">中文</a></p>
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Plant Survivors — a mobile-first garden survival game: a peashooter auto-attacks zombies, survive three minutes and defeat the Giant Lord">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Plant Survivors — a mobile-first garden survival game: a peashooter auto-attacks zombies in endless survival against rotating bosses">
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
   <a href="https://github.com/holynova/plant-survivors-ui">GitHub Repository</a>
 </p>
 
-Plant Survivors is a mobile-first survival game: drag anywhere to move, your plants attack automatically. Three heroes roam three large scrolling worlds with a following camera. 26 plants, 15 enemy types, upgrades, evolutions, and a field guide — each run lasts 3 minutes, and you only win by defeating the final boss, the Giant Lord.
+Plant Survivors is a mobile-first survival game: drag anywhere to move, your plants attack automatically. Three heroes roam three large scrolling worlds with a following camera. 26 plants, 18 enemy types, upgrades, evolutions, and a field guide — endless survival with four bosses rotating in; defeating a boss is a milestone, and dying after a boss kill unlocks the next map.
 
 ## Screenshots
 
@@ -27,7 +27,8 @@ Plant Survivors is a mobile-first survival game: drag anywhere to move, your pla
 - **Evolve**: a main plant at Lv.5 with the right companion evolves. Three evolution paths — 豌豆射手 Peashooter → 烈焰机枪 Gatling Blaze, 寒冰射手 Ice Pea → 霜晶风暴 Frost Storm, 回旋镖 Boomerang → 追风回旋阵 Windchaser Array.
 - **Three heroes**: 戴夫 Dave (sturdy apron, high HP and damage reduction), 小葵 Flora (sun affinity, +25% XP), 阿栓 Rusty (overclocked backpack, faster attack and movement speed).
 - **Three maps**: 白天花园 Day Garden, 夜晚花园 Night Garden, 屋顶 Rooftop — each with its own terrain mechanics and rescue objectives.
-- **Enemies**: 12 regular zombies (路障 cone, 铁桶 bucket, 读报 newspaper, 橄榄球 football, 矿工 digger, 舞王 dancer, 巫师 wizard, 小鬼 imp, 气球 balloon, 喷气 jetpack, 纱门 screen-door, and more) + 2 elites (疾走队长 Swift Captain, 铁桶统领 Bucket Commander) + the boss 巨人领主 Giant Lord (appears with 45 seconds left, enrages at half HP and summons zombies).
+- **Enemies**: 12 regular zombies (普通 zombie, 路障 cone, 铁桶 bucket, 读报 newspaper, 橄榄球 football, 矿工 digger, 舞王 dancer, 巫师 wizard, 小鬼 imp, 气球 balloon, 喷气 jetpack, 纱门 screen-door) + 2 elites (疾走队长 Swift Captain, 铁桶统领 Bucket Commander) + 4 bosses (巨人领主 Giant Lord, 橄榄球队长 Football Captain, 沼泽大法师 Marsh Archmage, 屋顶机甲 Rooftop Mech) that rotate in — the first appears at 2:15, then one every 2 minutes.
+- **Endless runs & milestones**: no run timer; defeating a boss is a milestone, and dying after a boss kill unlocks the next map.
 - **Out-of-run growth**: elites and the boss drop coins and diamonds for unlocking new plants and permanent upgrades; local saves, resumable runs.
 
 ## Content
@@ -47,7 +48,7 @@ npm run build      # Production build
 ## Tests
 
 ```bash
-npm run test:game  # 70 game-logic tests, all passing
+npm run test:game  # Game-logic tests: 12 test files + campaign simulation
 npm run test:sites
 npm run test:mobile
 npm run test:performance
