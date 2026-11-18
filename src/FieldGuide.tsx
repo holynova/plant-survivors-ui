@@ -1,14 +1,63 @@
-import {useState,useRef,type ComponentType} from 'react';
-import {plants} from './game/plants';
+import {useLayoutEffect, useRef, useState} from 'react';
+import {ChevronLeftIcon, ChevronRightIcon, DoubleArrowRightIcon, LockClosedIcon} from '@radix-ui/react-icons';
+import {Sign, type GameArt} from './ForgeUI';
 import {GameScroll} from './GameScroll';
-import {heroes,heroIds,plantLore,enemyLore} from './game/catalog';
-import {names,attackInterval,createRun} from './game/simulation';
-type ArtProps={id:string,className?:string,alt?:string};
-export function FieldGuide({Art,back}:{Art:ComponentType<ArtProps>,back:()=>void}){
- const scroll=useRef<HTMLElement>(null);
- const toTop=()=>requestAnimationFrame(()=>scroll.current?.scrollTo({top:0,behavior:'smooth'}));
- const [tab,setTab]=useState('plants'),[selected,setSelected]=useState('pea');
- const entries=tab==='heroes'?heroIds.map(id=>({id,art:heroes[id].art,name:heroes[id].name,role:heroes[id].title,description:heroes[id].description,detail:heroes[id].story,extra:`特性 · ${heroes[id].trait}`})):tab==='enemies'?enemyLore.map(e=>({...e,detail:'',extra:e.id==='boss-trim'?'首领基础生命 2200 · 每张后续地图 +700':e.id==='runner'?'精英基础生命 780 · 击败奖励 8 经验':e.id==='guard'?'精英基础生命 1200 · 后期 +350 · 奖励 8 经验':'生命随时间与关卡增长'})):Object.keys(names).map(id=>({id,art:id,name:names[id],role:plantLore[id].role,description:plantLore[id].mechanic,detail:`${plants[id].origin} · ${plantLore[id].evolution}`,extra:attackInterval(createRun(id),id)?`Lv.1 基础冷却 ${attackInterval(createRun(id),id).toFixed(2)} 秒 · 最高 Lv.5`:'被动植物 · 持续生效 · 最高 Lv.5'}));
- const entry=entries.find(e=>e.id===selected)||entries[0];
- return <div className="page field-guide"><header className="sign"><button className="back" aria-label="返回营地" onClick={back}>‹</button><h1>花园图鉴</h1></header><div className="guide-tabs" role="tablist" aria-label="图鉴分类">{[['plants',`植物 / 装备 · ${Object.keys(names).length}`],['heroes','主角 · 3'],['enemies',`僵尸 · ${enemyLore.length}`]].map(([id,label])=><button key={id} role="tab" aria-selected={tab===id} onClick={()=>{setTab(id);setSelected('');toTop()}}>{label}</button>)}</div><GameScroll ref={scroll} className="guide-scroll"><div className="guide-body"><section className="guide-detail paper" aria-live="polite"><div className="guide-portrait"><Art id={entry.art}/>{['runner','guard'].includes(entry.id)&&<span className="elite-label">精英</span>}</div><small>{entry.role}</small><h2>{entry.name}</h2><p>{entry.description}</p><div className="guide-stat">{entry.extra}</div>{entry.detail!==entry.description&&<p>{entry.detail}</p>}</section><div className="guide-grid">{entries.map(e=><button className={`plant-card ${e.id===entry.id?'selected':''}`} key={e.id} aria-label={`查看${e.name}`} aria-pressed={e.id===entry.id} onClick={()=>{setSelected(e.id);toTop()}}><Art id={e.art}/><b>{e.name}</b><small>{e.role.split(' · ')[0]}</small></button>)}</div><p className="guide-note">所有条目均可查看 · 实际数值会受到等级与主角特性影响</p></div></GameScroll></div>
+import {heroes, heroIds, plantLore, enemyLore} from './game/catalog';
+import {plants} from './game/plants';
+import {awakeningText} from './game/awakening';
+import type {GardenSave} from './game/progression';
+
+const categories=[['plants','植物'],['enemies','僵尸'],['heroes','主角']] as const;
+
+export function FieldGuide({Art,save,back}:{Art:GameArt;save:GardenSave;back:()=>void}){
+  const [tab,setTab]=useState<(typeof categories)[number][0]>('plants');
+  const [selected,setSelected]=useState<string|null>(null);
+  const scroll=useRef<HTMLElement>(null);
+  const gridPosition=useRef(0);
+  useLayoutEffect(()=>{
+    if(scroll.current)scroll.current.scrollTop=selected?0:gridPosition.current;
+  },[selected,tab]);
+  const entries=tab==='heroes' ? heroIds.map(id=>{
+    const hero=heroes[id];
+    return {id,art:hero.art,name:hero.name,role:hero.title,description:hero.description,detail:hero.story,extra:hero.trait,locked:false};
+  }) : tab==='enemies' ? enemyLore.map(enemy=>({...enemy,detail:'',extra:enemy.role,locked:false})) :
+    Object.entries(plants).map(([id,plant])=>({
+      id,art:id,name:plant.name,role:plant.role,description:plantLore[id].mechanic,
+      detail:plant.interval?awakeningText(id):plantLore[id].evolution,
+      extra:plant.interval?`基础冷却 ${plant.interval.toFixed(2)} 秒`:'被动装备 · 持续生效',
+      locked:!save.plants.includes(id),
+    }));
+  const entry=entries.find(item=>item.id===selected);
+  const move=(delta:number)=>{
+    const index=entries.findIndex(item=>item.id===selected);
+    setSelected(entries[(index+delta+entries.length)%entries.length].id);
+  };
+  const close=()=>entry?setSelected(null):back();
+  return <div className="page field-guide forge-guide">
+    <Sign back={close}>{entry?'详情':'图鉴'}</Sign>
+    {!entry&&<div className="guide-tabs" role="tablist" aria-label="图鉴分类">
+      {categories.map(([id,label])=><button key={id} role="tab" aria-selected={tab===id} onClick={()=>{gridPosition.current=0;setTab(id);if(scroll.current)scroll.current.scrollTop=0}}>{label} · {id==='plants'?Object.keys(plants).length:id==='enemies'?enemyLore.length:heroIds.length}</button>)}
+    </div>}
+    {!entry&&tab==='plants'&&<p className="forge-guide-count">已收集 <b>{entries.filter(item=>!item.locked).length}/{entries.length}</b></p>}
+    <GameScroll ref={scroll} className="guide-scroll forge-guide-scroll">
+      {entry ? <div className="forge-specimen">
+        <div className="forge-specimen-stage">
+          <button className="cream-button" aria-label="上一条" onClick={()=>move(-1)}><ChevronLeftIcon/></button>
+          <Art id={entry.art} alt={entry.name}/>
+          <button className="cream-button" aria-label="下一条" onClick={()=>move(1)}><ChevronRightIcon/></button>
+        </div>
+        <h2>{entry.name}</h2>
+        <section className="paper forge-specimen-info">
+          <div className="forge-tags"><span>{entry.role}</span><span>{entry.extra}</span></div>
+          <p>{entry.description}</p>
+          {entry.locked&&<p className="forge-specimen-lock"><LockClosedIcon/> 未解锁 · {plants[entry.id].coins} 金币{plants[entry.id].gems>0?` + ${plants[entry.id].gems} 钻石`:''}</p>}
+          {entry.detail&&<div className="forge-preview"><b>{tab==='plants'&&plants[entry.id].interval?'Lv.5 质变预览':'档案'}</b><p>{entry.detail}</p>{tab==='plants'&&entry.id==='pea'&&<div className="forge-preview-art"><Art id={entry.art}/><DoubleArrowRightIcon/><Art id="gatling" alt="进化搭配后的烈焰机枪"/></div>}</div>}
+        </section>
+      </div> : <div className="guide-grid">
+        {entries.map(item=><button className={`plant-card ${item.locked?'plant-locked':''}`} key={item.id} aria-label={`查看${item.name}`} onClick={()=>{gridPosition.current=scroll.current?.scrollTop||0;setSelected(item.id)}}>
+          <Art id={item.art}/><b>{item.name}</b>{item.locked?<small className="forge-locked"><LockClosedIcon/> 未解锁</small>:<small>{item.role.split(' · ')[0]}</small>}
+        </button>)}
+      </div>}
+    </GameScroll>
+  </div>;
 }

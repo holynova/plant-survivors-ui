@@ -2,14 +2,17 @@ import {BattleHud} from './BattleHud';
 import {RunPause} from './RunPause';
 import {bossIds} from './game/bosses';
 import {awakeningText} from './game/awakening';
-import {useEffect,useRef,useState,type ReactNode,type PointerEvent} from 'react';
+import {useEffect,useRef,useState,type PointerEvent} from 'react';
 import {SimulationClock,parsePreferences,encodeCheckpoint,decodeCheckpoint,CHECKPOINT_KEY,PREFERENCES_KEY} from './game/runtime';
 import {versionLabel} from './game/version';
 import {createRun,step,select,replacePassive,reroll,names,descriptions,clock,cooldownState,resizeArena,type Run} from './game/simulation';
 import './prototype.css';
+import './forge.css';
+import {DoubleArrowRightIcon, MixerHorizontalIcon, PlayIcon, ReloadIcon, SpeakerLoudIcon} from '@radix-ui/react-icons';
+import {Camp, ExpeditionMap, Gold, HeroSelect, PlantLoadout, Sign, stages} from './ForgeUI';
 import {renderBattle} from './game/renderer';
 import {GameAudio} from './game/audio';
-import {heroes,heroIds,type HeroId} from './game/catalog';
+import {heroes,type HeroId} from './game/catalog';
 import {FieldGuide} from './FieldGuide';
 import {GameScroll} from './GameScroll';
 import {GardenShop} from './GardenShop';
@@ -24,21 +27,20 @@ import {beginTouch,moveTouch,type TouchStick} from './game/touch';
 import {OriginalMusic} from './OriginalMusic';
 const base=window.location.pathname.startsWith('/plant-survivors-ui/')?'/plant-survivors-ui/':'/';
 const asset=(id:string)=>`${base}assets/game/release/${id==='bag'?'bag-v2':id}.webp`;
-const stages=['阳光后院','月光泳池','屋顶花园'];
 function Art({id,className='',alt=''}:{id:string,className?:string,alt?:string}){if(id==='door')return <span className={`door-art ${className}`}><Art id="zombie"/><span>▥</span></span>;return <img className={`art ${className}`} src={['dave','flora','rusty','zombie','cone','bucket',...bossIds,...newEnemyIds].includes(id)?`${base}assets/game/animations/${id}-idle.webp`:asset(id)} alt={alt} draggable={false}/>}
-function Gold({children,onClick,disabled=false}:{children:ReactNode,onClick:()=>void,disabled?:boolean}){return <button className="gold" onClick={onClick} disabled={disabled}>{children}</button>}
-function Sign({children,back}:{children:ReactNode,back?:()=>void}){return <header className="sign">{back&&<button className="back" aria-label="返回" onClick={back}>‹</button>}<h1>{children}</h1></header>}
 function loadSave(){try{const tx=JSON.parse(localStorage.getItem('garden-transaction-v1')||'null');return parseSave(tx?.save||JSON.parse(localStorage.getItem('garden-save-v2')||localStorage.getItem('garden-save-v1')||'{}'));}catch{return parseSave({})}}
 function readCheckpoint(){try{const tx=JSON.parse(localStorage.getItem('garden-transaction-v1')||'null');return decodeCheckpoint(tx?tx.checkpoint:localStorage.getItem(CHECKPOINT_KEY))}catch{return null}}
 function stored(key:string){try{return localStorage.getItem(key)}catch{return null}}
 function loadPreferences(){try{return parsePreferences(JSON.parse(stored(PREFERENCES_KEY)||'{}'),matchMedia('(prefers-reduced-motion: reduce)').matches)}catch{return parsePreferences({})}}
 export default function Prototype(){
- const [lockedPlant,setLockedPlant]=useState<string|null>(null);
+ const [unlock,setUnlock]=useState<{id:string;selectAfter:boolean}|null>(null);
+ const [campShortcut,setCampShortcut]=useState(false);
  const [preferences,setPreferences]=useState(loadPreferences),[resume,setResume]=useState(readCheckpoint);
  const checkpointAt=useRef(-10);
  const [page,setPage]=useState('lobby'),[starter,setStarter]=useState('pea'),[hero,setHero]=useState<HeroId>('dave'),[stage,setStage]=useState(0),[save,setSave]=useState(loadSave),[storageError,setStorageError]=useState(false),[revision,render]=useState(0),[sound,setSound]=useState(preferences.sound),[music,setMusic]=useState(preferences.music),[reduced,setReduced]=useState(preferences.reduced),[audioError,setAudioError]=useState(false),[ready,setReady]=useState(false),[assetError,setAssetError]=useState(false),[loading,setLoading]=useState({done:0,total:imageCount+audioBytes,label:'准备花园'}),[loadAttempt,setLoadAttempt]=useState(0),[touch,setTouch]=useState<TouchStick|null>(null),[musicPanel,setMusicPanel]=useState(false),[originalMusic,setOriginalMusic]=useState(preferences.original);
  useEffect(()=>{try{localStorage.setItem(PREFERENCES_KEY,JSON.stringify({...preferences,sound,music,reduced,original:originalMusic}))}catch{setStorageError(true)}},[preferences,sound,music,reduced,originalMusic]);
- const pool=preferences.pool.length?preferences.pool.filter(id=>save.plants.includes(id)):save.plants.filter(id=>activePlants.includes(id)).slice(0,8);
+ const savedPool=preferences.pool.filter(id=>save.plants.includes(id)&&activePlants.includes(id));
+ const pool=savedPool.length?savedPool:save.plants.filter(id=>activePlants.includes(id)).slice(0,8);
  const runtimeMetrics=useRef({frames:0,steps:0,overloadSeconds:0});
  const benchmarking=useRef(false);
  const touchRef=useRef<TouchStick|null>(null);
@@ -48,7 +50,7 @@ export default function Prototype(){
  function checkpoint(){const state=run.current;if(!['playing','paused','upgrade'].includes(state.status))return;try{localStorage.setItem('garden-transaction-v1',JSON.stringify({save:saveRef.current,checkpoint:encodeCheckpoint(state)}));checkpointAt.current=state.time;}catch{setStorageError(true)}}
  function continueRun(){if(!resume||saveRef.current.settled.includes(resume.runId))return;reset();run.current=resume;audio.current.syncHit(resume.hitAt);const bank=saveRef.current.bank;if(bank.id===resume.runId){resume.coins=Math.max(resume.coins,bank.coins);resume.gems=Math.max(resume.gems,bank.gems)}setStarter(resume.starter);setHero(resume.hero);setStage(resume.stage);settled.current=false;lastEvent.current=resume.eventId;ending.current=0;void audio.current.unlock(base).catch(()=>setAudioError(true));setPage('battle')}
  function start(){reset();keys.current.clear();run.current=createRun(starter,stage,Date.now()>>>0,hero,{unlockedPlants:[...saveRef.current.plants.filter(id=>!activePlants.includes(id)),...pool.filter(id=>id!==starter).slice(0,7),starter],upgrades:saveRef.current.upgrades,runId:crypto.randomUUID()});settled.current=false;lastEvent.current=0;ending.current=0;void audio.current.unlock(base).then(()=>audio.current.setMusic(true)).catch(()=>setAudioError(true));input.current={x:0,y:0};checkpoint();setPage('battle');}
- function pause(){reset();if(run.current.status==='playing'){run.current.status='paused';input.current={x:0,y:0};keys.current.clear();checkpoint();render(n=>n+1);}}
+ function pause(){if(page!=='battle')return;reset();if(run.current.status==='playing'){run.current.status='paused';input.current={x:0,y:0};keys.current.clear();checkpoint();render(n=>n+1);}}
  useEffect(()=>{audio.current.enabled=sound;audio.current.musicEnabled=music&&!originalMusic;audio.current.effectsVolume=preferences.effectsVolume;audio.current.warningVolume=preferences.warningVolume;audio.current.musicVolume=preferences.musicVolume;audio.current.setMusic(page==='lobby'||(page==='battle'&&run.current.status==='playing'&&!run.current.evolutionNotice),page==='lobby'?'camp':run.current.enemies.some(e=>e.boss)?'boss':run.current.enemies.some(e=>e.elite)?'elite':'garden');},[sound,music,page,revision,originalMusic,preferences]);
  useEffect(()=>()=>audio.current.dispose(),[]);
  useEffect(()=>{let active=true;setAssetError(false);let imageDone=0,audioDone=0;const update=(label:string)=>{if(active)setLoading({done:imageDone+audioDone,total:imageCount+audioBytes,label});};Promise.all([preloadImages(base,p=>{imageDone=p.done;update(p.label)}).then(result=>{images.current=result}),audio.current.preload(base,(done)=>{audioDone=done;update('加载音乐与战斗音效')}).catch(()=>{audioDone=audioBytes;if(active)setAudioError(true);update('音效暂不可用，可静音开始')})]).then(()=>{if(active)setReady(true)}).catch(()=>{if(active)setAssetError(true)});return()=>{active=false}},[loadAttempt]);
@@ -77,21 +79,113 @@ export default function Prototype(){
   if(touchRef.current?.id!==e.pointerId)return;const next=moveTouch(touchRef.current,e.clientX,e.clientY);touchRef.current=next;input.current={x:next.x,y:next.y};setTouch(next);
  }
  const reset=(e?:PointerEvent<HTMLDivElement>)=>{if(e&&touchRef.current&&e.pointerId!==touchRef.current.id)return;input.current={x:0,y:0};touchRef.current=null;setTouch(null);};
- const build=<><Sign>本局花园</Sign><div className="live-build">{Object.entries(s.plants).map(([id,level])=><div key={id}><Art id={id}/><b>{names[id]} Lv.{level}</b><p>{descriptions[id]}</p>{plants[id].interval>0&&<small>{level>=5?'已质变':'Lv.5 质变'}：{awakeningText(id)}</small>}</div>)}</div><p className="help">{recipeText(s)} · 6 主动 / 3 被动<br/>{s.evolved?evolutionRecipe(s.starter).effect:'升级时可用一次被动替换机会补齐弹药袋'}</p></>;
- return <><div className="garden-app"><main className={`game-frame view-${page}`}>
- {page==='lobby'&&<div className="lobby page"><div className="lobby-hero"><Art id="logo-trim" className="lobby-logo" alt="植物幸存者"/></div><div className="seed-balance currency-balance"><span><Art id="coin-v10"/> {save.coins}</span><span><Art id="gem-v10"/> {save.gems}</span></div><div className="lobby-actions">{resume&&!save.settled.includes(resume.runId)&&<button className="cream-button" disabled={!ready} onClick={continueRun}>继续远征 · {clock(resume.time)}</button>}<Gold onClick={()=>setPage('map')} disabled={!ready}>{assetError?'素材加载失败，请刷新':ready?'开始远征 ▷':'花园加载中…'}</Gold><button className="cream-button" onClick={()=>setPage('atlas')}>花园图鉴</button><button className="music-link" onClick={()=>setMusicPanel(true)}>♫ 原版音乐</button></div><nav className="bottom-nav"><button onClick={()=>setPage('lobby')}>营地</button><button onClick={()=>setPage('atlas')}>图鉴</button><button onClick={()=>setPage('growth')}>成长</button></nav><div className="game-meta"><span>{versionLabel}</span><a href="https://github.com/holynova/plant-survivors-ui" target="_blank" rel="noreferrer">GitHub ↗</a></div></div>}
- {page==='map'&&<div className="page map-page"><Sign back={()=>setPage('lobby')}>选择关卡</Sign><div className="map-list">{stages.map((name,i)=><button className={`map-row ${stage===i?'chosen':''}`} key={name} disabled={i>save.unlocked} onClick={()=>setStage(i)}><Art id={['map-day','map-night','map-roof'][i]}/><div><strong>{name}</strong><small>{i>save.unlocked?'击败前一关首领后解锁':'无限生存 · 战斗到最后'}</small></div></button>)}</div><section className="paper map-details"><h2>{stages[stage]}</h2><p>{stageStories[stage].mission} · {stageStories[stage].detail}</p><small>首领每两分钟轮换来袭。击败首领即可解锁下一地图，本局继续到倒下为止。</small><div className="enemy-preview">{['zombie','cone','bucket'].map(id=><Art id={id} key={id}/>)}</div><Gold onClick={()=>setPage('prepare')}>前往花园 ▷</Gold></section></div>}
- {page==='prepare'&&<div className="page prepare-page hero-prepare"><Sign back={()=>setPage('map')}>出战准备</Sign><GameScroll className="prepare-scroll"><section className="paper prepare-paper"><h2>选择花园守护者</h2><div className="hero-grid">{heroIds.map(id=><button className={`plant-card ${hero===id?'selected':''}`} aria-pressed={hero===id} onClick={()=>setHero(id)} key={id}><Art id={heroes[id].art}/><b>{heroes[id].name}</b><small>{heroes[id].title}</small></button>)}</div><div className="hero-trait" aria-live="polite"><b>{heroes[hero].trait}</b><p>{heroes[hero].description}</p></div><h2>搭配初始植物</h2><p className="awakening-tip">武器升到 <b>Lv.5 即可质变</b> · {names[starter]}：{awakeningText(starter)}</p><div className="starter-grid">{activePlants.map(id=>{const locked=!save.plants.includes(id);return <button className={`plant-card ${starter===id?'selected':''} ${locked?'plant-locked':''}`} aria-pressed={starter===id} aria-label={`${names[id]}${locked?'，未解锁':''}`} onClick={()=>locked?setLockedPlant(id):setStarter(id)} key={id}><Art id={id}/><small>{names[id]}</small>{locked&&<span className="lock-caption">待解锁</span>}</button>})}</div><details className="pool-picker"><summary>升级候选池 · {pool.length} 种主动植物</summary><p>最多选 8 种，初始植物始终加入。被动装备自动保留。</p><div>{save.plants.filter(id=>activePlants.includes(id)).map(id=><button key={id} aria-pressed={pool.includes(id)} disabled={(!pool.includes(id)&&pool.length>=8)||(pool.includes(id)&&pool.length===1)} onClick={()=>setPreferences(p=>({...p,pool:pool.includes(id)?pool.filter(k=>k!==id):[...pool,id]}))}>{names[id]} {pool.includes(id)?'✓':'＋'}</button>)}</div></details><p className="help">任意位置按住拖动 · 左右手都能操作<br/>自由探索大花园，收集阳光与战利品。<br/>电脑使用 WASD / 方向键，Esc 暂停。</p></section></GameScroll><div className="prepare-footer"><Gold onClick={start}>{heroes[hero].name} · 出发 ▷</Gold></div></div>}
+ const selectPlant=(id:string)=>{
+  if(save.plants.includes(id))setStarter(id);
+  else setUnlock({id,selectAfter:true});
+ };
+ const togglePool=(id:string)=>setPreferences(p=>({...p,pool:pool.includes(id)?pool.filter(item=>item!==id):[...pool,id]}));
+ const restoreDefaults=()=>{
+  const defaults=parsePreferences({},matchMedia('(prefers-reduced-motion: reduce)').matches);
+  setPreferences(p=>({...p,effectsVolume:defaults.effectsVolume,musicVolume:defaults.musicVolume,warningVolume:defaults.warningVolume}));
+  setReduced(defaults.reduced);
+  setSound(defaults.sound);
+  setMusic(defaults.music);
+  setOriginalMusic(defaults.original);
+ };
+ const settings=<div className="forge-settings">
+   {(['effectsVolume','musicVolume','warningVolume'] as const).map((key,index)=>{
+    const label=['战斗音量','离线音乐音量','危险提示音量'][index];
+    return <label className="forge-volume" key={key}><span><SpeakerLoudIcon/>{label}</span>
+     <input aria-label={label} type="range" min="0" max="1" step="0.05" value={preferences[key]} onChange={event=>setPreferences(p=>({...p,[key]:Number(event.target.value)}))}/>
+    </label>;
+   })}
+   <button className="forge-setting-row" role="switch" aria-checked={sound} onClick={()=>setSound(v=>!v)}>战斗音效 <span>{sound?'开启':'关闭'}</span></button>
+   <button className="forge-setting-row" role="switch" aria-checked={reduced} onClick={()=>setReduced(v=>!v)}>减少动态 <span>{reduced?'开启':'关闭'}</span></button>
+   <button className="cream-button" onClick={()=>setMusicPanel(true)}><MixerHorizontalIcon/>背景音乐</button>
+   <button className="cream-button" onClick={restoreDefaults}><ReloadIcon/>恢复默认</button>
+ </div>;
+ const openCampShortcut=(target:'heroes'|'prepare')=>{setCampShortcut(true);setPage(target);};
+ const battlePlantEntries=Object.entries(s.plants);
+ return <div className={`garden-app forge-ui ${reduced?'reduced':''}`}><main className={`game-frame view-${page}`}>
+ {page==='lobby'&&<Camp Art={Art} save={save} version={versionLabel} ready={ready}
+   resume={resume&&!save.settled.includes(resume.runId)?clock(resume.time):null}
+   onResume={continueRun} onMap={()=>{setCampShortcut(false);setPage('map')}}
+   onHeroes={()=>openCampShortcut('heroes')} onPlants={()=>openCampShortcut('prepare')}
+   onGuide={()=>setPage('atlas')} onGrowth={()=>setPage('growth')} onSettings={()=>setPage('settings')}/>}
+ {page==='map'&&<ExpeditionMap Art={Art} stage={stage} unlocked={save.unlocked} back={()=>setPage('lobby')} select={setStage} next={()=>setPage('heroes')}/>}
+ {page==='heroes'&&<HeroSelect Art={Art} hero={hero} select={setHero} shortcut={campShortcut} back={()=>setPage(campShortcut?'lobby':'map')} next={()=>setPage(campShortcut?'lobby':'prepare')}/>}
+ {page==='prepare'&&<PlantLoadout Art={Art} starter={starter} pool={pool} save={save} select={selectPlant} toggle={togglePool} shortcut={campShortcut} back={()=>setPage(campShortcut?'lobby':'heroes')} next={campShortcut?()=>setPage('lobby'):start}/>}
+ {page==='settings'&&<div className="page forge-settings-page"><Sign back={()=>setPage('lobby')}>设置</Sign><GameScroll>{settings}</GameScroll></div>}
  {page==='battle'&&<div className={`arena live-arena hud-a ${Object.keys(s.plants).length<=6?'compact-dock':''} ${reduced?'reduced-motion':''}`} onPointerDown={drag} onPointerMove={drag} onPointerUp={reset} onPointerCancel={reset} onLostPointerCapture={reset}><canvas data-moving={s.moving} data-events={s.eventId} ref={canvas} width={390} height={680} aria-label="实时花园战场"/><BattleHud run={s} reduced={reduced} onPause={pause}/>{touch&&<div className="joystick floating-stick" aria-hidden="true" style={{left:touch.originX-34,top:touch.originY-34}}><span style={{transform:`translate(${touch.x*22}px,${touch.y*22}px)`}}/></div>}{tutorialText(s)&&!touch&&<div className="touch-hint">{tutorialText(s)}</div>}<div className="weapon-dock minimal-dock">{Object.entries(s.plants).filter(([id])=>plants[id].interval>0).map(([id,level])=>{const cd=cooldownState(s,id);return <button key={id} className="plant-card" aria-label={`${names[id]}，${level>=5?'已质变，':''}冷却 ${cd.remaining.toFixed(1)} 秒，查看本局花园`} onClick={()=>{pause();setPage('build')}}><Art id={id}/>{level>=5&&<i className="awakening-dot" aria-hidden="true"/>}<span className="cooldown-track" role="progressbar" aria-label={`${names[id]}充能`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(cd.progress*100)}><i style={{width:`${cd.progress*100}%`}}/></span></button>})}</div>
 
- {s.status==='upgrade'&&<div className="modal-shade"><section className="upgrade-content"><Sign>阳光升级 · {s.level}</Sign><div className="upgrade-list">{s.choices.map(id=><button className="upgrade-choice" key={id} onClick={()=>{select(s,id);reset();render(n=>n+1)}}><Art id={id}/><div><h2>{names[id]} Lv.{(s.plants[id]||0)+1}</h2><p>{descriptions[id]}</p><p className="upgrade-benefit">{upgradeBenefit(s,id)}</p></div></button>)}</div><p className="recipe-caption">武器 Lv.5 解锁质变 · 满级搭配被动可额外进化<br/>{recipeText(s)}</p>{!s.plants.bag&&s.replacements>0&&Object.keys(s.plants).filter(id=>!plants[id].interval).length>=3&&<details className="replacement"><summary>被动槽已满 · 替换一件为弹药袋</summary>{Object.keys(s.plants).filter(id=>!plants[id].interval).map(id=><button key={id} onClick={()=>{replacePassive(s,id);render(n=>n+1)}}>替换 {names[id]}</button>)}</details>}<Gold disabled={!s.rerolls} onClick={()=>{reroll(s);render(n=>n+1)}}>重掷 · {s.rerolls}</Gold></section></div>}
- {s.status==='paused'&&<RunPause run={s} base={base} onResume={()=>{s.status='playing';render(n=>n+1)}} onBuild={()=>setPage('build')} settings={<><button className="cream-button" onClick={()=>setSound(v=>!v)}>战斗音效：{sound?'开':'关'}</button><button className="cream-button" onClick={()=>setMusicPanel(true)}>♫ 背景音乐</button>{(['effectsVolume','musicVolume','warningVolume'] as const).map((key,i)=><label className="volume-control" key={key}>{['战斗音量','离线音乐音量','危险提示音量'][i]}<input aria-label={['战斗音量','离线音乐音量','危险提示音量'][i]} type="range" min="0" max="1" step="0.05" value={preferences[key]} onChange={e=>setPreferences(p=>({...p,[key]:Number(e.target.value)}))}/></label>)}<button className="quiet-link" onClick={()=>setReduced(v=>!v)}>减少动态：{reduced?'开':'关'}</button><button className="quiet-link" onClick={()=>setPage('abandon')}>结束本局</button></>}/>}
- {s.evolutionNotice&&s.status==='playing'&&<div className="modal-shade"><section className="game-modal"><Sign>植物进化！</Sign><section className="paper"><Art id={s.starter==='pea'?'gatling':s.starter} className="modal-plant"/><h2>{evolutionRecipe(s.starter).name}</h2><p>{evolutionRecipe(s.starter).effect}</p><Gold onClick={()=>{s.evolutionNotice=false;render(n=>n+1)}}>继续战斗</Gold></section></section></div>}
+ {s.status==='upgrade'&&<div className="modal-shade"><section className="upgrade-content"><Sign>选择升级</Sign><div className="upgrade-list">{s.choices.map(id=><button className="upgrade-choice" key={id} onClick={()=>{select(s,id);reset();render(n=>n+1)}}><Art id={id}/><div><h2>{names[id]} Lv.{(s.plants[id]||0)+1}</h2><p>{descriptions[id]}</p><p className="upgrade-benefit">{upgradeBenefit(s,id)}</p></div></button>)}</div><p className="recipe-caption">武器 Lv.5 解锁质变 · 满级搭配被动可额外进化<br/>{recipeText(s)}</p>{!s.plants.bag&&s.replacements>0&&Object.keys(s.plants).filter(id=>!plants[id].interval).length>=3&&<details className="replacement"><summary>被动槽已满 · 替换一件为弹药袋</summary>{Object.keys(s.plants).filter(id=>!plants[id].interval).map(id=><button key={id} onClick={()=>{replacePassive(s,id);render(n=>n+1)}}>替换 {names[id]}</button>)}</details>}<Gold disabled={!s.rerolls} onClick={()=>{reroll(s);render(n=>n+1)}}><ReloadIcon/>换一批 · {s.rerolls}</Gold></section></div>}
+ {s.status==='paused'&&<RunPause run={s} base={base} onResume={()=>{s.status='playing';render(n=>n+1)}} onBuild={()=>setPage('build')} settings={<>{settings}<button className="forge-retreat" onClick={()=>setPage('abandon')}>结束本局</button></>}/>}
+ {s.evolutionNotice&&s.status==='playing'&&<div className="modal-shade"><section className="game-modal forge-evolution" role="dialog" aria-modal="true" aria-label="武器质变">
+  <h1>武器质变！</h1>
+  <div className="forge-evolution-art"><Art id={s.starter}/><DoubleArrowRightIcon/><Art id={s.starter==='pea'?'gatling':s.starter}/></div>
+  <section className="paper"><h2>{evolutionRecipe(s.starter).name} <span>Lv.5</span></h2><p>{evolutionRecipe(s.starter).effect}</p></section>
+  <Gold onClick={()=>{s.evolutionNotice=false;render(n=>n+1)}}>继续战斗</Gold>
+ </section></div>}
  </div>}
- {page==='build'&&<div className="page paper">{build}<Gold onClick={()=>{s.status='playing';setPage('battle')}}>返回战斗</Gold></div>}
- {page==='abandon'&&<div className="page paper"><Sign>结束远征？</Sign><p className="help">本局将结算为撤退，保留已获得的奖励。</p><Gold onClick={()=>{s.status='lost';setPage('battle')}}>确认撤退</Gold><button className="cream-button" onClick={()=>setPage('battle')}>继续本局</button></div>}
- {page==='result'&&<div className="page result-page">{s.status==='won'?<Art id="result-hero-v2" className="result-hero" alt="守住了花园"/>:<div className="defeat"><Art id={heroes[s.hero].art}/><Sign>下次再守护花园</Sign></div>}<section className="paper result-paper"><dl className="results"><div><dt>{s.status==='won'?'远征成功':'远征结束'}</dt><dd>{clock(s.time)}</dd></div><div><dt>击败僵尸</dt><dd>{s.kills}</dd></div><div><dt>击败精英</dt><dd>{s.eliteKills}</dd></div><div><dt>击败首领</dt><dd>{s.bossKills}</dd></div><div><dt>植物进化</dt><dd>{s.evolved?1:0}</dd></div><div><dt>拾取金币</dt><dd>+{s.coins}</dd></div><div><dt>拾取钻石</dt><dd>+{s.gems}</dd></div></dl><p className="result-story">{s.bossKills>0?`${stageStories[s.stage].ending} 已守住 ${s.bossKills} 轮首领，下一张地图已解锁。`:`最后受到：${s.lastDamage||'主动撤退'}。下次留意危险边界，优先穿过缺口。`}<br/>完成救援 {s.objectives}/3 · {hero==='dave'?'站稳减伤，移动脱险':hero==='flora'?'优先救援，尽早成长':'持续走位，积蓄超频'}</p>{(()=>{const next=Object.entries(plants).filter(([id])=>!save.plants.includes(id)).sort((a,b)=>a[1].coins-b[1].coins)[0];return next?<p className="recipe-caption">下个目标：{next[1].name} · 还差 {Math.max(0,next[1].coins-save.coins)} 金币 / {Math.max(0,next[1].gems-save.gems)} 钻石</p>:null})()}<h2>实际伤害统计</h2><div className="damage-list">{Object.entries(s.damage).sort((a,b)=>b[1]-a[1]).map(([id,n])=><div className="damage-row" key={id}><Art id={id}/><span>{names[id]}</span><meter value={n} max={Math.max(...Object.values(s.damage))}/><b>{Math.round(n)}</b></div>)}</div><div className="result-actions"><Gold onClick={start}>再来一局</Gold><button className="cream-button" onClick={()=>setPage('lobby')}>返回营地</button></div></section></div>}
- {page==='atlas'&&<FieldGuide Art={Art} back={()=>setPage('lobby')}/>}
- {page==='growth'&&<GardenShop save={save} onSave={persist} Art={Art} back={()=>setPage('lobby')}/>}
- </main>{lockedPlant&&(()=>{const id=lockedPlant,c=cost(save,id),affordable=save.coins>=c.coins&&save.gems>=c.gems;return <div className="modal-shade unlock-shade" role="dialog" aria-modal="true" aria-label="解锁植物"><section className="game-modal"><Sign>解锁 {names[id]}</Sign><section className="paper"><Art id={id} className="modal-plant"/><p>这株植物还未解锁，需要用金币购买种子。</p><p className="unlock-cost"><Art id="coin-v10"/>{c.coins} 金币{c.gems>0&&<> ＋ <Art id="gem-v10"/>{c.gems} 钻石</>}</p><small>已有 {save.coins} 金币 / {save.gems} 钻石。击败精英与首领可以收集。</small><p>Lv.5 质变：{awakeningText(id)}</p><Gold disabled={!affordable} onClick={()=>{const next=purchase(saveRef.current,id);if(next===saveRef.current)return;persist(next);setStarter(id);setLockedPlant(null)}}>{affordable?'解锁并选择':'金币或钻石不足'}</Gold><button className="cream-button" onClick={()=>setLockedPlant(null)}>返回选植物</button></section></section></div>})()}{!ready&&<div className="loading-screen"><Art id="logo-trim"/><section className="paper"><h1>花园正在苏醒</h1><p>{assetError?'部分素材加载失败，请检查网络后重试':loading.label}</p><div className="loading-track" role="progressbar" aria-label="资源加载进度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(loading.done/loading.total*100)}><i style={{width:`${loading.done/loading.total*100}%`}}/></div><b>{Math.round(loading.done/loading.total*100)}%</b><small>一次载入角色、场景与声音 · 浏览器会缓存</small>{assetError&&<Gold onClick={()=>setLoadAttempt(v=>v+1)}>重新加载</Gold>}</section></div>}<OriginalMusic open={musicPanel} onClose={()=>setMusicPanel(false)} original={originalMusic} onOriginal={setOriginalMusic} music={music} onMusic={setMusic}/>{audioError&&<div className="audio-note" role="status">音频未能加载，仍可静音游玩</div>}{storageError&&<div className="toast">浏览器无法保存进度，本次奖励仍保留在当前页面。</div>}</div></>;
+ {page==='build'&&<div className="page forge-build">
+  <Sign back={()=>setPage('battle')}>本局花园</Sign>
+  <GameScroll className="forge-build-scroll">
+   <section className="paper forge-build-loadout"><h2>出战植物 · {battlePlantEntries.filter(([id])=>activePlants.includes(id)).length}/6</h2>
+    <div className="forge-pool-strip">{battlePlantEntries.filter(([id])=>activePlants.includes(id)).map(([id])=><Art key={id} id={id} alt={names[id]}/>)}</div>
+   </section>
+   <section className="paper forge-build-items"><h2>武器与伤害</h2>
+    {battlePlantEntries.sort(([a],[b])=>(s.damage[b]||0)-(s.damage[a]||0)).map(([id,level])=><div className="forge-build-item" key={id}>
+     <Art id={id}/><div><b>{names[id]} · Lv.{level}</b><small>{plants[id].interval?awakeningText(id):descriptions[id]}</small></div><strong>{Math.round(s.damage[id]||0).toLocaleString('zh-CN')}</strong>
+    </div>)}
+   </section>
+   <p className="help">{recipeText(s)}</p>
+  </GameScroll>
+  <div className="forge-footer"><Gold onClick={()=>{s.status='playing';setPage('battle')}}><PlayIcon/>返回战斗</Gold></div>
+ </div>}
+ {page==='abandon'&&<div className="page forge-abandon"><Sign back={()=>setPage('battle')}>结束远征？</Sign><section className="paper"><p>撤退后会结算本局，保留已获得的奖励。</p></section><div className="forge-footer"><Gold onClick={()=>{s.status='lost';setPage('battle')}}>确认撤退</Gold><button className="cream-button" onClick={()=>setPage('battle')}>继续本局</button></div></div>}
+ {page==='result'&&<div className="page forge-result">
+  <GameScroll className="forge-result-scroll">
+   <h1 className="forge-result-title">生存结算</h1>
+   <div className="forge-result-score"><span>生存时间</span><strong>{clock(s.time)}</strong><small>{stages[s.stage]} · {s.lastDamage||'主动撤退'}</small></div>
+   <dl className="forge-result-counts"><div><dt>击败敌人</dt><dd>{s.kills}</dd></div><div><dt>击败精英</dt><dd>{s.eliteKills}</dd></div><div><dt>击败首领</dt><dd>{s.bossKills}</dd></div></dl>
+   <h2>获得战利品</h2>
+   <div className="forge-result-reward"><div><Art id="ground-coin"/><b>+{s.coins}</b><small>金币</small></div><div><Art id="ground-gem"/><b>+{s.gems}</b><small>钻石</small></div></div>
+   {s.bossKills>0&&<p className="forge-result-progress">{stageStories[s.stage].ending}</p>}
+   {!!Object.keys(s.damage).length&&<details className="forge-damage"><summary>实际伤害统计</summary><div className="damage-list">{Object.entries(s.damage).sort((a,b)=>b[1]-a[1]).map(([id,n])=><div className="damage-row" key={id}><Art id={id}/><span>{names[id]}</span><meter value={n} max={Math.max(1,...Object.values(s.damage))}/><b>{Math.round(n)}</b></div>)}</div></details>}
+  </GameScroll>
+  <div className="forge-footer result-actions"><button className="cream-button" onClick={()=>setPage('lobby')}>返回营地</button><Gold onClick={start}><ReloadIcon/>再来一局</Gold></div>
+ </div>}
+ {page==='atlas'&&<FieldGuide Art={Art} save={save} back={()=>setPage('lobby')}/>}
+ {page==='growth'&&<GardenShop save={save} onSave={persist} Art={Art} onUnlock={id=>setUnlock({id,selectAfter:false})} back={()=>setPage('lobby')}/>}
+ </main>
+ {unlock&&(()=>{
+  const {id,selectAfter}=unlock,price=cost(save,id),affordable=save.coins>=price.coins&&save.gems>=price.gems;
+  return <div className="modal-shade unlock-shade" role="dialog" aria-modal="true" aria-label="解锁植物">
+   <section className="game-modal forge-unlock">
+    <Sign>解锁</Sign>
+    <Art id={id} className="modal-plant"/>
+    <section className="paper"><h2>{names[id]}</h2><p>{descriptions[id]}</p><small>Lv.5 质变 · {awakeningText(id)}</small></section>
+    <p className="unlock-cost"><Art id="ground-coin"/>{price.coins} 金币{price.gems>0&&<><Art id="ground-gem"/>{price.gems} 钻石</>}</p>
+    <small>余额 · {save.coins} 金币 / {save.gems} 钻石</small>
+    <Gold disabled={!affordable} onClick={()=>{
+     const next=purchase(saveRef.current,id);
+     if(next===saveRef.current)return;
+     persist(next);
+     if(selectAfter)setStarter(id);
+     setUnlock(null);
+    }}>{affordable?(selectAfter?'解锁并选择':'解锁植物'):'金币或钻石不足'}</Gold>
+    <button className="cream-button" onClick={()=>setUnlock(null)}>取消</button>
+   </section>
+  </div>;
+ })()}
+ {!ready&&<div className="loading-screen forge-loading" role="status">
+   <Art id="forge-loading" className="forge-loading-backdrop"/><Art id="logo-trim" className="forge-loading-logo" alt="植物幸存者"/><Art id="forge-dave" className="forge-loading-dave"/>
+   <section className="forge-loading-content">
+    <h1>{assetError?'素材加载失败':'正在载入…'}</h1>
+    <div className="loading-track" role="progressbar" aria-label="资源加载进度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(loading.done/loading.total*100)}><i style={{width:`${loading.done/loading.total*100}%`}}/><b>{Math.round(loading.done/loading.total*100)}%</b></div>
+    <small>{assetError?'检查网络连接后重试':loading.label}</small>
+    {assetError&&<Gold onClick={()=>setLoadAttempt(v=>v+1)}>重新加载</Gold>}
+   </section>
+ </div>}
+ <OriginalMusic open={musicPanel} onClose={()=>setMusicPanel(false)} original={originalMusic} onOriginal={setOriginalMusic} music={music} onMusic={setMusic}/>{audioError&&<div className="audio-note" role="status">音频未能加载，仍可静音游玩</div>}{storageError&&<div className="toast">浏览器无法保存进度，本次奖励仍保留在当前页面。</div>}</div>;
 }

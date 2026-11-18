@@ -1,7 +1,7 @@
 import {spawnSync} from 'node:child_process';
 import {writeFile} from 'node:fs/promises';
 export async function checkHurt(p,root){
- await p.cdp('Emulation.setCPUThrottlingRate',{rate:1});await p.cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});await p.goto('http://127.0.0.1:5204/');await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:25000});await p.click('text="开始远征 ▷"');await p.click('text="前往花园 ▷"');await p.click('.prepare-footer button');await p.waitForFunction(()=>window.__gardenQA.audio().state==='running');
+ await p.cdp('Emulation.setCPUThrottlingRate',{rate:1});await p.cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});await p.goto('http://127.0.0.1:5204/');await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:25000});await p.click('.camp-actions .gold');await p.click('.forge-map .gold');await p.click('.forge-heroes .gold');await p.click('.prepare-footer button');await p.waitForFunction(()=>window.__gardenQA.audio().state==='running');
  await p.evaluate(()=>{
  const q=window.__gardenQA,s=q.snapshot(),stream=q.captureAudio();if(!stream)throw Error('No audio stream');
  const chunks=[],recorder=new MediaRecorder(stream,{mimeType:'audio/webm'});window.__hurtDone=null;

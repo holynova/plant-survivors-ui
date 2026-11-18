@@ -2,7 +2,7 @@
 
 [Demo](https://xiaosang.cc/plant-survivors-ui/) · [Repo](https://github.com/holynova/plant-survivors-ui)
 
-v0.11.0：采用单行 HUD，保留植物冷却；重做原版风格墓碑、庭院装饰和三种地面，修复接触阴影与掉落物贴图。 / A minimal HUD with persistent plant cooldowns, original-style graveyard/garden art, three terrain palettes and grounded props/pickups.
+v0.12.0：爆芽工坊主题覆盖营地、出战、战斗、图鉴、商店和结算。戴夫在工坊等候，选地图、主角和植物后出发。 / The Sprout Forge theme brings Dave to camp and updates the expedition, battle, guide, shop and results screens.
 
 手机优先的单机幸存者游戏：任意位置触摸拖动，左右手皆可；三位主角在三张大地图自由行走，镜头持续跟随。26 种植物、18 类敌人、升级进化与图鉴；精英和首领掉落金币、钻石，用于局外解锁与永久成长。首次进入显示资源加载进度，支持键盘、战斗音效、暂停和本地存档。
 
@@ -10,7 +10,7 @@ v0.11.0：采用单行 HUD，保留植物冷却；重做原版风格墓碑、庭
 
 A mobile-first survival game with free-position touch movement, three heroes and three large scrolling worlds. It features 26 plants, 18 enemy types, distinct attacks, evolution, a field guide, and persistent coin/diamond unlocks. A progress bar preloads game assets. Native safe areas, landscape layouts, keyboard controls, sound effects and local saves are supported. Original PvZ music uses the composer's official online player and requires a playback click; the four original synthesized tracks are labeled separately, with pause/resume and independent volumes.
 
-![手机实际运行截图 / Runtime browser capture](docs/reports/mobile/standard-390/standard-390-battle.webp)
+![手机实际运行截图 / Runtime browser capture](docs/reports/forge/standard-390/standard-390-lobby.webp)
 
 ## 运行 / Run
 

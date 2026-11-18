@@ -14,7 +14,7 @@ visit('dist/client');
 writeFileSync('dist/client/release.json',JSON.stringify({version:JSON.parse(readFileSync('package.json')).version,commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()},null,2));
 
 if(!existsSync('docs/reports/mobile/index.html'))throw Error('Run npm run test:mobile before publishing the QA report');
-cpSync('docs/reports/mobile','dist/client/qa',{recursive:true,filter:path=>!path.endsWith('.png')&&!/\/(partial|results|first-pass)\.json$/.test(path)&&!(/\/performance\/v10-(?:baseline|current)\/r[01]-/.test(path)&&path.endsWith('.json'))});
+cpSync('docs/reports/mobile','dist/client/qa',{recursive:true,filter:path=>!path.endsWith('.png')&&!/\/(partial|results|first-pass)\.json$/.test(path)&&!(/\/performance\/(?:v08-fresh|v09|v10-(?:baseline|current))\/r[01]-/.test(path)&&path.endsWith('.json'))});
 
 if(existsSync('docs/reports/v09/index.html'))cpSync('docs/reports/v09','dist/client/qa/v09',{recursive:true,filter:path=>!path.endsWith('.png')});
 

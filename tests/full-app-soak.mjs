@@ -1,7 +1,7 @@
 import {writeFile} from 'node:fs/promises';
 // Actual app loop, HUD, audio and persistence stay enabled. Only controls are automated.
 export async function startSoak(p,durationMs=1200000){
- await p.cdp('Emulation.setCPUThrottlingRate',{rate:1});await p.cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});await p.goto('http://127.0.0.1:5204/');await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:20000});await p.evaluate(()=>localStorage.setItem('garden-preferences-v1',JSON.stringify({sound:true,music:true,original:false,reduced:false})));await p.reload();await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:20000});await p.click('text="开始远征 ▷"');await p.click('text="前往花园 ▷"');await p.click('.prepare-footer button');
+ await p.cdp('Emulation.setCPUThrottlingRate',{rate:1});await p.cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});await p.goto('http://127.0.0.1:5204/');await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:20000});await p.evaluate(()=>localStorage.setItem('garden-preferences-v1',JSON.stringify({sound:true,music:true,original:false,reduced:false})));await p.reload();await p.waitForFunction(()=>!document.querySelector('.loading-screen'),undefined,{timeout:20000});await p.click('.camp-actions .gold');await p.click('.forge-map .gold');await p.click('.forge-heroes .gold');await p.click('.prepare-footer button');
  await p.evaluate(durationMs=>{
   const q=window.__gardenQA,start=performance.now(),frames=[],longTasks=[],samples=[],runs=[],errors=[],held=new Set();let last=0,lastSample=0,stopped=false,timer,raf,runId='',pauses=0;
   const observer=new PerformanceObserver(list=>{for(const entry of list.getEntries())longTasks.push(entry.duration)});try{observer.observe({entryTypes:['longtask']})}catch{}
@@ -11,7 +11,7 @@ export async function startSoak(p,durationMs=1200000){
   function control(){const s=q.snapshot();if(s.runId!==runId){runId=s.runId;runs.push({id:runId,start:performance.now()-start,hero:s.hero,stage:s.stage})}
    if(s.status==='upgrade'){release();document.querySelector('.upgrade-choice')?.click();return}
    if(s.evolutionNotice){release();[...document.querySelectorAll('.game-modal button')].find(b=>b.textContent==='继续战斗')?.click();return}
-   if(s.status==='paused'){release();pauses++;[...document.querySelectorAll('.game-modal button')].find(b=>b.textContent==='继续战斗 ▷')?.click();return}
+   if(s.status==='paused'){release();pauses++;document.querySelector('.resume-run')?.click();return}
    if(['won','lost'].includes(s.status)){release();const button=[...document.querySelectorAll('button')].find(b=>b.textContent==='再来一局');if(button){Object.assign(runs.at(-1),{status:s.status,time:s.time,kills:s.kills});button.click()}return}
    let target=s.drops.find(d=>Math.hypot(d.x-s.x,d.y-s.y)<260)||s.landmarks.find(p=>!p.done)||{x:s.worldWidth/2+Math.sin(s.time*.07)*450,y:s.worldHeight/2+Math.cos(s.time*.07)*450};let len=Math.hypot(target.x-s.x,target.y-s.y)||1,x=(target.x-s.x)/len,y=(target.y-s.y)/len;
    for(const e of s.enemies){const dx=s.x-e.x,dy=s.y-e.y,d=Math.hypot(dx,dy)||1,safe=e.boss?140:e.elite?105:75;if(d<safe){x+=dx/d*(safe-d)/15;y+=dy/d*(safe-d)/15}if((e.attack||0)>.28&&e.aimX!==undefined){const ax=s.x-e.aimX,ay=s.y-e.aimY,ad=Math.hypot(ax,ay)||1;if(ad<110){x+=ax/ad*5;y+=ay/ad*5}}}len=Math.hypot(x,y)||1;press(x/len,y/len);
