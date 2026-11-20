@@ -67,3 +67,13 @@ writeFileSync('dist/client/qa/combat.html',combatReport);
 for(const trace of ['performance/index-only','performance/render-cache','performance/baseline/v07-1x.json','performance/baseline/v07-4x.json','fixes.json','v09/battle-recording.json','v09/paused-render.json','v09/resources.json'])rmSync(join('dist/client/qa',trace),{recursive:true,force:true});
 
 execFileSync(process.execPath,['scripts/check-release-assets.mjs'],{stdio:'inherit'});
+
+// Package the scale comparison as one asset on the shared portfolio Worker.
+const scaleDir = 'docs/reports/scale-art';
+const scaleReport = readFileSync(join(scaleDir, 'index.html'), 'utf8')
+  .replace(/src="((?:before|after)\/[\w-]+\.webp)"/g, (_, file) =>
+    'src="data:image/webp;base64,' + readFileSync(join(scaleDir, file)).toString('base64') + '"')
+  .replace(/href="(after\/ui\.json|inventory\.json)"/g, (_, file) =>
+    'href="https://github.com/holynova/plant-survivors-ui/blob/' +
+    JSON.parse(readFileSync('dist/client/release.json')).commit + '/' + scaleDir + '/' + file + '"');
+writeFileSync('dist/client/qa/scale-art.html', scaleReport);

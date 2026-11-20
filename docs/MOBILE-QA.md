@@ -58,3 +58,5 @@
 - 新增实际运行的三地形、三新首领、气球/小鬼裁切与回血截图，发布报告位于 qa/v10/。
 
 战斗可读性：运行 `node tests/combat-mobile.mjs`，用真实页面和可控战斗状态抓取三选一、Boss、双方等级与主角实际受击的画面，并在 ceiling 固定密度下测帧。截图、实测音效次数和性能结果写入 docs/reports/combat-readability。单元回归运行 `node --test tests/*.test.mjs`，覆盖碰撞、远程命中、图集透明隔离带与稀有回复上限。
+
+尺度与清晰度复查：运行 `node scripts/forge-hd.mjs` 可从仓库保留的原稿重建营地、加载、地图卡和选人用高清版本。运行 `node tests/scale-art.mjs after` 测 12 种视口、完整页面流程、全部图鉴条目和三张地图。再运行 `node scripts/scale-art-report.mjs`，从固定的修改前截图、最新实跑截图和生产清单生成尺度对照及逐页采样倍率。before 仅在明确建立新基线时运行。战斗人物透明边测量用 `node --test tests/art-scale.test.mjs`。

@@ -1,0 +1,613 @@
+{
+  "terrainPatch": [
+    [
+      272,
+      272
+    ],
+    [
+      224,
+      208
+    ],
+    [
+      112,
+      80
+    ]
+  ],
+  "heroFrameSize": {
+    "dave": 114,
+    "flora": 100,
+    "rusty": 104
+  },
+  "enemyFrameSizes": {
+    "zombie": 94,
+    "door": 95,
+    "cone": 103,
+    "bucket": 104,
+    "newspaper": 81,
+    "football": 97,
+    "digger": 77,
+    "dancer": 88,
+    "wizard": 91,
+    "imp": 48,
+    "balloon": 117,
+    "jetpack": 92,
+    "boss-trim": 182,
+    "boss-captain": 147,
+    "boss-marsh": 142,
+    "boss-mech": 170
+  },
+  "total": 4141916,
+  "estimatedRGBA": 66609920,
+  "inventory": [
+    {
+      "path": "animations/balloon-idle.webp",
+      "bytes": 6506,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/balloon.webp",
+      "bytes": 28554,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-captain-idle.webp",
+      "bytes": 11206,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-captain.webp",
+      "bytes": 50624,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-marsh-idle.webp",
+      "bytes": 14396,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-marsh.webp",
+      "bytes": 64818,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-mech-idle.webp",
+      "bytes": 12958,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-mech.webp",
+      "bytes": 58378,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-trim-idle.webp",
+      "bytes": 8116,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/boss-trim.webp",
+      "bytes": 158596,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "animations/bucket-idle.webp",
+      "bytes": 7044,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/bucket.webp",
+      "bytes": 148688,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "animations/cone-idle.webp",
+      "bytes": 6660,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/cone.webp",
+      "bytes": 141172,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "animations/dancer-idle.webp",
+      "bytes": 15262,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/dancer.webp",
+      "bytes": 52824,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/dave-idle.webp",
+      "bytes": 9256,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/dave.webp",
+      "bytes": 155736,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "animations/digger-idle.webp",
+      "bytes": 16622,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/digger.webp",
+      "bytes": 59482,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/flora-idle.webp",
+      "bytes": 8454,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/flora.webp",
+      "bytes": 190576,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "animations/football-idle.webp",
+      "bytes": 16312,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/football.webp",
+      "bytes": 60756,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/imp-idle.webp",
+      "bytes": 11262,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/imp.webp",
+      "bytes": 51726,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/jetpack-idle.webp",
+      "bytes": 18464,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/jetpack.webp",
+      "bytes": 71994,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/newspaper-idle.webp",
+      "bytes": 15264,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/newspaper.webp",
+      "bytes": 55400,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/rusty-idle.webp",
+      "bytes": 8304,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/rusty.webp",
+      "bytes": 182922,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "animations/wizard-idle.webp",
+      "bytes": 16626,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/wizard.webp",
+      "bytes": 64562,
+      "width": 768,
+      "height": 192
+    },
+    {
+      "path": "animations/zombie-idle.webp",
+      "bytes": 8094,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "animations/zombie.webp",
+      "bytes": 162804,
+      "width": 768,
+      "height": 768
+    },
+    {
+      "path": "release/bag-v2.webp",
+      "bytes": 43280,
+      "width": 512,
+      "height": 483
+    },
+    {
+      "path": "release/bamboo.webp",
+      "bytes": 24988,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/bonk.webp",
+      "bytes": 20670,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/boomerang.webp",
+      "bytes": 26364,
+      "width": 280,
+      "height": 255
+    },
+    {
+      "path": "release/button.webp",
+      "bytes": 12714,
+      "width": 512,
+      "height": 161
+    },
+    {
+      "path": "release/cabbage.webp",
+      "bytes": 18010,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/cabbagevolt.webp",
+      "bytes": 28814,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/cactus.webp",
+      "bytes": 23182,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/cherry.webp",
+      "bytes": 18156,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/chest-v2.webp",
+      "bytes": 48644,
+      "width": 512,
+      "height": 465
+    },
+    {
+      "path": "release/chomper.webp",
+      "bytes": 21980,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/coconut.webp",
+      "bytes": 18902,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/coin-v10.webp",
+      "bytes": 7412,
+      "width": 96,
+      "height": 96
+    },
+    {
+      "path": "release/crystal-v2.webp",
+      "bytes": 28024,
+      "width": 303,
+      "height": 528
+    },
+    {
+      "path": "release/forge-dave-standing.webp",
+      "bytes": 103306,
+      "width": 660,
+      "height": 900
+    },
+    {
+      "path": "release/forge-loading.webp",
+      "bytes": 177182,
+      "width": 780,
+      "height": 1690
+    },
+    {
+      "path": "release/forge-map-day.webp",
+      "bytes": 99756,
+      "width": 890,
+      "height": 405
+    },
+    {
+      "path": "release/forge-map-night.webp",
+      "bytes": 77000,
+      "width": 890,
+      "height": 405
+    },
+    {
+      "path": "release/forge-map-roof.webp",
+      "bytes": 79772,
+      "width": 890,
+      "height": 405
+    },
+    {
+      "path": "release/forge-workshop.webp",
+      "bytes": 151834,
+      "width": 768,
+      "height": 1536
+    },
+    {
+      "path": "release/garden-grass.webp",
+      "bytes": 7698,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "release/garden-night.webp",
+      "bytes": 5564,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "release/garden-props.webp",
+      "bytes": 65736,
+      "width": 512,
+      "height": 384
+    },
+    {
+      "path": "release/garden-roof.webp",
+      "bytes": 15580,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "release/gatling.webp",
+      "bytes": 29894,
+      "width": 306,
+      "height": 275
+    },
+    {
+      "path": "release/gem-v10.webp",
+      "bytes": 6282,
+      "width": 96,
+      "height": 96
+    },
+    {
+      "path": "release/ground-coin.webp",
+      "bytes": 12592,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "release/ground-gem.webp",
+      "bytes": 8280,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "release/ground-heal.webp",
+      "bytes": 10268,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "release/ground-sun.webp",
+      "bytes": 12930,
+      "width": 192,
+      "height": 192
+    },
+    {
+      "path": "release/ice.webp",
+      "bytes": 26310,
+      "width": 294,
+      "height": 269
+    },
+    {
+      "path": "release/iceberg.webp",
+      "bytes": 21276,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/jalapeno.webp",
+      "bytes": 13764,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/kernel.webp",
+      "bytes": 21032,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/laser.webp",
+      "bytes": 24676,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/lightning.webp",
+      "bytes": 31994,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/logo-trim.webp",
+      "bytes": 108974,
+      "width": 930,
+      "height": 575
+    },
+    {
+      "path": "release/magnet.webp",
+      "bytes": 17162,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/melon.webp",
+      "bytes": 18452,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/mushroom.webp",
+      "bytes": 15388,
+      "width": 234,
+      "height": 299
+    },
+    {
+      "path": "release/paper-v2.webp",
+      "bytes": 1668,
+      "width": 220,
+      "height": 180
+    },
+    {
+      "path": "release/parchment.webp",
+      "bytes": 42296,
+      "width": 512,
+      "height": 494
+    },
+    {
+      "path": "release/pea.webp",
+      "bytes": 24444,
+      "width": 272,
+      "height": 254
+    },
+    {
+      "path": "release/portrait-dave.webp",
+      "bytes": 55968,
+      "width": 539,
+      "height": 510
+    },
+    {
+      "path": "release/portrait-flora.webp",
+      "bytes": 71872,
+      "width": 448,
+      "height": 510
+    },
+    {
+      "path": "release/portrait-rusty.webp",
+      "bytes": 71062,
+      "width": 521,
+      "height": 510
+    },
+    {
+      "path": "release/potato.webp",
+      "bytes": 14578,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/seed-v2.webp",
+      "bytes": 40574,
+      "width": 465,
+      "height": 482
+    },
+    {
+      "path": "release/sign.webp",
+      "bytes": 20026,
+      "width": 512,
+      "height": 164
+    },
+    {
+      "path": "release/snapdragon.webp",
+      "bytes": 25350,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/squash.webp",
+      "bytes": 17238,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/starfruit.webp",
+      "bytes": 18556,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/sun.webp",
+      "bytes": 29626,
+      "width": 275,
+      "height": 272
+    },
+    {
+      "path": "release/sunflower.webp",
+      "bytes": 27720,
+      "width": 257,
+      "height": 276
+    },
+    {
+      "path": "release/torchwood.webp",
+      "bytes": 19880,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "path": "release/v10-effects.webp",
+      "bytes": 84382,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "release/v10-munitions.webp",
+      "bytes": 80166,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "release/walnut.webp",
+      "bytes": 19774,
+      "width": 245,
+      "height": 268
+    },
+    {
+      "path": "release/wood-v2.webp",
+      "bytes": 2476,
+      "width": 320,
+      "height": 70
+    }
+  ]
+}

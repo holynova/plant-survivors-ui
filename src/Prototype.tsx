@@ -1,3 +1,4 @@
+import {ResultRibbon} from './ResultRibbon';
 import {BattleHud} from './BattleHud';
 import {RunPause} from './RunPause';
 import {bossIds} from './game/bosses';
@@ -156,7 +157,7 @@ export default function Prototype(){
  {page==='abandon'&&<div className="page forge-abandon"><Sign back={()=>setPage('battle')}>结束远征？</Sign><section className="paper"><p>撤退后会结算本局，保留已获得的奖励。</p></section><div className="forge-footer"><Gold onClick={()=>{s.status='lost';setPage('battle')}}>确认撤退</Gold><button className="cream-button" onClick={()=>setPage('battle')}>继续本局</button></div></div>}
  {page==='result'&&<div className="page forge-result">
   <GameScroll className="forge-result-scroll">
-   <h1 className="forge-result-title"><span>生存结算</span><Art id="forge-result-banner"/></h1>
+   <h1 className="forge-result-title"><ResultRibbon/><span>生存结算</span></h1>
    <div className="forge-result-score"><span>生存时间</span><strong>{clock(s.time)}</strong></div>
    <div className="forge-result-kills"><span>本局击败</span><strong>{s.kills.toLocaleString('zh-CN')}</strong></div>
    <section className="forge-result-take" aria-label="本局收获">
@@ -198,7 +199,7 @@ export default function Prototype(){
   </div>;
  })()}
  {!ready&&<div className="loading-screen forge-loading" role="status">
-   <Art id="forge-loading" className="forge-loading-backdrop"/><div className="loading-safe"><div className="loading-composition"><Art id="logo-trim" className="forge-loading-logo" alt="植物幸存者"/><Art id="forge-dave" className="forge-loading-dave"/>
+   <Art id="forge-loading" className="forge-loading-backdrop"/><div className="loading-safe"><div className="loading-composition"><Art id="logo-trim" className="forge-loading-logo" alt="植物幸存者"/><Art id="forge-dave-standing" className="forge-loading-dave"/>
    <section className="forge-loading-content">
     <h1>{assetError?'素材加载失败':'正在载入…'}</h1>
     <div className="loading-track" role="progressbar" aria-label="资源加载进度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(loading.done/loading.total*100)}><i style={{width:`${loading.done/loading.total*100}%`}}/><b>{Math.round(loading.done/loading.total*100)}%</b></div>

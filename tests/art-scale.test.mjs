@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict';import {test} from 'node:test';import sharp from 'sharp';
+import {terrainPatch,enemyArt,enemyFrameSize,heroFrameSize} from '../src/game/art-scale.ts';
+async function visible(id){const {data,info}=await sharp('public/assets/game/animations/'+id+'-idle.webp').ensureAlpha().raw().toBuffer({resolveWithObject:true});let first=info.height,last=-1;for(let y=0;y<info.height;y++)for(let x=0;x<info.width;x++)if(data[(y*info.width+x)*4+3]>50){first=Math.min(first,y);last=y;break}return (last-first+1)/info.height;}
+test('all idle silhouettes match the chosen world heights without counting alpha padding',async()=>{for(const [id,size] of Object.entries(heroFrameSize)){assert.ok(Math.abs(size*await visible(id)-78)<3,id)}for(const [id,[target]]of Object.entries(enemyArt)){assert.ok(Math.abs(enemyFrameSize(id)*await visible(id==='door'?'zombie':id)-target)<2,id)}});
+test('roof shingles remain smaller than feet-to-head height, elites remain larger than adults',()=>{const [w,h]=terrainPatch[2];assert.ok(w/4<78*.4&&h/5<78*.25);assert.ok(enemyFrameSize('zombie',true)>1.3*enemyFrameSize('zombie'));});

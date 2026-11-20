@@ -43,7 +43,7 @@ export function FieldGuide({Art,save,back}:{Art:GameArt;save:GardenSave;back:()=
       {entry ? <div className="forge-specimen">
         <div className="forge-specimen-stage">
           <button className="cream-button" aria-label="上一条" onClick={()=>move(-1)}><ChevronLeftIcon/></button>
-          <Art id={entry.art} alt={entry.name}/>
+          <Art id={tab==='heroes'?'portrait-'+entry.id:entry.art} alt={entry.name}/>
           <button className="cream-button" aria-label="下一条" onClick={()=>move(1)}><ChevronRightIcon/></button>
         </div>
         <h2>{entry.name}</h2>

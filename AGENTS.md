@@ -105,3 +105,5 @@ User also requires larger, threatening elites and slower progression; compare be
 Camp rail has exactly four destinations: field guide, permanent growth, plant unlocks, and tutorial. Hero and loadout selection belong to the departure flow. Match the Forge reference with a standing Dave in camp, close-cropped busts and layered selection badges in hero cards, and three green upgrade choices with concise real effects. Measure visible sprite pixels separately from the padded animation frame.
 
 On every phone aspect ratio, paint loading and camp scenery and battle terrain edge to edge. Fit interactive controls inside the safe area independently; never letterbox the artwork to the 202 × 408 reference board. Verify with the production build and node tests/full-bleed.mjs.
+
+Use visible (nontransparent) standing height as the battle scale reference, not atlas frame dimensions. Ground texture sampling density is separate from its physical world span. Audit UI art at mobile DPR, export from the original where available, and keep native lettering sharp.

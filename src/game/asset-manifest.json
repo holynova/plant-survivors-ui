@@ -152,10 +152,6 @@
     "bytes": 24988
   },
   {
-    "path": "release/battle-bg.webp",
-    "bytes": 208304
-  },
-  {
     "path": "release/bonk.webp",
     "bytes": 20670
   },
@@ -205,35 +201,27 @@
   },
   {
     "path": "release/forge-dave-standing.webp",
-    "bytes": 60930
-  },
-  {
-    "path": "release/forge-dave.webp",
-    "bytes": 27996
+    "bytes": 103306
   },
   {
     "path": "release/forge-loading.webp",
-    "bytes": 109688
+    "bytes": 177182
   },
   {
     "path": "release/forge-map-day.webp",
-    "bytes": 53424
+    "bytes": 99756
   },
   {
     "path": "release/forge-map-night.webp",
-    "bytes": 42086
+    "bytes": 77000
   },
   {
     "path": "release/forge-map-roof.webp",
-    "bytes": 43774
-  },
-  {
-    "path": "release/forge-result-banner.webp",
-    "bytes": 7550
+    "bytes": 79772
   },
   {
     "path": "release/forge-workshop.webp",
-    "bytes": 98840
+    "bytes": 151834
   },
   {
     "path": "release/garden-grass.webp",
@@ -260,24 +248,20 @@
     "bytes": 6282
   },
   {
-    "path": "release/grass-tile.webp",
-    "bytes": 35092
-  },
-  {
     "path": "release/ground-coin.webp",
-    "bytes": 2774
+    "bytes": 12592
   },
   {
     "path": "release/ground-gem.webp",
-    "bytes": 1914
+    "bytes": 8280
   },
   {
     "path": "release/ground-heal.webp",
-    "bytes": 2554
+    "bytes": 10268
   },
   {
     "path": "release/ground-sun.webp",
-    "bytes": 2972
+    "bytes": 12930
   },
   {
     "path": "release/ice.webp",
@@ -304,28 +288,12 @@
     "bytes": 31994
   },
   {
-    "path": "release/lobby-bg.webp",
-    "bytes": 249656
-  },
-  {
     "path": "release/logo-trim.webp",
-    "bytes": 49792
+    "bytes": 108974
   },
   {
     "path": "release/magnet.webp",
     "bytes": 17162
-  },
-  {
-    "path": "release/map-day.webp",
-    "bytes": 6626
-  },
-  {
-    "path": "release/map-night.webp",
-    "bytes": 5332
-  },
-  {
-    "path": "release/map-roof.webp",
-    "bytes": 5288
   },
   {
     "path": "release/melon.webp",
@@ -349,23 +317,19 @@
   },
   {
     "path": "release/portrait-dave.webp",
-    "bytes": 22064
+    "bytes": 55968
   },
   {
     "path": "release/portrait-flora.webp",
-    "bytes": 25320
+    "bytes": 71872
   },
   {
     "path": "release/portrait-rusty.webp",
-    "bytes": 25026
+    "bytes": 71062
   },
   {
     "path": "release/potato.webp",
     "bytes": 14578
-  },
-  {
-    "path": "release/result-hero-v2.webp",
-    "bytes": 24578
   },
   {
     "path": "release/seed-v2.webp",
@@ -374,10 +338,6 @@
   {
     "path": "release/sign.webp",
     "bytes": 20026
-  },
-  {
-    "path": "release/slot.webp",
-    "bytes": 19248
   },
   {
     "path": "release/snapdragon.webp",

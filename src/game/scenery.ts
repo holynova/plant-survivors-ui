@@ -1,4 +1,4 @@
-const propSizes=[52,82,49,44,63,116,58,136,84,73,54,178]; // Visible heights: knee-high rocks to a greenhouse above head height.
+const propSizes=[55,85,45,40,62,137,62,146,93,64,48,222]; // Visible heights: knee-high rocks to a greenhouse above head height.
 export type Prop={x:number;y:number;index:number;size:number};
 /** Cell-local deterministic dressing; camera movement never changes world placement. */
 export function nearbyProps(s:{stage:number;worldWidth:number;worldHeight:number;cameraX:number;cameraY:number;width:number;height:number}):Prop[]{const result:Prop[]=[],cell=340;for(let gx=Math.floor((s.cameraX-180)/cell);gx<=Math.floor((s.cameraX+s.width+180)/cell);gx++)for(let gy=Math.floor((s.cameraY-180)/cell);gy<=Math.floor((s.cameraY+s.height+180)/cell);gy++){const n=((gx*73856093)^(gy*19349663))>>>0,x=gx*cell+80+n%160,y=gy*cell+80+(n>>>8)%160;if(x<80||y<80||x>s.worldWidth-80||y>s.worldHeight-80||Math.hypot(x-s.worldWidth/2,y-s.worldHeight/2)<130)continue;const index=s.stage*4+(n>>>16)%4;result.push({x,y,index,size:propSizes[index]});}return result;}

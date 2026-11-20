@@ -11,7 +11,7 @@ for(let i=0;i<16;i++){
  x0=Math.max(0,x0-2);y0=Math.max(0,y0-2);x1=Math.min(w-1,x1+2);y1=Math.min(h-1,y1+2);
  const input=sharp(raw.data,{raw:raw.info}).extract({left:x0,top:y0,width:x1-x0+1,height:y1-y0+1});
  if(i<12){const buf=await input.resize(112,112,{fit:'inside'}).png().toBuffer(),m=await sharp(buf).metadata();layers.push({input:buf,left:i%4*128+Math.round((128-m.width)/2),top:Math.floor(i/4)*128+116-m.height});props.push({anchor:116/128,width:m.width/128,height:m.height/128});}
- else{const id=['ground-coin','ground-heal','ground-gem','ground-sun'][i-12];const buf=await input.resize(56,56,{fit:'inside'}).png().toBuffer(),m=await sharp(buf).metadata();await sharp({create:{width:64,height:64,channels:4,background:clear}}).composite([{input:buf,left:Math.round((64-m.width)/2),top:60-m.height}]).webp({quality:90,alphaQuality:100}).toFile(`${out}/${id}.webp`);}
+ else{const id=['ground-coin','ground-heal','ground-gem','ground-sun'][i-12];const buf=await input.resize(168,168,{fit:'inside'}).png().toBuffer(),m=await sharp(buf).metadata();await sharp({create:{width:192,height:192,channels:4,background:clear}}).composite([{input:buf,left:Math.round((192-m.width)/2),top:180-m.height}]).webp({quality:90,alphaQuality:100}).toFile(`${out}/${id}.webp`);}
 }
 await sharp({create:{width:512,height:384,channels:4,background:clear}}).composite(layers).webp({quality:90,alphaQuality:100}).toFile(`${out}/garden-props.webp`);
 await fs.writeFile('src/game/prop-metadata.json',JSON.stringify(props,null,2)+'\n');

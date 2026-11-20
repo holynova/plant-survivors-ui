@@ -611,3 +611,11 @@
 .forge-ui .upgrade-copy strong em {white-space:nowrap;font-size:.75em;}
 .forge-ui .hud-a .encounter-bar .boss-health > b {display:flex;align-items:center;gap:4px;border:2px solid var(--color-forge-inset);border-radius:var(--radius-pill);background:var(--forge-panel);padding:0 8px 0 0;}
 .boss-health b img {width:24px;height:20px;object-fit:cover;object-position:50% 30%;border-radius:var(--radius-pill);background:var(--forge-gold);}
+/* Live lettering remains sharp on high-density displays and in wide aspect ratios. */
+.forge-ui .forge-result .forge-result-title {display:grid;place-items:center;isolation:isolate;position:relative;background:linear-gradient(160deg,var(--forge-panel),var(--color-forge-blue));overflow:hidden;}
+.forge-ui .forge-result .result-ribbon {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.forge-ui .forge-result .forge-result-title span {position:relative;clip-path:none;width:auto;height:auto;overflow:visible;color:var(--color-forge-inset);font-size:clamp(24px,9vw,54px);letter-spacing:.045em;transform:translateY(-6%);text-shadow:0 2px var(--color-forge-amber-light);}
+.forge-ui .forge-loading .forge-loading-dave {object-position:center bottom;}
+
+/* Field specimens use the native illustration rather than enlarging a menu icon to the whole panel. */
+.forge-ui .forge-specimen-stage > .art {width:min(57%,176px);height:min(72%,170px);object-fit:contain;align-self:center;justify-self:center;}
